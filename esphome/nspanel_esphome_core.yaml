@@ -1789,7 +1789,7 @@ switch:
     platform: gpio
     id: relay_4
     pin:
-      number: 21
+      number: 2
     restore_mode: RESTORE_DEFAULT_OFF
 
   ##### DISPLAY ALWAYS ON #####
