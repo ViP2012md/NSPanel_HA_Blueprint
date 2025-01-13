@@ -3,11 +3,8 @@
 This innovative solution is designed to revolutionize how you interact with your Sonoff NSPanel.
 Our goal? To make the customization of your NSPanel seamless, intuitive, and completely code-free!
 
-*Are you happy with our version for NSPanel? Please consider supporting us with a donation.*
 
-[![Paypal](https://user-images.githubusercontent.com/41958506/212499642-b2fd097a-0938-4bfc-b37b-74df64592c58.png)](https://www.paypal.com/donate/?hosted_button_id=S974SWQMB8PB2)
-
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2FBlackymas%2FNSPanel_HA_Blueprint%2Fblob%2Fmain%2Fnspanel_blueprint.yaml)
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2FViP2012md%2FNSPanel_HA_Blueprint%2Fblob%2Fmain%2Fnspanel_blueprint.yaml)
 
 ## Table of Contents
 
@@ -32,8 +29,8 @@ Our goal? To make the customization of your NSPanel seamless, intuitive, and com
 - **Getting Started:** Dive into our comprehensive [Documentation and Setup Guide](docs/README.md) for detailed instructions.
 - **Video Tutorial:** Prefer visual learning? Check out our [Step-by-Step Setup Video](docs/README.md).
 - **Troubleshooting:** Encounter an issue? Here's how to report it: [WIKI HowTo](docs/README.md).
-- **Feature Requests:** Got ideas? Share them [here](https://github.com/Blackymas/NSPanel_HA_Blueprint/labels/new%20feature%20request).
-- **What's Next?:** Discover what's next and what we are working on right now in our [Milestones](https://github.com/Blackymas/NSPanel_HA_Blueprint/milestones?direction=asc&sort=due_date)
+- **Feature Requests:** Got ideas? Share them [here](https://github.com/ViP2012md/NSPanel_HA_Blueprint/labels/new%20feature%20request).
+- **What's Next?:** Discover what's next and what we are working on right now in our [Milestones](https://github.com/ViP2012md/NSPanel_HA_Blueprint/milestones?direction=asc&sort=due_date)
 
 ## 🚀 Features
 
@@ -217,9 +214,3 @@ And special thanks for the other projects which inspired us:
 - [Masto](https://github.com/masto/NSPanel-Demo-Files)
 - [sairon](https://github.com/sairon/esphome-nspanel-lovelace-ui)
 - [SmartHome Yourself](https://www.youtube.com/c/SmarthomeyourselfDe_DIY)
-
-## 💖 Donations
-
-Are you happy with our version for NSPanel? Please consider supporting us with a donation.
-
-[![Paypal](https://user-images.githubusercontent.com/41958506/212499642-b2fd097a-0938-4bfc-b37b-74df64592c58.png)](https://www.paypal.com/donate/?hosted_button_id=S974SWQMB8PB2)
