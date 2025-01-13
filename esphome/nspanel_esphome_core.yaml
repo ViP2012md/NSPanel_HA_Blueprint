@@ -39,7 +39,7 @@ packages:
 external_components:
   - source:
       # type: local
-      # path: packages/Blackymas/components
+      # path: packages/ViP2012md/components
       type: git
       url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
       ref: v4.3.12
@@ -147,13 +147,6 @@ logger:
   id: logger_std
   baud_rate: 0
 
-##### CONFIGURE INTERNAL BUZZER #####
-output:
-  ##### BUZZER FOR PLAYING RINGTONES #####
-  - id: buzzer_out
-    platform: ledc
-    pin:
-      number: 21
 
 ##### UART FOR NEXTION DISPLAY #####
 uart:
@@ -182,7 +175,6 @@ time:
                 wifi_component->retry_connect();
               }
               if (not api_server->is_connected() and
-                  current_page->state != "blank" and
                   current_page->state != "boot" and
                   current_page->state != "confirm" and
                   current_page->state != "home" and
@@ -497,9 +489,9 @@ api:
               disp1->set_component_font_color("home.date", id(home_date_color));
               disp1->set_component_font_color("home.time", id(home_time_color));
 
-              ### Chips icon size NEED WORKS!!!
+              // Chips icon size
               disp1->set_component_font("home.chip_relay1", chip_font);
-              disp1->set_component_font("home.chip_relay2", chip_font); 
+              disp1->set_component_font("home.chip_relay2", chip_font);
               disp1->set_component_font("home.chip_climate", chip_font);
               for (int i = 1; i <= 7; ++i) {
                 disp1->send_command_printf("home.chip%02d.font=%" PRIi32, i, chip_font);
@@ -507,15 +499,14 @@ api:
               disp1->set_component_font("home.wifi_icon", chip_font);
               id(home_chip_font_id) = chip_font;
 
-              ### Custom buttons icon size NEED WORKS!!!
+              // Custom buttons icon size
               id(home_custom_buttons_font_id) = custom_buttons_font;
               for (int i = 1; i <= 7; ++i) {
                 disp1->send_command_printf("home.button%02d.font=%" PRIu8, i, id(home_custom_buttons_font_id));
               }
 
-              ### Outdoor temperature font size NEED WORKS!!!
+              // Outdoor temperature font size
               disp1->set_component_font("home.outdoor_temp", outdoor_temp_font);
-
 
               blueprint_status->publish_state(int(blueprint_status->raw_state) | (1 << 1));
             }
@@ -538,8 +529,11 @@ api:
               blueprint_status->publish_state(int(blueprint_status->raw_state) | (1 << 3));
             }
 
+
+
+
     # Dynamically updates the climate page with the latest climate control settings and status.
-    - service: page_climate      ### NEED WORKS!!!
+    - service: page_climate
       variables:
         current_temp: float      # Current temperature reading.
         supported_features: int  # Bitmask indicating the supported features of the climate device, such as temperature control (1) and fan mode (4).
@@ -708,34 +702,7 @@ display:
                   break;
               }
               break;
-            case 10:  // light
-              switch (component_id) {
-                case 32:  // power_button
-                  if (!touch_event) {  // Release
-                    ha_call_service->execute("light.toggle", "", "", detailed_entity->state.c_str());
-                  }
-                  break;
-              }
-              break;
-            case 16:  // notification
-              switch (component_id) {
-                case 7:  // bt_accept
-                  if (!touch_event) {  // Release
-                    notification_label->publish_state("");
-                    notification_text->publish_state("");
-                    notification_unread->turn_off();
-                    goto_page->execute("home");
-                    set_component_visibility->execute("home.bt_notific", false);
-                  }
-                break;
-                case 8:  // bt_clear
-                  if (!touch_event) {  // Release
-                    notification_unread->turn_off();
-                    goto_page->execute("home");
-                  }
-                break;
-              }
-              break;
+            
             case 22:  // fan
               switch (component_id) {
                 case 13:  // bt_oscillate
@@ -891,13 +858,13 @@ globals:
   - id: home_chip_font_id
     type: uint8_t
     restore_value: true
-    initial_value: '8'
+    initial_value: '7'
 
   #### Custom buttons ####
   - id: home_custom_buttons_font_id
     type: uint8_t
     restore_value: true
-    initial_value: '10'
+    initial_value: '8'
 
   ##### Screensaver #####
   - id: screensaver_display_time
@@ -1392,7 +1359,6 @@ switch:
               update_bitwise_setting(id(buttons_settings), false, ButtonSettings::ButtonLeft_State);
             refresh_relays->execute(1);
             refresh_hardware_buttons_bars->execute(1);
-
   ##### PHYSICAL SWITCH 2 ######
   - name: Relay 2
     platform: gpio
@@ -1414,16 +1380,14 @@ switch:
               update_bitwise_setting(id(buttons_settings), false, ButtonSettings::ButtonRight_State);
             refresh_relays->execute(2);
             refresh_hardware_buttons_bars->execute(2);
-
-  ##### PHYSICAL SWITCH 3 (Dummy) - Used when relay is not set #####
+  ##### PHYSICAL SWITCH 3 ######
   - name: Relay 3
     platform: gpio
     id: relay_3
     pin:
       number: 23
-    restore_mode: RESTORE_DEFAULT_OFF 
-
-  ##### PHYSICAL SWITCH 4 (Dummy) - Used when relay is not set #####
+    restore_mode: RESTORE_DEFAULT_OFF
+  ##### PHYSICAL SWITCH 4 ######
   - name: Relay 4
     platform: gpio
     id: relay_4
@@ -1517,34 +1481,6 @@ text_sensor:
           page_changed->execute();
         }
 
-  - id: notification_label
-    name: Notification Label
-    platform: template
-    on_value:
-      lambda: |-
-        esphome::api::CustomAPIDevice ha_event;
-        ha_event.fire_homeassistant_event("esphome.nspanel_ha_blueprint", {
-          {"device_name", device_name->state.c_str()},
-          {"esphome_version", "${version}"},
-          {"type", "notification_changed"},
-          {"component", "notification_label"},
-          {"action", "new_value"}
-        });
-
-  - id: notification_text
-    name: Notification Text
-    platform: template
-    on_value:
-      lambda: |-
-        esphome::api::CustomAPIDevice ha_event;
-        ha_event.fire_homeassistant_event("esphome.nspanel_ha_blueprint", {
-          {"device_name", device_name->state.c_str()},
-          {"esphome_version", "${version}"},
-          {"type", "notification_changed"},
-          {"component", "notification_text"},
-          {"action", "new_value"}
-        });
-
   ##### NSPanel event - Execute actions from ESPHome - NO push to HA #####
   - id: disp1_local_event
     name: NSPanel local event
@@ -1579,7 +1515,7 @@ text_sensor:
                 } else {
                   ha_button->execute(page.c_str(), component.c_str(), event.c_str());
                 }
-              } else if (page == "light" or page == "climate") {  // Generic event
+              } else if (page == "climate") {  // Generic event
                 ha_event.fire_homeassistant_event("esphome.nspanel_ha_blueprint", {
                   {"device_name", device_name->state.c_str()},
                   {"esphome_version", "${version}"},
@@ -1599,26 +1535,6 @@ text_sensor:
               } else if (page == "fan") {
                 if (key == "stop" or value == "0") ha_call_service->execute("fan.turn_off", "", "", detailed_entity->state.c_str());
                 else ha_call_service->execute("fan.turn_on", key.c_str(), value.c_str(), detailed_entity->state.c_str());
-              } else if (page == "light") {
-                if (key == "brightness_pct" or key == "color_temp") {
-                  ha_call_service->execute("light.turn_on", key.c_str(), value.c_str(), detailed_entity->state.c_str());
-                } else if (component == "rgb_color") {
-                  JsonArray rgb_color = json["value"];
-                  if (rgb_color.size() == 3) {
-                    ha_event.fire_homeassistant_event("esphome.nspanel_ha_blueprint",
-                      {
-                        {"device_name", device_name->state.c_str()},
-                        {"esphome_version", "${version}"},
-                        {"type", "service_call"},
-                        {"service", "light.turn_on"},
-                        {"key", "rgb_color"},
-                        {"red",to_string(rgb_color[0].as<int>())},
-                        {"green",to_string(rgb_color[1].as<int>())},
-                        {"blue",to_string(rgb_color[2].as<int>())},
-                        {"entity", detailed_entity->state.c_str()}
-                      });
-                  }
-                }
               } 
             }
 
@@ -2212,10 +2128,6 @@ script:
       - lambda: boot_progress->execute(10);
       - delay: 1s
       - lambda: |-
-          if (notification_sound->state) {
-            boot_log->execute("Boot", "Play boot sound");
-            buzzer->play("two short:d=4,o=5,b=100:16e6,16e6");
-          }
           set_brightness->execute(display_brightness->state);
           boot_log->execute("Boot", "Jump to wake-up page");
           ESP_LOGD("script.page_boot", "Jump to wake-up page: %s", wakeup_page_name->state.c_str());
@@ -2265,8 +2177,7 @@ script:
           // Reset globals
           if (current_page->state != "climate" &&
               current_page->state != "fan" &&
-              current_page->state != "light" &&
-              current_page->state != "confirm"  {
+              current_page->state != "confirm" &&
               detailed_entity->publish_state("");
               disp1->send_command("back_page_id=1");
           }
@@ -2301,7 +2212,6 @@ script:
           else if (current_page->state == "confirm") page_confirm->execute();
           else if (current_page->state == "fan") page_fan->execute();
           else if (current_page->state == "home") page_home->execute();
-          else if (current_page->state == "light") page_light->execute();
           else if (current_page->state == "screensaver") page_screensaver->execute();
           else if (current_page->state == "settings") page_settings->execute();
           else if (current_page->state == "weather01") page_weather01->execute();
@@ -2316,6 +2226,12 @@ script:
     mode: restart
     then:  # There's nothing here so far
 
+  - id: page_confirm
+    mode: restart
+    then:
+      - lambda: |-
+          if (!id(is_uploading_tft)) display_wrapped_text->execute("confirm.title", id(mui_please_confirm_global).c_str(), 15);
+
   - id: page_fan
     mode: restart
     then:  # There's nothing here so far
@@ -2326,10 +2242,6 @@ script:
       - lambda:
           refresh_relays->execute(3);
           refresh_wifi_icon->execute();
-
-  - id: page_light
-    mode: restart
-    then:  # There's nothing here so far
 
   - id: page_screensaver
     mode: restart
@@ -2674,7 +2586,6 @@ script:
           page_confirm->stop();
           page_fan->stop();
           page_home->stop();
-          page_light->stop();
           page_screensaver->stop();
           page_settings->stop();
           page_weather01->stop();
@@ -2686,7 +2597,6 @@ script:
           refresh_datetime->stop();
           refresh_relays->stop();
           refresh_wifi_icon->stop();
-          service_call_alarm_control_panel->stop();
           set_baud_rate->stop();
           set_brightness->stop();
           set_climate->stop();
@@ -2694,7 +2604,6 @@ script:
           timer_page->stop();
           timer_reset_all->stop();
           timer_sleep->stop();
-          update_alarm_icon->stop();
           update_climate_icon->stop();
           update_tft_info->stop();
 
@@ -2715,8 +2624,7 @@ script:
                 return (timeout_page->state >= 1 and
                         current_page->state != "boot" and
                         current_page->state != "confirm" and
-                        current_page->state != "home" and
-                        current_page->state != "notification" and
+                        current_page->state != "home"  and
                         current_page->state != "screensaver");
           then:
             - delay: !lambda return (int(timeout_page->state) *1000);
@@ -2728,7 +2636,6 @@ script:
                     current_page->state != "boot" and
                     current_page->state != "confirm" and
                     current_page->state != "home" and
-                    current_page->state != "notification" and
                     current_page->state != "screensaver")
                   {
                     ESP_LOGD("script.timer_page", "Fallback to page Home");
@@ -2772,63 +2679,6 @@ script:
                   goto_page->execute("screensaver");
                   set_brightness->execute(display_sleep_brightness->state);
                 }
-
-  - id: update_alarm_icon  # To do: Move to blueprint
-    mode: restart
-    parameters:
-      component: string
-      state: string
-    then:
-      - lambda: |-
-          std::string alarm_icon = "\uEECC"; //mdi:shield-alert-outline
-          int alarm_color = 65535;
-          if (state == "disarmed")
-            {
-              alarm_icon = "\uE99B"; //mdi:shield-off-outline
-              alarm_color = 65535;
-            }
-          else if (state == "armed_home")
-            {
-              alarm_icon = "\uECCA"; //mdi:shield-home-outline
-              alarm_color = 19818;
-            }
-          else if (state == "armed_away")
-            {
-              alarm_icon = "\uECCB"; //mdi:shield-lock-outline
-              alarm_color = 19818;
-            }
-          else if (state == "armed_night")
-            {
-              alarm_icon = "\uF828"; //mdi:shield-moon-outline
-              alarm_color = 19818;
-            }
-          else if (state == "armed_vacation")
-            {
-              alarm_icon = "\uECC6"; //mdi:shield-airplane-outline
-              alarm_color = 19818;
-            }
-          else if (state == "armed_custom_bypass")
-            {
-              alarm_icon = "\uE77F"; //mdi:shield-half-full
-              alarm_color = 19818;
-            }
-          else if (state == "pending" or state == "arming")
-            {
-              alarm_icon = "\uE498"; //mdi:shield-outline
-              alarm_color = 65024;
-            }
-          else if (state == "disarming")
-            {
-              alarm_icon = "\uE99B"; //mdi:shield-off-outline
-              alarm_color = 65024;
-            }
-          else if (state == "triggered")
-            {
-              alarm_icon = "\uEECC"; //mdi:shield-alert-outline
-              alarm_color = 63488;
-            }
-          disp1->set_component_text(component.c_str(), alarm_icon.c_str());
-          disp1->set_component_font_color(component.c_str(), alarm_color);
 
   - id: update_climate_icon
     mode: restart
