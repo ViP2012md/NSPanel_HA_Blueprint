@@ -39,7 +39,7 @@ esphome:
 
 climate:
   - platform: thermostat
-    name: "ZmartZone Thermostat"
+    name: Thermostat
     id: thermostat_embedded
     sensor: temp_nspanel
     min_idle_time: ${min_idle_time}s
