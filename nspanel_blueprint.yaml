@@ -7798,7 +7798,7 @@ action:
               color: green
               component: button01
             - mode: heat_cool
-              icon: autorenew
+              icon: refresh-auto
               color: amber
               component: button02
             - mode: heat

@@ -73,14 +73,14 @@ globals:
     initial_value: '"${name} Thermostat"'
 
 switch:
-  ##### PHYSICAL SWITCH 0 (Dummy) - Used when relay is not set #####
-  - name: Relay 3 (dummy)
+  ##### PHYSICAL SWITCH 3 (Dummy) - Used when relay is not set #####
+  - name: Relay 3 
     platform: template
     id: relay_3
     lambda: !lambda return false;
     internal: true
     optimistic: true
-  - name: Relay 4 (dummy)
+  - name: Relay 4 
     platform: template
     id: relay_4
     lambda: !lambda return false;
