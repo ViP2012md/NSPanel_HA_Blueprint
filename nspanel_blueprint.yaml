@@ -737,7 +737,7 @@ blueprint:
         chip_font_size:
           name: Icon's font size
           description: Please select the size of the icons shown on the chips.
-          default: '7'
+          default: '8'
           selector:
             select:
               multiple: false
