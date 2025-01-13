@@ -1777,7 +1777,7 @@ switch:
             refresh_hardware_buttons_bars->execute(2);
 
   ##### PHYSICAL SWITCH 3 (Dummy) - Used when relay is not set #####
-  - name: Relay 3 
+  - name: Relay 3
     platform: gpio
     id: relay_3
     pin:
