@@ -1,5 +1,5 @@
 #######################################################################################################
-##### NSPANEL Blueprint created by Blackymas - https://github.com/Blackymas/NSPanel_HA_Blueprint  #####
+##### NSPANEL Blueprint created by Blackymas - https://github.com/ViP2012md/NSPanel_HA_Blueprint  #####
 ##### Blueprint                                                                                   #####
 ##### PLEASE only make changes if it is necessary and also the required knowledge is available.   #####
 ##### For normal use with the Blueprint, no changes are necessary.                                #####
@@ -17,9 +17,9 @@ blueprint:
 
 
     **Documentation and Installation Video**:
-    For detailed guidance on setup and usage, visit [NSPanel Configuration, Setup and HowTo](https://github.com/Blackymas/NSPanel_HA_Blueprint/blob/main/docs/README.md).
+    For detailed guidance on setup and usage, visit [NSPanel Configuration, Setup and HowTo](https://github.com/ViP2012md/NSPanel_HA_Blueprint/blob/main/docs/README.md).
 
-  source_url: https://github.com/Blackymas/NSPanel_HA_Blueprint/blob/main/nspanel_blueprint.yaml
+  source_url: https://github.com/ViP2012md/NSPanel_HA_Blueprint/blob/main/nspanel_blueprint.yaml
   domain: automation
   homeassistant:
     min_version: 2024.6.0
@@ -10821,7 +10821,7 @@ action:
                                 7. Select "**Automations**" to reload the automations.
 
 
-                                *For more detailed instructions, please refer to the online documentation: [How to Update Blueprint](https://github.com/Blackymas/NSPanel_HA_Blueprint/blob/main/docs/howto.md#update-blueprint).*
+                                *For more detailed instructions, please refer to the online documentation: [How to Update Blueprint](https://github.com/ViP2012md/NSPanel_HA_Blueprint/blob/main/docs/howto.md#update-blueprint).*
                             continue_on_error: true
                       - alias: ESPHome is older
                         conditions:
@@ -10855,7 +10855,7 @@ action:
                                 6. Select "**Wirelessly**".
 
 
-                                *For more detailed instructions, please refer to the online documentation: [How to Update ESPHome](https://github.com/Blackymas/NSPanel_HA_Blueprint/blob/main/docs/howto.md#update-esphome).*
+                                *For more detailed instructions, please refer to the online documentation: [How to Update ESPHome](https://github.com/ViP2012md/NSPanel_HA_Blueprint/blob/main/docs/howto.md#update-esphome).*
                             continue_on_error: true
                       - alias: TFT is older
                         conditions:
@@ -10885,7 +10885,7 @@ action:
                                 4. Please wait patiently until your panel restarts, indicating the update is complete.
 
 
-                                *For more detailed instructions, please refer to the online documentation: [How to Update TFT](https://github.com/Blackymas/NSPanel_HA_Blueprint/blob/main/docs/howto.md#update-tft).*
+                                *For more detailed instructions, please refer to the online documentation: [How to Update TFT](https://github.com/ViP2012md/NSPanel_HA_Blueprint/blob/main/docs/howto.md#update-tft).*
                             continue_on_error: true
                       - alias: Blueprint not detected
                         conditions:
@@ -10904,7 +10904,7 @@ action:
                                 - Installed Blueprint Version: {{ blueprint_version }}
 
 
-                                Troubleshooting steps and more information are available in the online documentation: [Panel startup issues - Blueprint is not detected](https://github.com/Blackymas/NSPanel_HA_Blueprint/blob/main/docs/error_initializing.md#blueprint-is-not-detected).
+                                Troubleshooting steps and more information are available in the online documentation: [Panel startup issues - Blueprint is not detected](https://github.com/ViP2012md/NSPanel_HA_Blueprint/blob/main/docs/error_initializing.md#blueprint-is-not-detected).
                             continue_on_error: true
                       # yamllint enable rule:line-length
 
