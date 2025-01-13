@@ -1779,7 +1779,7 @@ switch:
   ##### PHYSICAL SWITCH 3 (Dummy) - Used when relay is not set #####
   - name: Relay Heading 
     platform: gpio
-    id: relay_H
+    id: relay_3
     pin:
       number: 23
     restore_mode: RESTORE_DEFAULT_OFF
@@ -1787,7 +1787,7 @@ switch:
   ##### PHYSICAL SWITCH 4 (Dummy) - Used when relay is not set #####
   - name: Relay Cooling
     platform: gpio
-    id: relay_C
+    id: relay_4
     pin:
       number: 2
     restore_mode: RESTORE_DEFAULT_OFF
