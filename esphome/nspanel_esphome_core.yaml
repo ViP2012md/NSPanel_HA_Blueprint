@@ -1,5 +1,5 @@
 #####################################################################################################
-##### NSPANEL ESPHOME created by Blackymas - https://github.com/Blackymas/NSPanel_HA_Blueprint  #####
+##### NSPANEL ESPHOME created by Blackymas - https://github.com/ViP2012md/NSPanel_HA_Blueprint  #####
 ##### ESPHOME CORE                                                                              #####
 ##### PLEASE only make changes if it is necessary and also the required knowledge is available. #####
 ##### For normal use with the Blueprint, no changes are necessary.                              #####
@@ -41,7 +41,7 @@ external_components:
       # type: local
       # path: packages/Blackymas/components
       type: git
-      url: https://github.com/Blackymas/NSPanel_HA_Blueprint
+      url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
       ref: v4.3.12
     components:
       - nspanel_ha_blueprint

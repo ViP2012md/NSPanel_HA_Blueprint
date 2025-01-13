@@ -7815,7 +7815,7 @@ action:
               component: button05
             - mode: fan_only
               icon: fan
-              color: cyan
+              color: green
               component: button06
             - mode: "off"
               icon: power
