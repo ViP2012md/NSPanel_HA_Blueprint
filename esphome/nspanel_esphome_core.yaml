@@ -158,7 +158,7 @@ output:
   - id: buzzer_out
     platform: ledc
     pin:
-      number: 21
+      number: 2
 
 ##### UART FOR NEXTION DISPLAY #####
 uart:
@@ -1788,7 +1788,7 @@ switch:
     platform: gpio
     id: relay_4
     pin:
-      number: 2
+      number: 21
     restore_mode: RESTORE_DEFAULT_OFF
 
   ##### DISPLAY ALWAYS ON #####
