@@ -1780,7 +1780,7 @@ switch:
     platform: gpio
     id: relay_3
     pin:
-      number: 21
+      number: 23
     restore_mode: RESTORE_DEFAULT_OFF
 
   ##### PHYSICAL SWITCH 4 #####
