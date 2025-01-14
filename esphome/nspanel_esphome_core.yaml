@@ -1787,7 +1787,7 @@ switch:
   ##### PHYSICAL SWITCH 4 #####
   - name: Relay 4
     platform: gpio
-    id: relay_3
+    id: relay_4
     pin:
       number: 2
     restore_mode: RESTORE_DEFAULT_OFF
