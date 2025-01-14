@@ -158,7 +158,7 @@ output:
   - id: buzzer_out
     platform: ledc
     pin:
-      number: 2
+      number: 21
 
 ##### UART FOR NEXTION DISPLAY #####
 uart:
@@ -187,6 +187,7 @@ time:
                 wifi_component->retry_connect();
               }
               if (not api_server->is_connected() and
+                  current_page->state != "blank" and
                   current_page->state != "boot" and
                   current_page->state != "confirm" and
                   current_page->state != "home" and
@@ -474,7 +475,8 @@ api:
         time_color: int[]                      # RGB color array for the time display.
         meridiem: string[]                     # Optional array for AM/PM labels if included in time format.
         chip_font: int                         # Font Id for chip icons displayed on the "Home" page.
-        custom_buttons_font: int               # Font Id for icons on custom buttons.entities_pages_icon: string            # Icon codepoint for entities page button, sourced from HASwitchPlate Material Design Icons.
+        custom_buttons_font: int               # Font Id for icons on custom buttons.
+        entities_pages_icon: string            # Icon codepoint for entities page button, sourced from HASwitchPlate Material Design Icons.
         entities_pages_icon_color: int[]       # RGB color array for entities page button icon.
         utilities: bool                        # Enable/disable flag for utilities page button display.
         utilities_icon: string                 # Icon codepoint for utilities page button, sourced from HASwitchPlate Material Design Icons.
@@ -1663,7 +1665,7 @@ sensor:
     platform: wifi_signal
     internal: false
     disabled_by_default: false
-    icon: mdi:signal-cellular-3
+    icon: mdi:wifi
     entity_category: diagnostic
 
 ##### START - SWITCH CONFIGURATION #####
@@ -1760,7 +1762,7 @@ switch:
     platform: gpio
     id: relay_4
     pin:
-      number: 21
+      number: 2
     restore_mode: RESTORE_DEFAULT_OFF
 
   ##### DISPLAY ALWAYS ON #####
