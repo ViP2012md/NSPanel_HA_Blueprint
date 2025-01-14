@@ -1518,7 +1518,7 @@ select:
       - "256000"
       - "512000"
       - "921600"
-    initial_option: "115200"
+    initial_option: "921600"
     optimistic: true
     restore_value: true
     internal: false
@@ -1692,7 +1692,7 @@ sensor:
     platform: wifi_signal
     internal: false
     disabled_by_default: false
-    icon: mdi:wifi
+    icon: mdi:signal-cellular-3
     entity_category: diagnostic
 
 ##### START - SWITCH CONFIGURATION #####
@@ -3065,7 +3065,7 @@ script:
             current_brightness->update();
           }
 
-  - id: set_climate
+  - id: set_climate ###################################### NEED WORKS ##############################################
     mode: restart
     parameters:
       current_temp: float
