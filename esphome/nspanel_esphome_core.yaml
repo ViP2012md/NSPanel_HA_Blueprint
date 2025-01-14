@@ -1784,12 +1784,12 @@ switch:
       number: 23
     restore_mode: RESTORE_DEFAULT_OFF
 
-  ##### PHYSICAL SWITCH 3 #####
-  - name: Relay 3
+  ##### PHYSICAL SWITCH 4 #####
+  - name: Relay 4
     platform: gpio
     id: relay_3
     pin:
-      number: 23
+      number: 2
     restore_mode: RESTORE_DEFAULT_OFF
 
   ##### DISPLAY ALWAYS ON #####
