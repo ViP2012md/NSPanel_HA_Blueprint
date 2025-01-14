@@ -187,11 +187,9 @@ time:
                 wifi_component->retry_connect();
               }
               if (not api_server->is_connected() and
-                  current_page->state != "blank" and
                   current_page->state != "boot" and
                   current_page->state != "confirm" and
                   current_page->state != "home" and
-                  current_page->state != "qrcode" and
                   current_page->state != "screensaver" and
                   current_page->state != "settings") {
                 ESP_LOGW("watchdog", "API disconnected. Falling back to Home page.");
@@ -476,11 +474,7 @@ api:
         time_color: int[]                      # RGB color array for the time display.
         meridiem: string[]                     # Optional array for AM/PM labels if included in time format.
         chip_font: int                         # Font Id for chip icons displayed on the "Home" page.
-        custom_buttons_font: int               # Font Id for icons on custom buttons.
-        qrcode: bool                           # Enable/disable flag for QR code button display.
-        qrcode_icon: string                    # Icon codepoint for QR code button, sourced from HASwitchPlate Material Design Icons.
-        qrcode_icon_color: int[]               # RGB color array for QR code button icon.
-        entities_pages_icon: string            # Icon codepoint for entities page button, sourced from HASwitchPlate Material Design Icons.
+        custom_buttons_font: int               # Font Id for icons on custom buttons.entities_pages_icon: string            # Icon codepoint for entities page button, sourced from HASwitchPlate Material Design Icons.
         entities_pages_icon_color: int[]       # RGB color array for entities page button icon.
         utilities: bool                        # Enable/disable flag for utilities page button display.
         utilities_icon: string                 # Icon codepoint for utilities page button, sourced from HASwitchPlate Material Design Icons.
@@ -520,16 +514,10 @@ api:
                 disp1->send_command_printf("home.button%02d.font=%" PRIu8, i, id(home_custom_buttons_font_id));
               }
               disp1->set_component_font("home.bt_notific", id(home_custom_buttons_font_id));
-              disp1->set_component_font("home.bt_qrcode", id(home_custom_buttons_font_id));
               disp1->set_component_font("home.bt_entities", id(home_custom_buttons_font_id));
 
               // Outdoor temperature font size
               disp1->set_component_font("home.outdoor_temp", outdoor_temp_font);
-
-              // QRCode button
-              set_component_visibility->execute("home.bt_qrcode", qrcode);
-              disp1->set_component_text("home.bt_qrcode", qrcode_icon.c_str());
-              disp1->set_component_font_color("home.bt_qrcode", rgbTo565(qrcode_icon_color));
 
               // Entities pages button
               disp1->set_component_text("home.bt_entities", entities_pages_icon.c_str());
@@ -813,22 +801,6 @@ api:
                 set_component_visibility->execute("time_total", false);
                 set_component_visibility->execute("time_progress", false);
               }
-            }
-
-    # Dynamically displays QR codes on the ESPHome UI for sharing information such as WiFi passwords or website links.
-    - service: qrcode
-      variables:
-        title: string   # Heading or title for the QR code, offering context or instructions.
-        qrcode: string  # Data or URL to be encoded into the QR code.
-        show: bool      # Flag to immediately display the QR code page upon service invocation.
-      then:
-        - lambda: |-
-            if (!id(is_uploading_tft)) {
-              set_component_visibility->execute("home.bt_qrcode", !(qrcode.empty()));
-              disp1->set_component_text("qrcode.qrcode_label", title.c_str());
-              disp1->set_component_text("qrcode.qrcode_value", qrcode.c_str());
-              if (show) goto_page->execute("qrcode");
-              blueprint_status->publish_state(int(blueprint_status->raw_state) | (1 << 2));
             }
 
     # Plays melodies encoded in RTTTL format, suitable for audio feedback, notifications, or simple tunes.
@@ -1542,7 +1514,6 @@ select:
       - entitypage03
       - entitypage04
       - home
-      - qrcode
       - utilities
     initial_option: home
     optimistic: true
@@ -1692,7 +1663,7 @@ sensor:
     platform: wifi_signal
     internal: false
     disabled_by_default: false
-    icon: mdi:wifi
+    icon: mdi:signal-cellular-3
     entity_category: diagnostic
 
 ##### START - SWITCH CONFIGURATION #####
@@ -1789,7 +1760,7 @@ switch:
     platform: gpio
     id: relay_4
     pin:
-      number: 2
+      number: 21
     restore_mode: RESTORE_DEFAULT_OFF
 
   ##### DISPLAY ALWAYS ON #####
@@ -2594,7 +2565,6 @@ script:
             disp1->send_command_printf("home.button%02d.font=%i", i, id(home_custom_buttons_font_id));
           }
           disp1->set_component_font("home.bt_notific", id(home_custom_buttons_font_id));
-          disp1->set_component_font("home.bt_qrcode", id(home_custom_buttons_font_id));
           disp1->set_component_font("home.bt_entities", id(home_custom_buttons_font_id));
           disp1->set_component_font("home.wifi_icon", id(home_chip_font_id));
           disp1->set_component_font_color("home.chip_relay1", id(home_relay1_icon_color));
@@ -2722,7 +2692,6 @@ script:
           else if (current_page->state == "light") page_light->execute();
           else if (current_page->state == "media_player") page_media_player->execute();
           else if (current_page->state == "notification") page_notification->execute();
-          else if (current_page->state == "qrcode") page_qrcode->execute();
           else if (current_page->state == "screensaver") page_screensaver->execute();
           else if (current_page->state == "settings") page_settings->execute();
           else if (current_page->state == "utilities") page_utilities->execute();
@@ -2817,10 +2786,6 @@ script:
       - lambda: |-
           disp1->set_component_text("notification.notifi_label", notification_label->state.c_str());
           display_wrapped_text->execute("notification.notifi_text01", notification_text->state.c_str(), display_mode->state == 2 ? 23 : 32);
-
-  - id: page_qrcode
-    mode: restart
-    then:  # There's nothing here so far
 
   - id: page_screensaver
     mode: restart
@@ -3216,7 +3181,6 @@ script:
           page_light->stop();
           page_media_player->stop();
           page_notification->stop();
-          page_qrcode->stop();
           page_screensaver->stop();
           page_settings->stop();
           page_utilities->stop();
