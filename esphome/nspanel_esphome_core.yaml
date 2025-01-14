@@ -158,7 +158,7 @@ output:
   - id: buzzer_out
     platform: ledc
     pin:
-      number: 21
+      number: 2
 
 ##### UART FOR NEXTION DISPLAY #####
 uart:
