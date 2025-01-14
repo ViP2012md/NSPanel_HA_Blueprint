@@ -1776,6 +1776,22 @@ switch:
             refresh_relays->execute(2);
             refresh_hardware_buttons_bars->execute(2);
 
+  ##### PHYSICAL SWITCH 3 #####
+  - name: Relay 3
+    platform: gpio
+    id: relay_3
+    pin:
+      number: 23
+    restore_mode: RESTORE_DEFAULT_OFF
+
+  ##### PHYSICAL SWITCH 3 #####
+  - name: Relay 3
+    platform: gpio
+    id: relay_3
+    pin:
+      number: 23
+    restore_mode: RESTORE_DEFAULT_OFF
+
   ##### DISPLAY ALWAYS ON #####
   - name: Nextion display - Power
     platform: gpio
