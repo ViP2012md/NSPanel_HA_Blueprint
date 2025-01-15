@@ -3098,7 +3098,6 @@ script:
             }
             else
               disp1->set_component_text("current_temp", id(mui_unavailable_global).c_str());
-
             if (target_temp > -999) {  // Target temp enabled
               disp1->set_component_value("active_slider", 0);
               snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", target_temp);
