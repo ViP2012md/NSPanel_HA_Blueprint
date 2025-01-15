@@ -685,7 +685,7 @@ api:
               }
 
     # Dynamically updates the climate page with the latest climate control settings and status.
-    - service: page_climate
+    - service: page_climate ###################################### NEED WORKS ##############################################
       variables:
         current_temp: float      # Current temperature reading.
         supported_features: int  # Bitmask indicating the supported features of the climate device, such as temperature control (1) and fan mode (4).
@@ -2116,7 +2116,7 @@ script:
           if (current_page->state == "boot" and !isnan(display_charset->state) and !isnan(display_mode->state) and !version_tft->state.empty())
             disp1->send_command("tm_esphome.en=0");
 
-  - id: change_climate_state
+  - id: change_climate_state ###################################### NEED WORKS ##############################################
     mode: restart
     parameters:
       embedded: bool
@@ -2469,7 +2469,7 @@ script:
               });
           }
 
-  - id: init_hardware_climate
+  - id: init_hardware_climate ###################################### NEED WORKS ##############################################
     mode: restart
     parameters:
       embedded_climate: bool                  # Indicates if climate control is integrated.
@@ -3091,6 +3091,7 @@ script:
             char dec_separator_str[2] = {id(mui_decimal_separator), '\0'};
             disp1->set_component_text("dec_separator", dec_separator_str);
             set_component_visibility->execute("current_temp", true);
+            
             if (current_temp > -999) {
               snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", current_temp);
               disp1->set_component_text("current_temp", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
@@ -3372,7 +3373,7 @@ script:
           disp1->set_component_text(component.c_str(), alarm_icon.c_str());
           disp1->set_component_font_color(component.c_str(), alarm_color);
 
-  - id: update_climate_icon
+  - id: update_climate_icon ###################################### NEED WORKS ##############################################
     mode: restart
     parameters:
       component: string
