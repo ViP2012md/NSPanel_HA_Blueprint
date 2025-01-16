@@ -2968,7 +2968,7 @@ script:
           if (!id(is_uploading_tft) and relay_mask & 1) disp1->set_component_text("home.chip_relay1", (relay_1->state) ? id(home_relay1_icon) : "\uFFFF");
           if (!id(is_uploading_tft) and relay_mask & 2) disp1->set_component_text("home.chip_relay2", (relay_2->state) ? id(home_relay2_icon) : "\uFFFF");
 
-  - id: refresh_wifi_icon
+  - id: refresh_wifi_icon ### NEED WORKS #########################################################################################################################
     mode: restart
     then:
       - lambda: |-
@@ -2980,10 +2980,10 @@ script:
             disp1->set_component_text("home.wifi_icon",
                                       wifi_component->is_connected() ?
                                         (api_server->is_connected() ?
-                                          ((blueprint_status->state > 99) ? "\uE5A8" :  // mdi:wifi - All right!
+                                          ((blueprint_status->state > 99) ? "\uE4A1" :  // mdi:wifi - All right!
                                           "\uE7CF") :                                   // mdi:home-assistant - Blueprint is out
                                         "\uF256") :                                     // mdi:api-off
-                                      "\uE5A9");                                        // mdi:wifi-off
+                                      "\uE782");                                        // mdi:wifi-off
           }
 
   - id: service_call_alarm_control_panel
