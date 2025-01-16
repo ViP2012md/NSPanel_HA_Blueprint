@@ -432,16 +432,16 @@ api:
               - lambda: |-
                   if (!id(is_uploading_tft)) {
                     using namespace esphome::display;
+                    
                     // Relay settings
                     update_bitwise_setting(id(relay_settings), relay1_local_control, RelaySettings::Relay1_Local);
                     update_bitwise_setting(id(relay_settings), relay1_fallback, RelaySettings::Relay1_Fallback);
                     update_bitwise_setting(id(relay_settings), relay2_local_control, RelaySettings::Relay2_Local);
                     update_bitwise_setting(id(relay_settings), relay2_fallback, RelaySettings::Relay2_Fallback);
-
+                    
                     // Relay icons
                     if (not relay1_icon.empty()) copyStringToCharArray(id(home_relay1_icon), relay1_icon);
                     if (not relay2_icon.empty()) copyStringToCharArray(id(home_relay2_icon), relay2_icon);
-
                     // Relay icon's colors
                     if (relay1_icon_color.size() == 3) {
                       id(home_relay1_icon_color) = rgbTo565(relay1_icon_color);
@@ -451,17 +451,15 @@ api:
                       id(home_relay2_icon_color) = rgbTo565(relay2_icon_color);
                       disp1->set_component_font_color("home.chip_relay2", id(home_relay2_icon_color));
                     }
-
+                    
                     // Buttons bars settings
                     id(buttons_bars_pages) = button_bar_pages;
                     update_bitwise_setting(id(buttons_settings), button_left, ButtonSettings::ButtonLeft_Enabled);
                     update_bitwise_setting(id(buttons_settings), button_right, ButtonSettings::ButtonRight_Enabled);
-
                     if (button_bar_color_on.size() == 3)
                       id(buttons_color_on) = rgbTo565(button_bar_color_on);
                     if (button_bar_color_off.size() == 3)
                       id(buttons_color_off) = rgbTo565(button_bar_color_off);
-
                     // Refresh relays display
                     refresh_relays->execute(3);
                     refresh_hardware_buttons_bars->execute(3);
@@ -491,19 +489,20 @@ api:
             boot_log->execute("Service", "init_page_home");
             if (!id(is_uploading_tft)) {
               using namespace esphome::display;
+              
               // Localization
               id(mui_time_format) = time_format;
               if (meridiem.size() == 2) {
                 id(mui_meridiem)[0] = meridiem[0];
                 id(mui_meridiem)[1] = meridiem[1];
               }
-
+           
               // Date/Time colors
               id(home_date_color) = rgbTo565(date_color);
               id(home_time_color) = rgbTo565(time_color);
               disp1->set_component_font_color("home.date", id(home_date_color));
               disp1->set_component_font_color("home.time", id(home_time_color));
-
+              
               // Chips icon size
               disp1->set_component_font("home.chip_relay1", chip_font);
               disp1->set_component_font("home.chip_relay2", chip_font);
@@ -513,7 +512,6 @@ api:
               }
               disp1->set_component_font("home.wifi_icon", chip_font);
               id(home_chip_font_id) = chip_font;
-
               // Custom buttons icon size
               id(home_custom_buttons_font_id) = custom_buttons_font;
               for (int i = 1; i <= 7; ++i) {
@@ -522,24 +520,21 @@ api:
               disp1->set_component_font("home.bt_notific", id(home_custom_buttons_font_id));
               disp1->set_component_font("home.bt_qrcode", id(home_custom_buttons_font_id));
               disp1->set_component_font("home.bt_entities", id(home_custom_buttons_font_id));
-
               // Outdoor temperature font size
               disp1->set_component_font("home.outdoor_temp", outdoor_temp_font);
-
+              
               // QRCode button
               set_component_visibility->execute("home.bt_qrcode", qrcode);
               disp1->set_component_text("home.bt_qrcode", qrcode_icon.c_str());
               disp1->set_component_font_color("home.bt_qrcode", rgbTo565(qrcode_icon_color));
-
               // Entities pages button
               disp1->set_component_text("home.bt_entities", entities_pages_icon.c_str());
               disp1->set_component_font_color("home.bt_entities", rgbTo565(entities_pages_icon_color));
-
+              
               // Utilities button
               disp1->send_command_printf("is_utilities=%i", utilities ? 1 : 0);
               disp1->set_component_text("home.bt_utilities", utilities_icon.c_str());
               disp1->set_component_font_color("home.bt_utilities", rgbTo565(utilities_icon_color));
-
               blueprint_status->publish_state(int(blueprint_status->raw_state) | (1 << 1));
             }
 
@@ -608,7 +603,7 @@ api:
             if (current_page->state == "alarm" and !id(is_uploading_tft))  // To do: This page constructor should be moved to Blueprint
               { // Update alarm page
                   detailed_entity->publish_state(entity);
-
+                  
                   // Alarm page - Header
                   update_alarm_icon->execute("icon_state", state.c_str());
                   if (page_title.find("\\r") != std::string::npos) {
@@ -617,7 +612,7 @@ api:
                   disp1->set_component_text("page_label", page_title.c_str());
                   disp1->set_component_text("code_format", code_format.c_str());
                   disp1->set_component_text("code_arm_req", code_arm_required ? "1" : "0");
-
+                  
                   // Alarm page - Button's text
                   display_wrapped_text->execute("bt_home_text", mui_alarm[0].c_str(), 10);
                   display_wrapped_text->execute("bt_away_text", mui_alarm[1].c_str(), 10);
@@ -625,7 +620,7 @@ api:
                   display_wrapped_text->execute("bt_vacat_text", mui_alarm[3].c_str(), 10);
                   display_wrapped_text->execute("bt_bypass_text", mui_alarm[4].c_str(), 10);
                   display_wrapped_text->execute("bt_disarm_text", mui_alarm[5].c_str(), 10);
-
+                  
                   // Alarm page - Buttons
                   if (supported_features & 1 or state == "armed_home") // Alarm - Button - Home
                     {
@@ -635,7 +630,7 @@ api:
                       disp1->set_component_font_color("bt_home_text", (state == "armed_home") ? 65535 : 0);
                       disp1->set_component_font_color("bt_home_icon", (state == "armed_home") ? 65535 : 0);
                       set_component_visibility->execute("bt_home", (state != "armed_home"));
-
+                      
                     }
                   if (supported_features & 2 or state == "armed_away") // Alarm - Button - Away
                     {
@@ -685,7 +680,7 @@ api:
               }
 
     # Dynamically updates the climate page with the latest climate control settings and status.
-    - service: page_climate ###################################### NEED WORKS ##############################################
+    - service: page_climate 
       variables:
         current_temp: float      # Current temperature reading.
         supported_features: int  # Bitmask indicating the supported features of the climate device, such as temperature control (1) and fan mode (4).
@@ -738,7 +733,7 @@ api:
               disp1->set_component_text("page_label", friendly_name.c_str());
               display_wrapped_text->execute("track", media_title.c_str(), display_mode->state == 2 ? 16 : 27);
               display_wrapped_text->execute("artist", media_artist.c_str(), display_mode->state == 2 ? 26 : 40);
-
+              
               // on/off button
               if (supported_features & 128 and state == "off") {  //TURN_ON
                 disp1->set_component_foreground_color("bt_on_off", 65535);
@@ -748,7 +743,7 @@ api:
                 set_component_visibility->execute("bt_on_off", true);
               } else
                 set_component_visibility->execute("bt_on_off", false);
-
+                
               // play/pause button
               if ((supported_features & 512 or supported_features & 16384) and state != "playing" and state != "off") {  //PLAY_MEDIA+PLAY
                 disp1->set_component_text("bt_play_pause", "\uE409"); // mdi:play
@@ -758,15 +753,15 @@ api:
                 set_component_visibility->execute("bt_play_pause", true);
               } else
                 set_component_visibility->execute("bt_play_pause", false);
-
+                
               // bt_prev button - PREVIOUS_TRACK
               set_component_visibility->execute("bt_prev", (supported_features & 16 and state != "off"));
               // bt_next button - NEXT_TRACK
               set_component_visibility->execute("bt_next", (supported_features & 32 and state != "off"));
-
+              
               // Stop button - STOP
               //set_component_visibility->execute("bt_stop", (supported_features & 4096 and (state == "playing" or state == "paused")));
-
+              
               // mute/unmute button - VOLUME_MUTE
               disp1->set_component_value("is_muted", is_volume_muted ? 1 : 0);
               if (supported_features & 8 and is_volume_muted) {  // unmute
@@ -777,7 +772,7 @@ api:
                 set_component_visibility->execute("bt_mute", true);
               } else
                 set_component_visibility->execute("bt_mute", false);
-
+                
               // VOLUME_SET
               if (supported_features & 4) {
                 if (volume_level != id(last_volume_level)) {
@@ -795,7 +790,7 @@ api:
                 set_component_visibility->execute("bt_vol_up", false);
                 set_component_visibility->execute("vol_text", false);
               }
-
+              
               if (media_duration > 0) {
                 if (media_duration != id(last_media_duration) or media_position != id(last_media_position)) {
                   id(last_media_duration) = media_duration;
@@ -889,14 +884,14 @@ api:
                   copyStringToCharArray(UtilitiesGroups[id].value1, value1);
                   disp1->set_component_text(group_id.c_str(), value1.c_str());
                 }
-
+                
                 // Update Value 2
                 if (!value2.empty() and
                     (constructor or strcmp(value2.c_str(), UtilitiesGroups[id].value2) != 0)) {
                   copyStringToCharArray(UtilitiesGroups[id].value2, value2);
                   disp1->set_component_text((group_id + "b").c_str(), value2.c_str());
                 }
-
+                
                 // Update direction
                 if (group_id != "grid" and !isnan(direction) and
                     (constructor or direction != UtilitiesGroups[id].direction)) {
@@ -922,7 +917,7 @@ api:
               if (!(icon.empty())) disp1->set_component_text((id + "_icon").c_str(), icon.c_str());
               if (icon_color.size() == 3)
                 disp1->set_component_font_color((id + "_icon").c_str(), rgbTo565(icon_color));
-
+                
               if (!(name.empty())) disp1->set_component_text((id + "_label").c_str(), name.c_str());
               if (!(value.empty())) disp1->set_component_text(id.c_str(), adjustDecimalSeparator(value, id(mui_decimal_separator)).c_str());
               if (value_color.size() == 3)
@@ -930,7 +925,7 @@ api:
               if (current_page->state.find("entitypage") == 0 and !(value.empty())) {  // Adjust value's font on entities pages
                 // Adjusted length starts at 0
                 float adjusted_length = 0.0;
-
+                
                 // Iterate over each character in the string
                 for (char const &c: value) {
                   // Check if character is a space or other specified exceptions
@@ -1434,7 +1429,7 @@ number:
     name: Temperature Correction
     platform: template
     entity_category: config
-    unit_of_measurement: °C
+    unit_of_measurement: °F
     min_value: -10
     max_value: 10
     initial_value: 0
@@ -1518,7 +1513,7 @@ select:
       - "256000"
       - "512000"
       - "921600"
-    initial_option: "921600"
+    initial_option: "512000"
     optimistic: true
     restore_value: true
     internal: false
@@ -1610,11 +1605,11 @@ sensor:
     name: Temperature
     platform: ntc
     sensor: resistance_sensor
-    unit_of_measurement: °C
+    unit_of_measurement: °F
     internal: false
     calibration:
       b_constant: 3950
-      reference_temperature: 25°C
+      reference_temperature: 77°F      
       reference_resistance: 10kOhm
     filters:
       - lambda: |-
@@ -1926,7 +1921,6 @@ text_sensor:
               const std::string component = json["component"];
               const std::string key = json["key"];
               const std::string value = json["value"];
-
               esphome::api::CustomAPIDevice ha_event;
               // Send event to Home Assistant
               if (event == "short_click" or event == "long_click") {
@@ -1951,7 +1945,6 @@ text_sensor:
                   {"entity", detailed_entity->state.c_str()}
                 });
               }
-
               // page based actions
               if (page == "alarm") {
                 const std::string code_format = json["code_format"];
@@ -2479,7 +2472,6 @@ script:
       - lambda: |-
           // Embedded thermostat
           id(is_embedded_thermostat) = embedded_climate;
-
           // Indoor temperature
           id(embedded_indoor_temp) = embedded_indoor_temperature;
           display_embedded_temp->execute();
@@ -3086,10 +3078,13 @@ script:
             disp1->send_command_printf("climateslider.maxval=%i", total_steps);
             disp1->send_command_printf("slider_high.maxval=%i", total_steps);
             disp1->send_command_printf("slider_low.maxval=%i", total_steps);
+            
             disp1->set_component_value("temp_offset", temp_offset);
             disp1->set_component_value("temp_step", temp_step);
+            
             char dec_separator_str[2] = {id(mui_decimal_separator), '\0'};
             disp1->set_component_text("dec_separator", dec_separator_str);
+            
             set_component_visibility->execute("current_temp", true);
             
             if (current_temp > -999) {
@@ -3098,41 +3093,59 @@ script:
             }
             else
               disp1->set_component_text("current_temp", id(mui_unavailable_global).c_str());
+            
             if (target_temp > -999) {  // Target temp enabled
               disp1->set_component_value("active_slider", 0);
               snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", target_temp);
+              
               disp1->set_component_text("target_high", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
               disp1->set_component_value("climateslider", round(((10*target_temp) - temp_offset) / temp_step));
+              
               set_component_visibility->execute("slider_high", false);
               set_component_visibility->execute("slider_low", false);
+              
               set_component_visibility->execute("target_low", false);
               set_component_visibility->execute("target_high", true);
+              
               set_component_visibility->execute("climateslider", true);
             } else {
               set_component_visibility->execute("climate.slider_high", false);
+              
               if (target_temp_low > -999) {  // Target temp low enabled
                 disp1->set_component_value("active_slider", 2);
                 snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", target_temp_low);
+                
                 disp1->set_component_text("target_low", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
+                
                 disp1->set_component_value("slider_low", round(((10*target_temp_low) - temp_offset) / temp_step));
+                
                 set_component_visibility->execute("target_low", true);
+                
                 set_component_visibility->execute("slider_low", true);
               } else {
                 set_component_visibility->execute("target_low", false);
+                
                 set_component_visibility->execute("slider_low", false);
               }
               if (target_temp_high > -999) {  // Target temp high enabled
                 disp1->set_component_value("active_slider", 1);
                 snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", target_temp_high);
+                
                 disp1->set_component_text("target_high", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
+                
                 disp1->set_component_value("slider_high", round(((10*target_temp_high) - temp_offset) / temp_step));
+                
                 set_component_visibility->execute("target_high", true);
+                
                 set_component_visibility->execute("slider_high", true);
               } else {
                 set_component_visibility->execute("target_high", false);
+                
                 set_component_visibility->execute("slider_high", false);
               }
-            }
+            } 
+            
+            
             if (target_temp > -999 or target_temp_high > -999 or target_temp_low > -999) {
               disp1->set_component_text("target_icon", climate_icon.c_str());
               set_component_visibility->execute("target_icon", true);
