@@ -687,6 +687,8 @@ api:
         target_temp: float       # Desired target temperature setting.
         target_temp_high: float  # Upper limit of the target temperature range for devices supporting ranges.
         target_temp_low: float   # Lower limit of the target temperature range.
+        temp_min: int
+        temp_max: int       
         temp_step: int           # Temperature adjustment step size, indicating the granularity of changes (multiplied by 10 for precision).
         total_steps: int         # Total adjustment steps available, derived from the device's temperature range and step size.
         temp_offset: int         # Calibration offset applied to the temperature reading (multiplied by 10 for precision).
@@ -706,6 +708,8 @@ api:
                   target_temp: !lambda return target_temp;
                   target_temp_high: !lambda return target_temp_high;
                   target_temp_low: !lambda return target_temp_low;
+                  temp_min: !lambda return temp_min;
+                  temp_max: !lambda return temp_max;
                   temp_step: !lambda return temp_step;
                   total_steps: !lambda return total_steps;
                   temp_offset: !lambda return temp_offset;
@@ -3073,9 +3077,7 @@ script:
       climate_icon: string
       embedded_climate: bool
     then:
-      - lambda: |-
-          temp_min=40;
-          temp_max=80;       
+      - lambda: |-      
           if (!id(is_uploading_tft) and current_page->state == "climate") {
             bool useDecimal = (temp_step % 10 != 0);
             char buffer[15];
