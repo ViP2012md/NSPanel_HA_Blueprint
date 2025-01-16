@@ -687,8 +687,8 @@ api:
         target_temp: float       # Desired target temperature setting.
         target_temp_high: float  # Upper limit of the target temperature range for devices supporting ranges.
         target_temp_low: float   # Lower limit of the target temperature range.
-        temp_min: int
-        temp_max: int       
+        min_temp: int
+        max_temp: int       
         temp_step: int           # Temperature adjustment step size, indicating the granularity of changes (multiplied by 10 for precision).
         total_steps: int         # Total adjustment steps available, derived from the device's temperature range and step size.
         temp_offset: int         # Calibration offset applied to the temperature reading (multiplied by 10 for precision).
@@ -708,8 +708,8 @@ api:
                   target_temp: !lambda return target_temp;
                   target_temp_high: !lambda return target_temp_high;
                   target_temp_low: !lambda return target_temp_low;
-                  temp_min: !lambda return temp_min;
-                  temp_max: !lambda return temp_max;
+                  min_temp: !lambda return min_temp;
+                  max_temp: !lambda return max_temp;
                   temp_step: !lambda return temp_step;
                   total_steps: !lambda return total_steps;
                   temp_offset: !lambda return temp_offset;
@@ -3069,8 +3069,8 @@ script:
       target_temp: float
       target_temp_high: float
       target_temp_low: float
-      temp_min: int
-      temp_max: int
+      min_temp: int
+      max_temp: int
       temp_step: uint
       total_steps: uint
       temp_offset: int
@@ -3081,14 +3081,12 @@ script:
           if (!id(is_uploading_tft) and current_page->state == "climate") {
             bool useDecimal = (temp_step % 10 != 0);
             char buffer[15];
-            disp1->send_command_printf("climateslider.maxval=%i", temp_max);
-            disp1->send_command_printf("slider_high.maxval=%i", temp_max);
-            disp1->send_command_printf("slider_low.maxval=%i", temp_max);
-            disp1->send_command_printf("climateslider.minval=%i", temp_min);
-            disp1->send_command_printf("slider_high.minval=%i", temp_min);
-            disp1->send_command_printf("slider_low.minval=%i", temp_min);
+            disp1->send_command_printf("slider_high.maxval=%i", max_temp);
+            disp1->send_command_printf("slider_low.maxval=%i", max_temp);
+            disp1->send_command_printf("slider_high.minval=%i", min_temp);
+            disp1->send_command_printf("slider_low.minval=%i", min_temp);
             
-            disp1->set_component_value("temp_offset", temp_min);
+            disp1->set_component_value("temp_offset", min_temp);
             disp1->set_component_value("temp_step", temp_step);
             
             char dec_separator_str[2] = {id(mui_decimal_separator), '\0'};
