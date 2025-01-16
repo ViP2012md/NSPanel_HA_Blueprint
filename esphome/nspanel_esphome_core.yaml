@@ -3065,6 +3065,8 @@ script:
       target_temp: float
       target_temp_high: float
       target_temp_low: float
+      temp_min: int
+      temp_max: int
       temp_step: uint
       total_steps: uint
       temp_offset: int
@@ -3072,6 +3074,8 @@ script:
       embedded_climate: bool
     then:
       - lambda: |-
+          temp_min=40;
+          temp_max=80;       
           if (!id(is_uploading_tft) and current_page->state == "climate") {
             bool useDecimal = (temp_step % 10 != 0);
             char buffer[15];
