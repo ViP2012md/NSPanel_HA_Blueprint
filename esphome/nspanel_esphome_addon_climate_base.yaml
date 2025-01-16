@@ -16,11 +16,11 @@ substitutions:
   min_run_time: "30"
   min_idle_time: "30"
   # https://esphome.io/components/climate/index.html#base-climate-configuration
-  temp_min: "40"
-  temp_max: "80"
+  temp_min: "4"
+  temp_max: "40"
   temp_step: "1.0"
-  target_low: "60"
-  target_high: "70"
+  target_low: "18"
+  target_high: "24"
   cool_deadband: "1.0"  # Temperature delta before engaging cooling
   cool_overrun: "1.0"   # Temperature delta before disengaging cooling
   heat_deadband: "1.0"  # Temperature delta before engaging heat
@@ -86,6 +86,9 @@ script:
     then:
       - lambda: |-
           if (embedded and !id(is_uploading_tft)) {
+            auto FahrenheitToCelsius = [](float fahrenheit) -> float {
+              return (fahrenheit - 32.0) * 5.0 / 9.0;
+            };
             std::string temp_units = "${temp_units}";
             bool temp_unit_fahrenheit = (temp_units == "°F" || temp_units == "F" || temp_units == "°f" || temp_units == "f");
             auto call = thermostat_embedded->make_call();
@@ -94,12 +97,15 @@ script:
             disp1->set_component_value("climate.embedded", 1);
             if (key == "temperature") {
               temperature = stof(value) / 10;
+              if (temp_unit_fahrenheit) temperature = FahrenheitToCelsius(temperature);
               call.set_target_temperature(temperature);
             } else if (key == "target_temp_high") {
               temperature = stof(value) / 10;
+              if (temp_unit_fahrenheit) temperature = FahrenheitToCelsius(temperature);
               call.set_target_temperature_high(temperature);
             } else if (key == "target_temp_low") {
               temperature = stof(value) / 10;
+              if (temp_unit_fahrenheit) temperature = FahrenheitToCelsius(temperature);
               call.set_target_temperature_low(temperature);
             } else if (key == "hvac_mode") {
               call.set_mode(value);
@@ -165,7 +171,7 @@ script:
           id(is_addon_climate_visible) = (current_page->state == "climate" and detailed_entity->state == "embedded_climate");
           if (id(is_addon_climate_visible) and !id(is_uploading_tft)) {
             auto CelsiusToFahrenheit = [](float celsius) -> float {
-              return (celsius);
+              return (celsius * 9 / 5) + 32;
             };
             const std::string temp_units = "${temp_units}";
             const bool temp_unit_fahrenheit = (temp_units == "°F" || temp_units == "F" || temp_units == "°f" || temp_units == "f");
@@ -179,6 +185,16 @@ script:
             float temp_target_high = thermostat_embedded->target_temperature_high;
             float temp_target_low = thermostat_embedded->target_temperature_low;
             float temp_current = thermostat_embedded->current_temperature;
+            if (temp_unit_fahrenheit) {
+              //temp_step = CelsiusToFahrenheit(temp_step);
+              temp_step = std::ceil(temp_step * 1.8);
+              temp_offset = CelsiusToFahrenheit(temp_offset);
+              temp_max = CelsiusToFahrenheit(temp_max);
+              temp_target = CelsiusToFahrenheit(temp_target);
+              temp_target_high = CelsiusToFahrenheit(temp_target_high);
+              temp_target_low = CelsiusToFahrenheit(temp_target_low);
+              temp_current = CelsiusToFahrenheit(temp_current);
+            }
             float total_steps = (temp_max-temp_offset)/temp_step;
             set_climate->execute
               (
