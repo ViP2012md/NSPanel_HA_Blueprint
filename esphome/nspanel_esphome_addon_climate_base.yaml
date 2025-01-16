@@ -203,8 +203,8 @@ script:
                 ((${addon_climate_dual}) ? -999 : temp_target),       // target_temp
                 ((${addon_climate_dual}) ? temp_target_high : -999),  // target_temp_high
                 ((${addon_climate_dual}) ? temp_target_low : -999),   // target_temp_low
-                temp_min,
-                temp_max,
+                40,
+                80,
                 int(round(temp_step*10)),                             // temp_step
                 int(round(total_steps)),                              // total_steps
                 int(round(temp_offset*10)),                           // temp_offset
