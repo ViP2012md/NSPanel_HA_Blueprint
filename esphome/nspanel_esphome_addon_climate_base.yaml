@@ -96,15 +96,15 @@ script:
             id(is_addon_climate_visible) = true;
             disp1->set_component_value("climate.embedded", 1);
             if (key == "temperature") {
-              temperature = stof(value) / 10;
+              temperature = stoi(value);
               if (temp_unit_fahrenheit) temperature = FahrenheitToCelsius(temperature);
               call.set_target_temperature(temperature);
             } else if (key == "target_temp_high") {
-              temperature = stof(value) / 10;
+              temperature = stoi(value);
               if (temp_unit_fahrenheit) temperature = FahrenheitToCelsius(temperature);
               call.set_target_temperature_high(temperature);
             } else if (key == "target_temp_low") {
-              temperature = stof(value) / 10;
+              temperature = stoi(value);
               if (temp_unit_fahrenheit) temperature = FahrenheitToCelsius(temperature);
               call.set_target_temperature_low(temperature);
             } else if (key == "hvac_mode") {
@@ -205,9 +205,9 @@ script:
                 ((${addon_climate_dual}) ? temp_target_low : -999),   // target_temp_low
                 40,
                 80,
-                int(round(temp_step*10)),                             // temp_step
+                int(round(temp_step)),                             // temp_step
                 int(round(total_steps)),                              // total_steps
-                int(round(temp_offset*10)),                           // temp_offset
+                int(round(temp_offset)),                           // temp_offset
                 "",                                                   // climate_icon
                 true                                                  // embedded_climate
               );

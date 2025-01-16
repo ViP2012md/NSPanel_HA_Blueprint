@@ -2124,7 +2124,7 @@ script:
           if (!id(is_uploading_tft)) {
             if (not embedded) {
               if (key == "temperature" or key == "target_temp_high" or key == "target_temp_low")
-                ha_call_service->execute("climate.set_temperature", key.c_str(), to_string(stof(value) / 10), detailed_entity->state.c_str());
+                ha_call_service->execute("climate.set_temperature", key.c_str(), to_string(stoi(value)), detailed_entity->state.c_str());
               else if (key == "hvac_mode")
                 ha_call_service->execute("climate.set_hvac_mode", key.c_str(), value.c_str(), detailed_entity->state.c_str());
             }
