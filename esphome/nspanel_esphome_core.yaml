@@ -489,20 +489,17 @@ api:
             boot_log->execute("Service", "init_page_home");
             if (!id(is_uploading_tft)) {
               using namespace esphome::display;
-              
               // Localization
               id(mui_time_format) = time_format;
               if (meridiem.size() == 2) {
                 id(mui_meridiem)[0] = meridiem[0];
                 id(mui_meridiem)[1] = meridiem[1];
               }
-           
               // Date/Time colors
               id(home_date_color) = rgbTo565(date_color);
               id(home_time_color) = rgbTo565(time_color);
               disp1->set_component_font_color("home.date", id(home_date_color));
               disp1->set_component_font_color("home.time", id(home_time_color));
-              
               // Chips icon size
               disp1->set_component_font("home.chip_relay1", chip_font);
               disp1->set_component_font("home.chip_relay2", chip_font);
@@ -521,16 +518,14 @@ api:
               disp1->set_component_font("home.bt_qrcode", id(home_custom_buttons_font_id));
               disp1->set_component_font("home.bt_entities", id(home_custom_buttons_font_id));
               // Outdoor temperature font size
-              disp1->set_component_font("home.outdoor_temp", outdoor_temp_font);
-              
+              disp1->set_component_font("home.outdoor_temp", outdoor_temp_font);  
               // QRCode button
               set_component_visibility->execute("home.bt_qrcode", qrcode);
               disp1->set_component_text("home.bt_qrcode", qrcode_icon.c_str());
               disp1->set_component_font_color("home.bt_qrcode", rgbTo565(qrcode_icon_color));
               // Entities pages button
               disp1->set_component_text("home.bt_entities", entities_pages_icon.c_str());
-              disp1->set_component_font_color("home.bt_entities", rgbTo565(entities_pages_icon_color));
-              
+              disp1->set_component_font_color("home.bt_entities", rgbTo565(entities_pages_icon_color));   
               // Utilities button
               disp1->send_command_printf("is_utilities=%i", utilities ? 1 : 0);
               disp1->set_component_text("home.bt_utilities", utilities_icon.c_str());
