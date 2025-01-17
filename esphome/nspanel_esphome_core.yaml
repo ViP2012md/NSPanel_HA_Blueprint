@@ -191,7 +191,6 @@ time:
                   current_page->state != "boot" and
                   current_page->state != "confirm" and
                   current_page->state != "home" and
-                  current_page->state != "qrcode" and
                   current_page->state != "screensaver" and
                   current_page->state != "settings") {
                 ESP_LOGW("watchdog", "API disconnected. Falling back to Home page.");
@@ -501,18 +500,18 @@ api:
               disp1->set_component_font("home.chip_relay1", chip_font);
               disp1->set_component_font("home.chip_relay2", chip_font);
               disp1->set_component_font("home.chip_climate", chip_font);
-              for (int i = 1; i <= 7; ++i) {
+              for (int i = 1; i <= 4; ++i) {
                 disp1->send_command_printf("home.chip%02d.font=%" PRIi32, i, chip_font);
               }
               disp1->set_component_font("home.wifi_icon", chip_font);
               id(home_chip_font_id) = chip_font;
               // Custom buttons icon size
               id(home_custom_buttons_font_id) = custom_buttons_font;
-              for (int i = 1; i <= 7; ++i) {
+              for (int i = 1; i <= 6; ++i) {
                 disp1->send_command_printf("home.button%02d.font=%" PRIu8, i, id(home_custom_buttons_font_id));
               }
               disp1->set_component_font("home.bt_notific", id(home_custom_buttons_font_id));
-              
+              disp1->set_component_font("home.bt_entities", id(home_custom_buttons_font_id));
               // Outdoor temperature font size
               disp1->set_component_font("home.outdoor_temp", outdoor_temp_font);
               
@@ -520,6 +519,7 @@ api:
               disp1->set_component_text("home.bt_entities", entities_pages_icon.c_str());
               disp1->set_component_font_color("home.bt_entities", rgbTo565(entities_pages_icon_color));
               
+              blueprint_status->publish_state(int(blueprint_status->raw_state) | (1 << 1));
             }
 
     # Populates the "Settings" page with user-configurable options, aligning with the project's blueprint for a cohesive and intuitive settings interface.
@@ -608,103 +608,6 @@ api:
                   climate_icon: !lambda return climate_icon;
                   embedded_climate: !lambda return embedded_climate;
 
-    # Dynamically updates the media player page with current state and media information.
-    - service: page_media_player
-      variables:
-        entity: string               # Entity ID of the media player, used for state updates and control.
-        state: string                # Current playback state of the media player (e.g., "playing", "paused", "stopped").
-        is_volume_muted: bool        # Indicates if the media volume is currently muted.
-        friendly_name: string        # Display name of the media player, shown as the page title.
-        volume_level: int            # Current volume level, typically expressed as a percentage.
-        media_title: string          # Title of the currently playing media.
-        media_artist: string         # Artist of the currently playing media.
-        media_duration: float        # Total duration of the current media in seconds.
-        media_position: float        # Current playback position in the media in seconds.
-        media_position_delta: float  # Time elapsed since the last media position update in seconds.
-        supported_features: int      # Bitmask indicating the media player's supported features (e.g., play, pause, volume control).
-      then:
-        - lambda: |-
-            if (current_page->state == "media_player" and !id(is_uploading_tft)) {
-              detailed_entity->publish_state(entity);
-              disp1->set_component_text("page_label", friendly_name.c_str());
-              display_wrapped_text->execute("track", media_title.c_str(), display_mode->state == 2 ? 16 : 27);
-              display_wrapped_text->execute("artist", media_artist.c_str(), display_mode->state == 2 ? 26 : 40);
-              
-              // on/off button
-              if (supported_features & 128 and state == "off") {  //TURN_ON
-                disp1->set_component_foreground_color("bt_on_off", 65535);
-                set_component_visibility->execute("bt_on_off", true);
-              } else if (supported_features & 256 and state != "off") {  //TURN_OFF
-                disp1->set_component_foreground_color("bt_on_off", 10597);
-                set_component_visibility->execute("bt_on_off", true);
-              } else
-                set_component_visibility->execute("bt_on_off", false);
-                
-              // play/pause button
-              if ((supported_features & 512 or supported_features & 16384) and state != "playing" and state != "off") {  //PLAY_MEDIA+PLAY
-                disp1->set_component_text("bt_play_pause", "\uE409"); // mdi:play
-                set_component_visibility->execute("bt_play_pause", true);
-              } else if (supported_features & 1 and state == "playing" ) {  //PAUSE
-                disp1->set_component_text("bt_play_pause", "\uE3E3"); // mdi:pause
-                set_component_visibility->execute("bt_play_pause", true);
-              } else
-                set_component_visibility->execute("bt_play_pause", false);
-                
-              // bt_prev button - PREVIOUS_TRACK
-              set_component_visibility->execute("bt_prev", (supported_features & 16 and state != "off"));
-              // bt_next button - NEXT_TRACK
-              set_component_visibility->execute("bt_next", (supported_features & 32 and state != "off"));
-              
-              // Stop button - STOP
-              //set_component_visibility->execute("bt_stop", (supported_features & 4096 and (state == "playing" or state == "paused")));
-              
-              // mute/unmute button - VOLUME_MUTE
-              disp1->set_component_value("is_muted", is_volume_muted ? 1 : 0);
-              if (supported_features & 8 and is_volume_muted) {  // unmute
-                disp1->set_component_text("bt_mute", "\uEE07"); // mdi:volume-variant-off
-                set_component_visibility->execute("bt_mute", true);
-              } else if (supported_features & 8) {  // mute
-                disp1->set_component_text("bt_mute", "\uE57E"); // mdi:volume-low
-                set_component_visibility->execute("bt_mute", true);
-              } else
-                set_component_visibility->execute("bt_mute", false);
-                
-              // VOLUME_SET
-              if (supported_features & 4) {
-                if (volume_level != id(last_volume_level)) {
-                  id(last_volume_level) = volume_level;
-                  disp1->set_component_text_printf("vol_text", "%" PRIu32 "%%", volume_level);
-                  disp1->set_component_value("vol_slider", volume_level);
-                }
-                set_component_visibility->execute("vol_slider", true);
-                set_component_visibility->execute("bt_vol_down", true);
-                set_component_visibility->execute("bt_vol_up", true);
-                set_component_visibility->execute("vol_text", true);
-              } else {
-                set_component_visibility->execute("vol_slider", false);
-                set_component_visibility->execute("bt_vol_down", false);
-                set_component_visibility->execute("bt_vol_up", false);
-                set_component_visibility->execute("vol_text", false);
-              }
-              
-              if (media_duration > 0) {
-                if (media_duration != id(last_media_duration) or media_position != id(last_media_position)) {
-                  id(last_media_duration) = media_duration;
-                  id(last_media_position) = media_position;
-                  disp1->set_component_value("prg_current", int(round(min(media_position + media_position_delta, media_duration))));
-                }
-                disp1->set_component_value("prg_total", int(round(media_duration)));
-                disp1->send_command_printf("prg_timer.en=%i", (state == "playing") ? 1 : 0);
-                set_component_visibility->execute("time_current", true);
-                set_component_visibility->execute("time_total", true);
-                set_component_visibility->execute("time_progress", true);
-              } else {
-                disp1->send_command("prg_timer.en=0");
-                set_component_visibility->execute("time_current", false);
-                set_component_visibility->execute("time_total", false);
-                set_component_visibility->execute("time_progress", false);
-              }
-            }
 
     # Plays melodies encoded in RTTTL format, suitable for audio feedback, notifications, or simple tunes.
     - service: rtttl_play
@@ -744,7 +647,6 @@ api:
         - script.execute:
             id: set_timezone
             timezone: !lambda return timezone;
-
 
     # Updates an entity to display specific values with dynamic icons, names, and color codes.
     - service: value
@@ -983,23 +885,6 @@ globals:
     type: bool
     restore_value: false
     initial_value: 'false'
-
-  ##### Media Player #####
-  ###### Last volume level from Home Assistant ######
-  - id: last_volume_level
-    type: uint8_t
-    restore_value: false
-    initial_value: '0'
-  ###### Last duration from Home Assistant ######
-  - id: last_media_duration
-    type: uint
-    restore_value: false
-    initial_value: '0'
-  ###### Last duration from Home Assistant ######
-  - id: last_media_position
-    type: uint
-    restore_value: false
-    initial_value: '0'
 
   ##### Add-on Climate #####
   ##### Is embedded thermostat set as main climate entity? #####
@@ -1377,6 +1262,10 @@ select:
       - buttonpage03
       - buttonpage04
       - climate
+      - entitypage01
+      - entitypage02
+      - entitypage03
+      - entitypage04
       - home
     initial_option: home
     optimistic: true
@@ -1531,6 +1420,42 @@ sensor:
 
 ##### START - SWITCH CONFIGURATION #####
 switch:
+  ##### Notification unread #####
+  - name: Notification unread
+    platform: template
+    id: notification_unread
+    entity_category: config
+    optimistic: true
+    restore_mode: ALWAYS_OFF
+    on_turn_on:
+      lambda: |-
+        esphome::api::CustomAPIDevice ha_event;
+        ha_event.fire_homeassistant_event("esphome.nspanel_ha_blueprint", {
+          {"device_name", device_name->state.c_str()},
+          {"esphome_version", "${version}"},
+          {"type", "notification_changed"},
+          {"component", "notification_unread"},
+          {"action", "turn_on"}
+        });
+    on_turn_off:
+      lambda: |-
+        esphome::api::CustomAPIDevice ha_event;
+        ha_event.fire_homeassistant_event("esphome.nspanel_ha_blueprint", {
+          {"device_name", device_name->state.c_str()},
+          {"esphome_version", "${version}"},
+          {"type", "notification_changed"},
+          {"component", "notification_unread"},
+          {"action", "turn_off"}
+        });
+
+  ##### Notification sound #####
+  - name: Notification sound
+    platform: template
+    id: notification_sound
+    entity_category: config
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
+
   ##### PHYSICAL SWITCH 1 #####
   - name: Relay 1
     platform: gpio
@@ -2332,14 +2257,15 @@ script:
           boot_progress->execute(7);
           boot_log->execute("Boot", "Set Home page elements");
           // Chips icon size
-          for (int i = 1; i <= 7; ++i) {
+          for (int i = 1; i <= 4; ++i) {
             disp1->send_command_printf("home.chip%02d.font=%i", i, id(home_chip_font_id));
           }
           // Custom buttons icon size
-          for (int i = 1; i <= 7; ++i) {
+          for (int i = 1; i <= 6; ++i) {
             disp1->send_command_printf("home.button%02d.font=%i", i, id(home_custom_buttons_font_id));
           }
           disp1->set_component_font("home.bt_notific", id(home_custom_buttons_font_id));
+          disp1->set_component_font("home.bt_entities", id(home_custom_buttons_font_id));
           disp1->set_component_font("home.wifi_icon", id(home_chip_font_id));
           disp1->set_component_font_color("home.chip_relay1", id(home_relay1_icon_color));
           disp1->set_component_font_color("home.chip_relay2", id(home_relay2_icon_color));
@@ -2406,26 +2332,20 @@ script:
             goto_page->execute("boot");
             page_changed->stop();
           }
-
           // Reset globals
-          if (current_page->state != "alarm" &&
-              current_page->state != "climate" &&
+          if (current_page->state != "climate" &&
               current_page->state != "fan" &&
               current_page->state != "light" &&
-              current_page->state != "confirm" {
+              current_page->state != "confirm" ) {
               detailed_entity->publish_state("");
               disp1->send_command("back_page_id=1");
           }
-          
           if (!detailed_entity->state.empty())
             ESP_LOGD("script.page_changed", "Entity shown: %s", detailed_entity->state.c_str());
-
           // Update buttons bars on screen
           refresh_hardware_buttons_bars->execute(3);
-
           // Reset timers
           if (current_page->state != "screensaver") timer_reset_all->execute();
-
           // Report new page to Home Assistant
           esphome::api::CustomAPIDevice ha_event;
           ha_event.fire_homeassistant_event("esphome.nspanel_ha_blueprint",
@@ -2436,16 +2356,20 @@ script:
               {"page", current_page->state.c_str()},
               {"entity", detailed_entity->state.c_str()}
             });
-
           // Call page constructor
-          if (current_page->state == "blank") page_blank->execute();
+          if (current_page->state == "alarm") page_alarm->execute();
+          else if (current_page->state == "blank") page_blank->execute();
           else if (current_page->state == "boot") page_boot->execute();
           else if (current_page->state == "buttonpage01") page_buttonpage01->execute();
           else if (current_page->state == "buttonpage02") page_buttonpage02->execute();
           else if (current_page->state == "buttonpage03") page_buttonpage03->execute();
           else if (current_page->state == "buttonpage04") page_buttonpage04->execute();
           else if (current_page->state == "climate") page_climate->execute();
-          else if (current_page->state == "cover") page_cover->execute();
+          else if (current_page->state == "confirm") page_confirm->execute();
+          else if (current_page->state == "entitypage01") page_entitypage01->execute();
+          else if (current_page->state == "entitypage02") page_entitypage02->execute();
+          else if (current_page->state == "entitypage03") page_entitypage03->execute();
+          else if (current_page->state == "entitypage04") page_entitypage04->execute();
           else if (current_page->state == "fan") page_fan->execute();
           else if (current_page->state == "home") page_home->execute();
           else if (current_page->state == "light") page_light->execute();
@@ -2489,7 +2413,31 @@ script:
             }
           }
 
- 
+  - id: page_entitypage01
+    mode: restart
+    then:
+      - script.execute:
+          id: page_entitypage
+          page_number: 1
+  - id: page_entitypage02
+    mode: restart
+    then:
+      - script.execute:
+          id: page_entitypage
+          page_number: 2
+  - id: page_entitypage03
+    mode: restart
+    then:
+      - script.execute:
+          id: page_entitypage
+          page_number: 3
+  - id: page_entitypage04
+    mode: restart
+    then:
+      - script.execute:
+          id: page_entitypage
+          page_number: 4
+
   - id: page_fan
     mode: restart
     then:  # There's nothing here so far
@@ -2867,10 +2815,14 @@ script:
           page_climate->stop();
           page_changed->stop();
           page_confirm->stop();
+          page_entitypage01->stop();
+          page_entitypage02->stop();
+          page_entitypage03->stop();
+          page_entitypage04->stop();
+          page_entitypage->stop();
           page_fan->stop();
           page_home->stop();
           page_light->stop();
-          page_media_player->stop();
           page_notification->stop();
           page_screensaver->stop();
           page_settings->stop();
@@ -2968,6 +2920,7 @@ script:
                   set_brightness->execute(display_sleep_brightness->state);
                 }
 
+ 
   - id: update_climate_icon ###################################### NEED WORKS ##############################################
     mode: restart
     parameters:
