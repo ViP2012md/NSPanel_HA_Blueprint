@@ -640,94 +640,7 @@ blueprint:
           description: *description_text_color
           default: [255, 255, 255]
           selector: *color_selector
-    home_page_entites_states:
-      name: Home page - Entities states (optional)
-      icon: mdi:home
-      description: Select the entities to be displayed on the Home page.
-      collapsed: true
-      input:
-        home_value01:
-          name: Home page - Entity State 01 - Entity (Optional)
-          description: &description_entity_displayed "Entity which should be displayed."
-          default: []
-          selector: &selector_value_entity
-            entity:
-        home_value01_label_color:
-          name: Home page - Entity State 01 - Text color
-          description: *description_text_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        home_value01_icon:
-          name: Home page - Entity State 01 - Icon (Optional)
-          description: &description_icon_automatic_default >
-            ***Icon Display:** If not specified, an attribute-defined icon will be used, if available. Otherwise, no icon will be shown.*
-          default: []
-          selector: *selector_icon
-        home_value01_icon_color:
-          name: Home page - Entity State 01 - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        home_value02:
-          name: Home page - Entity State 02 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *selector_value_entity
-        home_value02_label_color:
-          name: Home page - Entity State 02 - Text color
-          description: *description_text_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        home_value02_icon:
-          name: Home page - Entity State 02 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        home_value02_icon_color:
-          name: Home page - Entity State 02 - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        home_value03:
-          name: Home page - Entity State 03 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *selector_value_entity
-        home_value03_label_color:
-          name: Home page - Entity State 03 - Text color
-          description: *description_text_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        home_value03_icon:
-          name: Home page - Entity State 03 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        home_value03_icon_color:
-          name: Home page - Entity State 03 - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        home_value04:
-          name: Home page - Entity State 04 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *selector_value_entity
-        home_value04_label_color:
-          name: Home page - Entity State 04 - Text color
-          description: *description_text_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        home_value04_icon:
-          name: Home page - Entity State 04 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        home_value04_icon_color:
-          name: Home page - Entity State 04 - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
+ 
     home_page_chips:
       name: Home page - Chips (optional)
       icon: mdi:home
@@ -754,15 +667,12 @@ blueprint:
             entity:
               filter:
                 domain:
-                  - alarm_control_panel
                   - binary_sensor
                   - climate
-                  - cover
                   - fan
                   - input_boolean
                   - light
                   - lock
-                  - media_player
                   - sensor
                   - switch
         chip01_inverted:
@@ -844,69 +754,7 @@ blueprint:
           description: *description_icon_color
           default: []
           selector: *color_selector
-        chip05:
-          name: Home page - Chip 05 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *chip-entity-selector
-        chip05_inverted:
-          name: Home page - Chip 05 - Inverted
-          description: "If enabled, this chip's display is reversed. It will appear when the linked entity is `off`."
-          default: false
-          selector:
-            boolean:
-        chip05_icon:
-          name: Home page - Chip 05 - Icon (Optional)
-          description: "Specify an icon to show when the entity's state matches. If not set, the entity's default icon is used."
-          default: []
-          selector: *selector_icon
-        chip05_icon_color:
-          name: Home page - Chip 05 - Icon color
-          description: *description_icon_color
-          default: []
-          selector: *color_selector
-        chip06:
-          name: Home page - Chip 06 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *chip-entity-selector
-        chip06_inverted:
-          name: Home page - Chip 06 - Inverted
-          description: "If enabled, this chip's display is reversed. It will appear when the linked entity is `off`."
-          default: false
-          selector:
-            boolean:
-        chip06_icon:
-          name: Home page - Chip 06 - Icon (Optional)
-          description: "Specify an icon to show when the entity's state matches. If not set, the entity's default icon is used."
-          default: []
-          selector: *selector_icon
-        chip06_icon_color:
-          name: Home page - Chip 06 - Icon color
-          description: *description_icon_color
-          default: []
-          selector: *color_selector
-        chip07:
-          name: Home page - Chip 07 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *chip-entity-selector
-        chip07_inverted:
-          name: Home page - Chip 07 - Inverted
-          description: "If enabled, this chip's display is reversed. It will appear when the linked entity is `off`."
-          default: false
-          selector:
-            boolean:
-        chip07_icon:
-          name: Home page - Chip 07 - Icon (Optional)
-          description: "Specify an icon to show when the entity's state matches. If not set, the entity's default icon is used."
-          default: []
-          selector: *selector_icon
-        chip07_icon_color:
-          name: Home page - Chip 07 - Icon color
-          description: *description_icon_color
-          default: []
-          selector: *color_selector
+ 
     home_page_custom_buttons:
       name: Home page - Custom buttons (optional)
       icon: mdi:home
@@ -939,17 +787,14 @@ blueprint:
             entity:
               filter:
                 domain:
-                  - alarm_control_panel
                   - automation
                   - button
                   - climate
-                  - cover
                   - fan
                   - input_boolean
                   - input_button
                   - light
                   - lock
-                  - media_player
                   - remote
                   - scene
                   - script
@@ -1049,22 +894,6 @@ blueprint:
           default: ""
           selector:
             text:
-        alarm:  # This key was kept with this name to support inputs from legacy versions where the alarm was the only option at that button
-          name: Home page - Custom button 7 - Entity (Optional)
-          description: *description_home_custom_button_entity
-          default: []
-          selector: *selector_home_custom_button_entity
-        home_custom_button07_icon:
-          name: Home page - Custom button 7 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        home_custom_button07_name:
-          name: Home Page - Custom Button 7 - Title (Optional)
-          description: *description_home_custom_button_title
-          default: ""
-          selector:
-            text:
     home_page_general_settings:
       name: Home page - General settings (optional)
       icon: mdi:home
@@ -1139,186 +968,7 @@ blueprint:
           default: false
           selector:
             boolean:
-    climate_page_settings:
-      name: Climate page (optional)
-      icon: mdi:thermostat-cog
-      description: Select what to display in the climate page.
-      collapsed: true
-      input:
-        climate_button08:
-          name: Climate page - Custom button 01 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: &climate-custom-button-entity-selector
-            entity:
-              filter:
-                domain:
-                  - automation
-                  - binary_sensor
-                  - button
-                  - cover
-                  - fan
-                  - input_boolean
-                  - input_button
-                  - light
-                  - lock
-                  - person
-                  - remote
-                  - scene
-                  - script
-                  - switch
-        climate_button08_icon:
-          name: Climate page - Custom button 01 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        climate_button08_icon_color:
-          name: Climate page - Custom button 01 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        climate_button08_hold_custom_action:
-          name: Climate page - Custom button 01 - Hold action (Optional)
-          description: "The action(s) to launch on hold."
-          default: []
-          selector:
-            action:
-            ## Climate page - Custom button 02
-        climate_button09:
-          name: Climate page - Custom button 02 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *climate-custom-button-entity-selector
-        climate_button09_icon:
-          name: Climate page - Custom button 02 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        climate_button09_icon_color:
-          name: Climate page - Custom button 02 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        climate_button09_hold_custom_action:
-          name: Climate page - Custom button 02 - Hold action (Optional)
-          description: "The action(s) to launch on hold."
-          default: []
-          selector:
-            action:
-        climate_value01:
-          name: Climate page - Entity State 01 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *selector_value_entity
-        climate_value01_icon:
-          name: Climate page - Entity State 01 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        climate_value01_icon_color:
-          name: Climate page - Entity State 01 - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        climate_value01_label_color:
-          name: Climate page - Entity State 01 - Text color
-          description: *description_text_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        climate_value02:
-          name: Climate page - Entity State 02 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *selector_value_entity
-        climate_value02_icon:
-          name: Climate page - Entity State 02 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        climate_value02_icon_color:
-          name: Climate page - Entity State 02 - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        climate_value02_label_color:
-          name: Climate page - Entity State 02 - Text color
-          description: *description_text_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        climate_value03:
-          name: Climate page - Entity State 03 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *selector_value_entity
-        climate_value03_icon:
-          name: Climate page - Entity State 03 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        climate_value03_icon_color:
-          name: Climate page - Entity State 03 - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        climate_value03_label_color:
-          name: Climate page - Entity State 03 - Text color
-          description: *description_text_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        climate_value04:
-          name: Climate page - Entity State 04 - Entity (Optional)
-          description: *description_entity_displayed
-          default: []
-          selector: *selector_value_entity
-        climate_value04_icon:
-          name: Climate page - Entity State 04 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        climate_value04_icon_color:
-          name: Climate page - Entity State 04 - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        climate_value04_label_color:
-          name: Climate page - Entity State 04 - Text color
-          description: *description_text_color
-          default: [200, 204, 200]
-          selector: *color_selector
-    qrcode_settings:
-      name: QR code (optional)
-      icon: mdi:qrcode-scan
-      description: Select how to display the QR code.
-      collapsed: true
-      input:
-        qrcode_enabled:
-          name: Enable QR code?
-          description: Activate QR Code page and QR Code Button on the Home page.
-          default: false
-          selector:
-            boolean:
-        qrcode_label:
-          name: QR Code page - Label (Optional)
-          description: "Label which should be displayed."
-          default: ""
-          selector:
-            text:
-        qrcode_value:
-          name: QR Code content - VALUE (Optional)
-          description: "Value you want to display as QR code."
-          default: ""
-          selector:
-            text:
-        home_button05_icon:
-          name: Home page - QR Code - Icon (Optional)
-          description: "Icon which should be displayed (Default mdi:qrcode-scan)."
-          default: mdi:qrcode-scan
-          selector: *selector_icon
-        home_button05_icon_color:
-          name: QR Code - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
+
     hardware_buttons:
       name: Hardware buttons (optional)
       icon: mdi:gesture-tap-button
@@ -1336,19 +986,13 @@ blueprint:
             - '61440'
             - '3932160'
             - '65536'
-            - '131072'
             - '512'
             - '256'
-            - '134217728'
             - '124'
-            - '8388608'
             - '128'
-            - '2048'
             - '4194304'
             - '1024'
-            - '33554432'
             - '67108864'
-            - '16777216'
           selector:
             select:
               multiple: true
@@ -1361,32 +1005,20 @@ blueprint:
                   value: '3932160'                    # 2^18 + 2^19 + 2^20 + 2^21
                 - label: "Notification page"
                   value: '65536'                      # 2^16
-                - label: "QR code page"
-                  value: '131072'                     # 2^17
                 - label: "Screen saver (sleep) page"
                   value: '512'                        # 2^9
                 - label: "Settings page"
                   value: '256'                        # 2^8
-                - label: "Utilities page"
-                  value: '134217728'                  # 2^27
                 - label: "Weather pages"
                   value: '124'                        # 2^2 + 2^3 + 2^4 + 2^5 + 2^6
-                - label: "Alarm control panel page"
-                  value: '8388608'                    # 2^23
                 - label: "Climate page"
                   value: '128'                        # 2^7
-                - label: "Cover page"
-                  value: '2048'                       # 2^11
                 - label: "Fan page"
                   value: '4194304'                    # 2^22
                 - label: "Light page"
                   value: '1024'                       # 2^10
-                - label: "Media player page"
-                  value: '33554432'                   # 2^25
                 - label: "Confirm pop-up page"
                   value: '67108864'                   # 2^26
-                - label: "Keyboard pop-up page"
-                  value: '16777216'                   # 2^24
         hw_buttons_bar_color_on:
           name: Hardware Buttons - Bar color when `On` (Optional)
           description: "Choose a color for the button's bars when the controlled entity is `On`."
@@ -1436,17 +1068,14 @@ blueprint:
             entity:
               filter:
                 domain:
-                  - alarm_control_panel
                   - automation
                   - button
                   - climate
-                  - cover
                   - fan
                   - input_boolean
                   - input_button
                   - light
                   - lock
-                  - media_player
                   - remote
                   - scene
                   - script
@@ -1486,15 +1115,12 @@ blueprint:
             entity:
               filter:
                 domain:
-                  - alarm_control_panel
                   - binary_sensor
                   - climate
-                  - cover
                   - fan
                   - input_boolean
                   - light
                   - lock
-                  - media_player
                   - remote
                   - switch
         left_button_color:
@@ -1589,18 +1215,15 @@ blueprint:
             entity:
               filter:
                 domain:
-                  - alarm_control_panel
                   - automation
                   - binary_sensor
                   - button
                   - climate
-                  - cover
                   - fan
                   - input_boolean
                   - input_button
                   - light
                   - lock
-                  - media_player
                   - person
                   - remote
                   - scene
@@ -1818,1697 +1441,6 @@ blueprint:
           description: *description_ask_for_confirmation
           selector:
             boolean:
-    button_page_02:
-      name: Button page 02 (optional)
-      icon: mdi:gesture-tap-button
-      description: Select what to display in the button page.
-      collapsed: true
-      input:
-        button_page02_label:
-          name: Page title
-          description: Please select the label which should be displayed in the top of the page.
-          default: ""
-          selector:
-            text:
-        entity09:
-          name: Button page 2, Button 1 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity09_name:
-          name: Button page 2, Button 1 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity09_icon:
-          name: Button page 2, Button 1 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity09_icon_color:
-          name: Button page 2, Button 1 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity09_confirm:
-          name: Button page 2, Button 1 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity10:
-          name: Button page 2, Button 2 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity10_name:
-          name: Button page 2, Button 2 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity10_icon:
-          name: Button page 2, Button 2 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity10_icon_color:
-          name: Button page 2, Button 2 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity10_confirm:
-          name: Button page 2, Button 2 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity11:
-          name: Button page 2, Button 3 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity11_name:
-          name: Button page 2, Button 3 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity11_icon:
-          name: Button page 2, Button 3 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity11_icon_color:
-          name: Button page 2, Button 3 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity11_confirm:
-          name: Button page 2, Button 3 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity12:
-          name: Button page 2, Button 4 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity12_name:
-          name: Button page 2, Button 4 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity12_icon:
-          name: Button page 2, Button 4 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity12_icon_color:
-          name: Button page 2, Button 4 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity12_confirm:
-          name: Button page 2, Button 4 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity13:
-          name: Button page 2, Button 5 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity13_name:
-          name: Button page 2, Button 5 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity13_icon:
-          name: Button page 2, Button 5 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity13_icon_color:
-          name: Button page 2, Button 5 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity13_confirm:
-          name: Button page 2, Button 5 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity14:
-          name: Button page 2, Button 6 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity14_name:
-          name: Button page 2, Button 6 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity14_icon:
-          name: Button page 2, Button 6 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity14_icon_color:
-          name: Button page 2, Button 6 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity14_confirm:
-          name: Button page 2, Button 6 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity15:
-          name: Button page 2, Button 7 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity15_name:
-          name: Button page 2, Button 7 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity15_icon:
-          name: Button page 2, Button 7 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity15_icon_color:
-          name: Button page 2, Button 7 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity15_confirm:
-          name: Button page 2, Button 7 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity16:
-          name: Button page 2, Button 8 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity16_name:
-          name: Button page 2, Button 8 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity16_icon:
-          name: Button page 2, Button 8 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity16_icon_color:
-          name: Button page 2, Button 8 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity16_confirm:
-          name: Button page 2, Button 8 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-    button_page_03:
-      name: Button page 03 (optional)
-      icon: mdi:gesture-tap-button
-      description: Select what to display in the button page.
-      collapsed: true
-      input:
-        button_page03_label:
-          name: Page title
-          description: Please select the label which should be displayed in the top of the page.
-          default: ""
-          selector:
-            text:
-        entity17:
-          name: Button page 3, Button 1 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity17_name:
-          name: Button page 3, Button 1 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity17_icon:
-          name: Button page 3, Button 1 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity17_icon_color:
-          name: Button page 3, Button 1 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity17_confirm:
-          name: Button page 3, Button 1 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity18:
-          name: Button page 3, Button 2 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity18_name:
-          name: Button page 3, Button 2 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity18_icon:
-          name: Button page 3, Button 2 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity18_icon_color:
-          name: Button page 3, Button 2 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity18_confirm:
-          name: Button page 3, Button 2 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity19:
-          name: Button page 3, Button 3 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity19_name:
-          name: Button page 3, Button 3 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity19_icon:
-          name: Button page 3, Button 3 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity19_icon_color:
-          name: Button page 3, Button 3 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity19_confirm:
-          name: Button page 3, Button 3 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity20:
-          name: Button page 3, Button 4 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity20_name:
-          name: Button page 3, Button 4 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity20_icon:
-          name: Button page 3, Button 4 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity20_icon_color:
-          name: Button page 3, Button 4 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity20_confirm:
-          name: Button page 3, Button 4 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity21:
-          name: Button page 3, Button 5 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity21_name:
-          name: Button page 3, Button 5 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity21_icon:
-          name: Button page 3, Button 5 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity21_icon_color:
-          name: Button page 3, Button 5 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity21_confirm:
-          name: Button page 3, Button 5 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity22:
-          name: Button page 3, Button 6 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity22_name:
-          name: Button page 3, Button 6 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity22_icon:
-          name: Button page 3, Button 6 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity22_icon_color:
-          name: Button page 3, Button 6 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity22_confirm:
-          name: Button page 3, Button 6 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity23:
-          name: Button page 3, Button 7 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity23_name:
-          name: Button page 3, Button 7 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity23_icon:
-          name: Button page 3, Button 7 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity23_icon_color:
-          name: Button page 3, Button 7 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity23_confirm:
-          name: Button page 3, Button 7 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity24:
-          name: Button page 3, Button 8 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity24_name:
-          name: Button page 3, Button 8 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity24_icon:
-          name: Button page 3, Button 8 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity24_icon_color:
-          name: Button page 3, Button 8 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity24_confirm:
-          name: Button page 3, Button 8 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-    button_page_04:
-      name: Button page 04 (optional)
-      icon: mdi:gesture-tap-button
-      description: Select what to display in the button page.
-      collapsed: true
-      input:
-        button_page04_label:
-          name: Page title
-          description: Please select the label which should be displayed in the top of the page.
-          default: ""
-          selector:
-            text:
-        entity25:
-          name: Button page 4, Button 1 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity25_name:
-          name: Button page 4, Button 1 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity25_icon:
-          name: Button page 4, Button 1 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity25_icon_color:
-          name: Button page 4, Button 1 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity25_confirm:
-          name: Button page 4, Button 1 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity26:
-          name: Button page 4, Button 2 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity26_name:
-          name: Button page 4, Button 2 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity26_icon:
-          name: Button page 4, Button 2 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity26_icon_color:
-          name: Button page 4, Button 2 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity26_confirm:
-          name: Button page 4, Button 2 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity27:
-          name: Button page 4, Button 3 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity27_name:
-          name: Button page 4, Button 3 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity27_icon:
-          name: Button page 4, Button 3 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity27_icon_color:
-          name: Button page 4, Button 3 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity27_confirm:
-          name: Button page 4, Button 3 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity28:
-          name: Button page 4, Button 4 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity28_name:
-          name: Button page 4, Button 4 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity28_icon:
-          name: Button page 4, Button 4 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity28_icon_color:
-          name: Button page 4, Button 4 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity28_confirm:
-          name: Button page 4, Button 4 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity29:
-          name: Button page 4, Button 5 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity29_name:
-          name: Button page 4, Button 5 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity29_icon:
-          name: Button page 4, Button 5 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity29_icon_color:
-          name: Button page 4, Button 5 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity29_confirm:
-          name: Button page 4, Button 5 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity30:
-          name: Button page 4, Button 6 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity30_name:
-          name: Button page 4, Button 6 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity30_icon:
-          name: Button page 4, Button 6 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity30_icon_color:
-          name: Button page 4, Button 6 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity30_confirm:
-          name: Button page 4, Button 6 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity31:
-          name: Button page 4, Button 7 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity31_name:
-          name: Button page 4, Button 7 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity31_icon:
-          name: Button page 4, Button 7 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity31_icon_color:
-          name: Button page 4, Button 7 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity31_confirm:
-          name: Button page 4, Button 7 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-        entity32:
-          name: Button page 4, Button 8 - Entity (Optional)
-          description: "Entity to be controlled."
-          default: []
-          selector: *button-entity-selector
-        entity32_name:
-          name: Button page 4, Button 8 - Label (Optional)
-          description: "Specify a label for this button (supports up to 10 characters)."
-          default: ""
-          selector:
-            text:
-        entity32_icon:
-          name: Button page 4, Button 8 - Icon (Optional)
-          description: *description_icon_automatic_default
-          default: []
-          selector: *selector_icon
-        entity32_icon_color:
-          name: Button page 4, Button 8 - Icon color
-          description: "Icon color which should be displayed when button is `On`."
-          default: [0, 128, 248]
-          selector: *color_selector
-        entity32_confirm:
-          name: Button page 4, Button 8 - Confirm execution of the button press
-          default: false
-          description: *description_ask_for_confirmation
-          selector:
-            boolean:
-    entities_pages:
-      name: Entities pages - Overall (optional)
-      icon: mdi:format-list-bulleted-square
-      description: Select how to display the entities pages.
-      collapsed: true
-      input:
-        home_button06_icon:
-          name: Entity page - Icon (Optional)
-          description: >
-            *HOME page*
-
-            *Icon which should be displayed (Default mdi:format-list-bulleted-square)*
-          default: mdi:format-list-bulleted-square  # EDCF
-          selector: *selector_icon
-        home_button06_icon_color:
-          name: Entity page - Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        entitypages_value_alignment:
-          name: Value column alignment
-          description: >
-            *Entity pages*
-            *Select the alignment for the column containing the values on the entity pages.*
-          default: "0"
-          selector:
-            select:
-              multiple: false
-              options:
-                - label: "Right (default)"
-                  value: "0"
-                - label: "Center"
-                  value: "1"
-                - label: "Left"
-                  value: "2"
-        entitypages_show_entities_icons:
-          name: Entity Pages - Show Entity Icons
-          description: "Display icons associated with each entity."
-          default: true
-          selector:
-            boolean:
-    entities_page_01:
-      name: Entities page 01 (optional)
-      icon: mdi:format-list-bulleted-square
-      description: Select what to display in the entities page.
-      collapsed: true
-      input:
-        entity_page01_label:
-          name: Page title
-          description: Please select the label which should be displayed in the top of the page.
-          default: ""
-          selector:
-            text:
-        entities_entity01:
-          name: Entity page 1, Row 1 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity01_name:
-          name: Entity page 1, Row 1 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity01_icon:
-          name: Entity page 1, Row 1 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity02:
-          name: Entity page 1, Row 2 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity02_name:
-          name: Entity page 1, Row 2 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity02_icon:
-          name: Entity page 1, Row 2 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity03:
-          name: Entity page 1, Row 3 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity03_name:
-          name: Entity page 1, Row 3 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity03_icon:
-          name: Entity page 1, Row 3 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity04:
-          name: Entity page 1, Row 4 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity04_name:
-          name: Entity page 1, Row 4 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity04_icon:
-          name: Entity page 1, Row 4 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity05:
-          name: Entity page 1, Row 5 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity05_name:
-          name: Entity page 1, Row 5 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity05_icon:
-          name: Entity page 1, Row 5 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity06:
-          name: Entity page 1, Row 6 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity06_name:
-          name: Entity page 1, Row 6 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity06_icon:
-          name: Entity page 1, Row 6 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity07:
-          name: Entity page 1, Row 7 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity07_name:
-          name: Entity page 1, Row 7 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity07_icon:
-          name: Entity page 1, Row 7 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity08:
-          name: Entity page 1, Row 8 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity08_name:
-          name: Entity page 1, Row 8 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity08_icon:
-          name: Entity page 1, Row 8 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-    entities_page_02:
-      name: Entities page 02 (optional)
-      icon: mdi:format-list-bulleted-square
-      description: Select what to display in the entities page.
-      collapsed: true
-      input:
-        entity_page02_label:
-          name: Page title
-          description: Please select the label which should be displayed in the top of the page.
-          default: ""
-          selector:
-            text:
-        entities_entity09:
-          name: Entity page 2, Row 1 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity09_name:
-          name: Entity page 2, Row 1 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity09_icon:
-          name: Entity page 2, Row 1 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity10:
-          name: Entity page 2, Row 2 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity10_name:
-          name: Entity page 2, Row 2 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity10_icon:
-          name: Entity page 2, Row 2 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity11:
-          name: Entity page 2, Row 3 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity11_name:
-          name: Entity page 2, Row 3 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity11_icon:
-          name: Entity page 2, Row 3 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity12:
-          name: Entity page 2, Row 4 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity12_name:
-          name: Entity page 2, Row 4 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity12_icon:
-          name: Entity page 2, Row 4 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity13:
-          name: Entity page 2, Row 5 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity13_name:
-          name: Entity page 2, Row 5 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity13_icon:
-          name: Entity page 2, Row 5 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity14:
-          name: Entity page 2, Row 6 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity14_name:
-          name: Entity page 2, Row 6 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity14_icon:
-          name: Entity page 2, Row 6 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity15:
-          name: Entity page 2, Row 7 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity15_name:
-          name: Entity page 2, Row 7 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity15_icon:
-          name: Entity page 2, Row 7 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity16:
-          name: Entity page 2, Row 8 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity16_name:
-          name: Entity page 2, Row 8 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity16_icon:
-          name: Entity page 2, Row 8 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-    entities_page_03:
-      name: Entities page 03 (optional)
-      icon: mdi:format-list-bulleted-square
-      description: Select what to display in the entities page.
-      collapsed: true
-      input:
-        entity_page03_label:
-          name: Page title
-          description: Please select the label which should be displayed in the top of the page.
-          default: ""
-          selector:
-            text:
-        entities_entity17:
-          name: Entity page 3, Row 1 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity17_name:
-          name: Entity page 3, Row 1 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity17_icon:
-          name: Entity page 3, Row 1 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity18:
-          name: Entity page 3, Row 2 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity18_name:
-          name: Entity page 3, Row 2 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity18_icon:
-          name: Entity page 3, Row 2 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity19:
-          name: Entity page 3, Row 3 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity19_name:
-          name: Entity page 3, Row 3 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity19_icon:
-          name: Entity page 3, Row 3 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity20:
-          name: Entity page 3, Row 4 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity20_name:
-          name: Entity page 3, Row 4 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity20_icon:
-          name: Entity page 3, Row 4 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity21:
-          name: Entity page 3, Row 5 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity21_name:
-          name: Entity page 3, Row 5 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity21_icon:
-          name: Entity page 3, Row 5 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity22:
-          name: Entity page 3, Row 6 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity22_name:
-          name: Entity page 3, Row 6 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity22_icon:
-          name: Entity page 3, Row 6 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity23:
-          name: Entity page 3, Row 7 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity23_name:
-          name: Entity page 3, Row 7 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity23_icon:
-          name: Entity page 3, Row 7 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity24:
-          name: Entity page 3, Row 8 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity24_name:
-          name: Entity page 3, Row 8 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity24_icon:
-          name: Entity page 3, Row 8 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-    entities_page_04:
-      name: Entities page 04 (optional)
-      icon: mdi:format-list-bulleted-square
-      description: Select what to display in the entities page.
-      collapsed: true
-      input:
-        entity_page04_label:
-          name: Page title
-          description: Please select the label which should be displayed in the top of the page.
-          default: ""
-          selector:
-            text:
-        entities_entity25:
-          name: Entity page 4, Row 1 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity25_name:
-          name: Entity page 4, Row 1 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity25_icon:
-          name: Entity page 4, Row 1 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity26:
-          name: Entity page 4, Row 2 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity26_name:
-          name: Entity page 4, Row 2 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity26_icon:
-          name: Entity page 4, Row 2 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity27:
-          name: Entity page 4, Row 3 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity27_name:
-          name: Entity page 4, Row 3 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity27_icon:
-          name: Entity page 4, Row 3 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity28:
-          name: Entity page 4, Row 4 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity28_name:
-          name: Entity page 4, Row 4 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity28_icon:
-          name: Entity page 4, Row 4 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity29:
-          name: Entity page 4, Row 5 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity29_name:
-          name: Entity page 4, Row 5 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity29_icon:
-          name: Entity page 4, Row 5 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity30:
-          name: Entity page 4, Row 6 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity30_name:
-          name: Entity page 4, Row 6 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity30_icon:
-          name: Entity page 4, Row 6 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity31:
-          name: Entity page 4, Row 7 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity31_name:
-          name: Entity page 4, Row 7 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity31_icon:
-          name: Entity page 4, Row 7 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-        entities_entity32:
-          name: Entity page 4, Row 8 - Entity (Optional)
-          description: "Choose an entity to display in this position. If left blank, no entity will be shown."
-          default: []
-          selector:
-            entity:
-        entities_entity32_name:
-          name: Entity page 4, Row 8 - Label (Optional)
-          description: "Specify a custom label for this entity (optional). This label will replace the entity's default `friendly_name` if provided."
-          default: ""
-          selector:
-            text:
-        entities_entity32_icon:
-          name: Entity page 4, Row 8 - Icon (Optional)
-          description: "Set a custom icon for this entity (optional). If not set, the entity's default icon is used, if available. Leave blank for no icon."
-          default: []
-          selector: *selector_icon
-    utitilities_page:
-      name: Utilities page (optional)
-      icon: mdi:gauge
-      description: Select what to display in the Utilities page.
-      collapsed: true
-      input:
-        utilities_enabled:
-          name: Show utilities icon on Home page
-          description: Activate Utilities page and Utilities button on the Home page.
-          default: false
-          selector:
-            boolean:
-        home_button08_icon:
-          name: Home page - Utilities Icon (Optional)
-          description: "Icon which should be displayed on the Home page (Default mdi:gauge)."
-          default: mdi:gauge
-          selector: *selector_icon
-        home_button08_icon_color:
-          name: Home page - Utilities Icon color
-          description: *description_icon_color
-          default: [200, 204, 200]
-          selector: *color_selector
-        utilities_page_cursor_width:
-          name: Utilities Page - Cursor Width
-          description: "Set the width of cursors indicating utility flows. Use 0 for no cursor, or 255 for automatic sizing."
-          default: 255
-          selector:
-            number:
-              min: 0
-              max: 255
-        utilities_page01_label:
-          name: Utilities page - Label (Optional)
-          description: "Label which should be displayed in the top of the page."
-          default: "Utilitites Dashboard"
-          selector:
-            text: {}
-        utilities_page01_icon:
-          name: Utilities page - Icon (Optional)
-          description: "Select the icon to be shown in the top left corner of the page."
-          default: mdi:gauge
-          selector: *selector_icon
-        utilities_page01_home_label:
-          name: Utilities page - Home - Label (Optional)
-          description: "Label which should be displayed in the Home area."
-          default: "Home"
-          selector:
-            text: {}
-        utilities_page01_home_icon:
-          name: Utilities page - Home - Icon (Optional)
-          description: "Select the icon to be shown in the Home area. (Default: mdi:home-lightning-bolt-outline)."
-          default: mdi:home-lightning-bolt-outline
-          selector: *selector_icon
-        utilities_page01_home_value1:
-          name: Utilities page - Home - Value 1 (Optional)
-          description: "Select the entity with values to be shown in the Home area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_home_value2:
-          name: Utilities page - Home - Value 2 (Optional)
-          description: "Select the entity with values to be shown in the Home area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_home_color:
-          name: Utilities page - Home - Color (Optional)
-          description: "Select the color for the items related to the Home area."
-          default: [192, 192, 192]
-          selector: *color_selector
-        utilities_page01_grid_label:
-          name: Utilities page - Grid - Label (Optional)
-          description: "Label which should be displayed in the Grid area."
-          default: "Grid"
-          selector:
-            text: {}
-        utilities_page01_grid_icon:
-          name: Utilities page - Grid - Icon (Optional)
-          description: "Select the icon to be shown in the Grid area. (Default: mdi:transmission-tower)."
-          default: mdi:transmission-tower
-          selector: *selector_icon
-        utilities_page01_grid_value1:
-          name: Utilities page - Grid - Value 1 (Optional)
-          description: "Select the entity with values to be shown in the Grid area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_grid_value2:
-          name: Utilities page - Grid - Value 2 (Optional)
-          description: "Select the entity with values to be shown in the Grid area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_grid_color:
-          name: Utilities page - Grid - Color (Optional)
-          description: "Select the color for the items related to the Grid area."
-          default: [192, 192, 192]
-          selector: *color_selector
-        utilities_page01_main_line_reference:
-          name: Main Line Direction Reference
-          description: "Select a sensor to use as a reference for the main line's movement direction."
-          default: []
-          selector:
-            entity:
-              filter:
-                domain:
-                  - sensor
-        utilities_page01_main_line_inverted:
-          name: Main Line Direction Inverted
-          description: "Enable this to reverse the main line's movement direction relative to the sensor's readings."
-          default: false
-          selector:
-            boolean:
-            ##### Utilities page 01 - Group 1 #####
-        utilities_page01_group01_label:
-          name: Utilities page - Group 1 - Label (Optional)
-          description: "Label which should be displayed in the Group 1 area."
-          default: ""
-          selector:
-            text:
-        utilities_page01_group01_icon:
-          name: Utilities page - Group 1 - Icon (Optional)
-          description: "Select the icon to be shown in the Group 1 area."
-          default: []
-          selector: *selector_icon
-        utilities_page01_group01_value1:
-          name: Utilities page - Group 1 - Value 1 (Optional)
-          description: "Select the entity with values to be shown in the Group 1 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group01_value2:
-          name: Utilities page - Group 1 - Value 2 (Optional)
-          description: "Select the entity with values to be shown in the Group 1 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group01_color:
-          name: Utilities page - Group 1 - Color (Optional)
-          description: "Select the color for the items related to the Group 1 area."
-          default: [192, 192, 192]
-          selector: *color_selector
-        utilities_page01_group01_line_reference:
-          name: Utilities page - Group 1 - Line Direction Reference
-          description: "Select a sensor to use as a reference for the Group 1 line's movement direction."
-          default: []
-          selector:
-            entity:
-              filter:
-                domain:
-                  - sensor
-        utilities_page01_group01_line_inverted:
-          name: Utilities page - Group 1 - Line Direction Inverted
-          description: "Enable this to reverse the Group 1 line's movement direction relative to the sensor's readings."
-          default: false
-          selector:
-            boolean:
-            ##### Utilities page 01 - Group 2 #####
-        utilities_page01_group02_label:
-          name: Utilities page - Group 2 - Label (Optional)
-          description: "Label which should be displayed in the Group 2 area."
-          default: ""
-          selector:
-            text:
-        utilities_page01_group02_icon:
-          name: Utilities page - Group 2 - Icon (Optional)
-          description: "Select the icon to be shown in the Group 2 area."
-          default: []
-          selector: *selector_icon
-        utilities_page01_group02_value1:
-          name: Utilities page - Group 2 - Value 1 (Optional)
-          description: "Select the entity with values to be shown in the Group 2 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group02_value2:
-          name: Utilities page - Group 2 - Value 2 (Optional)
-          description: "Select the entity with values to be shown in the Group 2 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group02_color:
-          name: Utilities page - Group 2 - Color (Optional)
-          description: "Select the color for the items related to the Group 2 area."
-          default: [192, 192, 192]
-          selector: *color_selector
-        utilities_page01_group02_line_reference:
-          name: Utilities page - Group 2 - Line Direction Reference
-          description: "Select a sensor to use as a reference for the Group 2 line's movement direction."
-          default: []
-          selector:
-            entity:
-              filter:
-                domain:
-                  - sensor
-        utilities_page01_group02_line_inverted:
-          name: Utilities page - Group 2 - Line Direction Inverted
-          description: "Enable this to reverse the Group 2 line's movement direction relative to the sensor's readings."
-          default: false
-          selector:
-            boolean:
-            ##### Utilities page 01 - Group 3 #####
-        utilities_page01_group03_label:
-          name: Utilities page - Group 3 - Label (Optional)
-          description: "Label which should be displayed in the Group 3 area."
-          default: ""
-          selector:
-            text:
-        utilities_page01_group03_icon:
-          name: Utilities page - Group 3 - Icon (Optional)
-          description: "Select the icon to be shown in the Group 3 area."
-          default: []
-          selector: *selector_icon
-        utilities_page01_group03_value1:
-          name: Utilities page - Group 3 - Value 1 (Optional)
-          description: "Select the entity with values to be shown in the Group 3 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group03_value2:
-          name: Utilities page - Group 3 - Value 2 (Optional)
-          description: "Select the entity with values to be shown in the Group 3 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group03_color:
-          name: Utilities page - Group 3 - Color (Optional)
-          description: "Select the color for the items related to the Group 3 area."
-          default: [192, 192, 192]
-          selector: *color_selector
-        utilities_page01_group03_line_reference:
-          name: Utilities page - Group 3 - Line Direction Reference
-          description: "Select a sensor to use as a reference for the Group 3 line's movement direction."
-          default: []
-          selector:
-            entity:
-              filter:
-                domain:
-                  - sensor
-        utilities_page01_group03_line_inverted:
-          name: Utilities page - Group 3 - Line Direction Inverted
-          description: "Enable this to reverse the Group 3 line's movement direction relative to the sensor's readings."
-          default: false
-          selector:
-            boolean:
-            ##### Utilities page 01 - Group 4 #####
-        utilities_page01_group04_label:
-          name: Utilities page - Group 4 - Label (Optional)
-          description: "Label which should be displayed in the Group 4 area."
-          default: ""
-          selector:
-            text:
-        utilities_page01_group04_icon:
-          name: Utilities page - Group 4 - Icon (Optional)
-          description: "Select the icon to be shown in the Group 4 area."
-          default: []
-          selector: *selector_icon
-        utilities_page01_group04_value1:
-          name: Utilities page - Group 4 - Value 1 (Optional)
-          description: "Select the entity with values to be shown in the Group 4 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group04_value2:
-          name: Utilities page - Group 4 - Value 2 (Optional)
-          description: "Select the entity with values to be shown in the Group 4 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group04_color:
-          name: Utilities page - Group 4 - Color (Optional)
-          description: "Select the color for the items related to the Group 4 area."
-          default: [192, 192, 192]
-          selector: *color_selector
-        utilities_page01_group04_line_reference:
-          name: Utilities page - Group 4 - Line Direction Reference
-          description: "Select a sensor to use as a reference for the Group 4 line's movement direction."
-          default: []
-          selector:
-            entity:
-              filter:
-                domain:
-                  - sensor
-        utilities_page01_group04_line_inverted:
-          name: Utilities page - Group 4 - Line Direction Inverted
-          description: "Enable this to reverse the Group 4 line's movement direction relative to the sensor's readings."
-          default: false
-          selector:
-            boolean:
-        utilities_page01_group05_label:
-          name: Utilities page - Group 5 - Label (Optional)
-          description: "Label which should be displayed in the Group 5 area."
-          default: ""
-          selector:
-            text:
-        utilities_page01_group05_icon:
-          name: Utilities page - Group 5 - Icon (Optional)
-          description: "Select the icon to be shown in the Group 5 area."
-          default: []
-          selector: *selector_icon
-        utilities_page01_group05_value1:
-          name: Utilities page - Group 5 - Value 1 (Optional)
-          description: "Select the entity with values to be shown in the Group 5 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group05_value2:
-          name: Utilities page - Group 5 - Value 2 (Optional)
-          description: "Select the entity with values to be shown in the Group 5 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group05_color:
-          name: Utilities page - Group 5 - Color (Optional)
-          description: "Select the color for the items related to the Group 5 area."
-          default: [192, 192, 192]
-          selector: *color_selector
-        utilities_page01_group05_line_reference:
-          name: Utilities page - Group 5 - Line Direction Reference
-          description: "Select a sensor to use as a reference for the Group 5 line's movement direction."
-          default: []
-          selector:
-            entity:
-              filter:
-                domain:
-                  - sensor
-        utilities_page01_group05_line_inverted:
-          name: Utilities page - Group 5 - Line Direction Inverted
-          description: "Enable this to reverse the Group 5 line's movement direction relative to the sensor's readings."
-          default: false
-          selector:
-            boolean:
-        utilities_page01_group06_label:
-          name: Utilities page - Group 6 - Label (Optional)
-          description: "Label which should be displayed in the Group 6 area."
-          default: ""
-          selector:
-            text:
-        utilities_page01_group06_icon:
-          name: Utilities page - Group 6 - Icon (Optional)
-          description: "Select the icon to be shown in the Group 6 area."
-          default: []
-          selector: *selector_icon
-        utilities_page01_group06_value1:
-          name: Utilities page - Group 6 - Value 1 (Optional)
-          description: "Select the entity with values to be shown in the Group 6 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group06_value2:
-          name: Utilities page - Group 6 - Value 2 (Optional)
-          description: "Select the entity with values to be shown in the Group 6 area."
-          default: []
-          selector:
-            entity:
-        utilities_page01_group06_color:
-          name: Utilities page - Group 6 - Color (Optional)
-          description: "Select the color for the items related to the Group 6 area."
-          default: [192, 192, 192]
-          selector: *color_selector
-        utilities_page01_group06_line_reference:
-          name: Utilities page - Group 6 - Line Direction Reference
-          description: "Select a sensor to use as a reference for the Group 6 line's movement direction."
-          default: []
-          selector:
-            entity:
-              filter:
-                domain:
-                  - sensor
-        utilities_page01_group06_line_inverted:
-          name: Utilities page - Group 6 - Line Direction Inverted
-          description: "Enable this to reverse the Group 6 line's movement direction relative to the sensor's readings."
-          default: false
-          selector:
-            boolean:
     notifications:
       name: Notifications (optional)
       icon: mdi:email
@@ -3595,31 +1527,6 @@ blueprint:
                   - sound
                   - vibration
                   - window
-    media_player_settings:
-      name: Media player (optional)
-      icon: mdi:movie-cog
-      collapsed: true
-      input:
-        media_player_update_interval:
-          name: Media player - Update interval
-          description: >
-            Interval (msec) to call for an update from the media player entity.
-            Lower values will improve the responsiveness, but could spam your Home Assistant with constant requests,
-            while higher values will reduce the load on HA but the Media Player page can be laggy.
-          default: 5000
-          selector:
-            number:
-              min: 500
-              max: 60000
-              unit_of_measurement: milliseconds
-        media_player_update_delay:
-          name: Media player - Delay (msec) after entity updade call?
-          default: 500
-          selector:
-            number:
-              min: 0
-              max: 5000
-              unit_of_measurement: milliseconds
     advanced_settings:
       name: Advanced settings (optional)
       icon: mdi:cogs
@@ -3753,15 +1660,6 @@ trigger_variables:
       else ("climate." ~ device_name ~ "_thermostat")
     }}
 
-  utilities_line_reference:
-    page01:
-      main: !input utilities_page01_main_line_reference
-      group01: !input utilities_page01_group01_line_reference
-      group02: !input utilities_page01_group02_line_reference
-      group03: !input utilities_page01_group03_line_reference
-      group04: !input utilities_page01_group04_line_reference
-      group05: !input utilities_page01_group05_line_reference
-      group06: !input utilities_page01_group06_line_reference
 
 variables:
   blueprint_version: '4.3.12'
@@ -3779,25 +1677,11 @@ variables:
     boot: "boot"
     screensaver: "screensaver"
     light: "light"
-    cover: "cover"
     fan: "fan"
     buttonpages:
       - "buttonpage01"
-      - "buttonpage02"
-      - "buttonpage03"
-      - "buttonpage04"
     notification: "notification"
-    qrcode: "qrcode"
-    entitypages:
-      - "entitypage01"
-      - "entitypage02"
-      - "entitypage03"
-      - "entitypage04"
-    alarm: "alarm"
-    keyb_num: "keyb_num"
-    media_player: "media_player"
     confirm: "confirm"
-    utilities: "utilities"
 
   home_page_background_update: !input home_page_background_update
 
@@ -3817,12 +1701,6 @@ variables:
       else ("sensor." ~ device_name ~ "_nextion_display")
     }}
 
-  detailed_entity: >
-    {{
-      nspanel_entities | selectattr(None, "search", "sensor.*_detailed_entity") | list | last
-      if nspanel_entities | selectattr(None, "search", "sensor.*_detailed_entity") | list | count > 0
-      else ("sensor." ~ device_name ~ "_detailed_entity")
-    }}
 
 # yamllint disable rule:indentation rule:comments-indentation
 trigger:
@@ -3890,286 +1768,6 @@ trigger:
       entity_id: !input 'entity08'
       id: trigger_buttonpage_state
 
-    ##### Button09 Sync #####
-    - platform: state
-      entity_id: !input 'entity09'
-      id: trigger_buttonpage_state
-
-    ##### Button10 Sync #####
-    - platform: state
-      entity_id: !input 'entity10'
-      id: trigger_buttonpage_state
-
-    ##### Button11 Sync #####
-    - platform: state
-      entity_id: !input 'entity11'
-      id: trigger_buttonpage_state
-
-    ##### Button12 Sync #####
-    - platform: state
-      entity_id: !input 'entity12'
-      id: trigger_buttonpage_state
-
-    ##### Button13 Sync #####
-    - platform: state
-      entity_id: !input 'entity13'
-      id: trigger_buttonpage_state
-
-    ##### Button14 Sync #####
-    - platform: state
-      entity_id: !input 'entity14'
-      id: trigger_buttonpage_state
-
-    ##### Button15 Sync #####
-    - platform: state
-      entity_id: !input 'entity15'
-      id: trigger_buttonpage_state
-
-    ##### Button16 Sync #####
-    - platform: state
-      entity_id: !input 'entity16'
-      id: trigger_buttonpage_state
-
-    ##### Button17 Sync #####
-    - platform: state
-      entity_id: !input 'entity17'
-      id: trigger_buttonpage_state
-
-    ##### Button18 Sync #####
-    - platform: state
-      entity_id: !input 'entity18'
-      id: trigger_buttonpage_state
-
-    ##### Button19 Sync #####
-    - platform: state
-      entity_id: !input 'entity19'
-      id: trigger_buttonpage_state
-
-    ##### Button20 Sync #####
-    - platform: state
-      entity_id: !input 'entity20'
-      id: trigger_buttonpage_state
-
-    ##### Button21 Sync #####
-    - platform: state
-      entity_id: !input 'entity21'
-      id: trigger_buttonpage_state
-
-    ##### Button22 Sync #####
-    - platform: state
-      entity_id: !input 'entity22'
-      id: trigger_buttonpage_state
-
-    ##### Button23 Sync #####
-    - platform: state
-      entity_id: !input 'entity23'
-      id: trigger_buttonpage_state
-
-    ##### Button24 Sync #####
-    - platform: state
-      entity_id: !input 'entity24'
-      id: trigger_buttonpage_state
-
-    ##### Button25 Sync #####
-    - platform: state
-      entity_id: !input 'entity25'
-      id: trigger_buttonpage_state
-
-    ##### Button26 Sync #####
-    - platform: state
-      entity_id: !input 'entity26'
-      id: trigger_buttonpage_state
-
-    ##### Button27 Sync #####
-    - platform: state
-      entity_id: !input 'entity27'
-      id: trigger_buttonpage_state
-
-    ##### Button28 Sync #####
-    - platform: state
-      entity_id: !input 'entity28'
-      id: trigger_buttonpage_state
-
-    ##### Button29 Sync #####
-    - platform: state
-      entity_id: !input 'entity29'
-      id: trigger_buttonpage_state
-
-    ##### Button30 Sync #####
-    - platform: state
-      entity_id: !input 'entity30'
-      id: trigger_buttonpage_state
-
-    ##### Button31 Sync #####
-    - platform: state
-      entity_id: !input 'entity31'
-      id: trigger_buttonpage_state
-
-    ##### Button32 Sync #####
-    - platform: state
-      entity_id: !input 'entity32'
-      id: trigger_buttonpage_state
-
-  ##### Trigger - Entity pages - State change ###############################################################################################
-    - alias: entities_entity01
-      platform: state
-      entity_id: !input 'entities_entity01'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity02
-      platform: state
-      entity_id: !input 'entities_entity02'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity03
-      platform: state
-      entity_id: !input 'entities_entity03'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity04
-      platform: state
-      entity_id: !input 'entities_entity04'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity05
-      platform: state
-      entity_id: !input 'entities_entity05'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity06
-      platform: state
-      entity_id: !input 'entities_entity06'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity07
-      platform: state
-      entity_id: !input 'entities_entity07'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity08
-      platform: state
-      entity_id: !input 'entities_entity08'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity09
-      platform: state
-      entity_id: !input 'entities_entity09'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity10
-      platform: state
-      entity_id: !input 'entities_entity10'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity11
-      platform: state
-      entity_id: !input 'entities_entity11'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity12
-      platform: state
-      entity_id: !input 'entities_entity12'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity13
-      platform: state
-      entity_id: !input 'entities_entity13'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity14
-      platform: state
-      entity_id: !input 'entities_entity14'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity15
-      platform: state
-      entity_id: !input 'entities_entity15'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity16
-      platform: state
-      entity_id: !input 'entities_entity16'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity17
-      platform: state
-      entity_id: !input 'entities_entity17'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity18
-      platform: state
-      entity_id: !input 'entities_entity18'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity19
-      platform: state
-      entity_id: !input 'entities_entity19'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity20
-      platform: state
-      entity_id: !input 'entities_entity20'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity21
-      platform: state
-      entity_id: !input 'entities_entity21'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity22
-      platform: state
-      entity_id: !input 'entities_entity22'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity23
-      platform: state
-      entity_id: !input 'entities_entity23'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity24
-      platform: state
-      entity_id: !input 'entities_entity24'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity25
-      platform: state
-      entity_id: !input 'entities_entity25'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity26
-      platform: state
-      entity_id: !input 'entities_entity26'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity27
-      platform: state
-      entity_id: !input 'entities_entity27'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity28
-      platform: state
-      entity_id: !input 'entities_entity28'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity29
-      platform: state
-      entity_id: !input 'entities_entity29'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity30
-      platform: state
-      entity_id: !input 'entities_entity30'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity31
-      platform: state
-      entity_id: !input 'entities_entity31'
-      id: trigger_entitypage_state
-
-    - alias: entities_entity32
-      platform: state
-      entity_id: !input 'entities_entity32'
-      id: trigger_entitypage_state
 
   ##### Trigger - Home - Chips - State change #################################################################################################################
     ##### Chip 01 #####
@@ -4200,26 +1798,6 @@ trigger:
         entity_id: !input 'chip04'
       id: trigger_chip_state
 
-    ##### Chip 05 #####
-    - platform: event
-      event_type: state_changed
-      event_data:
-        entity_id: !input 'chip05'
-      id: trigger_chip_state
-
-    ##### Chip 06 #####
-    - platform: event
-      event_type: state_changed
-      event_data:
-        entity_id: !input 'chip06'
-      id: trigger_chip_state
-
-    ##### Chip 07 #####
-    - platform: event
-      event_type: state_changed
-      event_data:
-        entity_id: !input 'chip07'
-      id: trigger_chip_state
 
   ##### Trigger - Home - Values - State change #################################################################################################################
 
@@ -4300,12 +1878,6 @@ trigger:
       event_data:
         entity_id: !input 'home_custom_button06'
       id: home_custom_buttons
-    ##### Custom button 07 #####
-    - platform: event
-      event_type: state_changed
-      event_data:
-        entity_id: !input 'alarm'
-      id: home_custom_buttons
 
   ##### Trigger - Relays - State change #################################################################################################################
 
@@ -4331,64 +1903,6 @@ trigger:
         entity_id: !input 'climate'
       id: climate_state
 
-  ##### Trigger - Climate - Values - State change #################################################################################################################
-    ##### Climate Value 01 #####
-    - platform: state
-      entity_id: !input 'climate_value01'
-      not_to:
-        - unknown
-        - unavailable
-      for:
-        seconds: 1
-      id: trigger_climatepage_value_state
-    ##### Climate Value 02 #####
-    - platform: state
-      entity_id: !input 'climate_value02'
-      not_to:
-        - unknown
-        - unavailable
-      for:
-        seconds: 1
-      id: trigger_climatepage_value_state
-    ##### Climate Value 03 #####
-    - platform: state
-      entity_id: !input 'climate_value03'
-      not_to:
-        - unknown
-        - unavailable
-      for:
-        seconds: 1
-      id: trigger_climatepage_value_state
-    ##### Climate Value 04 #####
-    - platform: state
-      entity_id: !input 'climate_value04'
-      not_to:
-        - unknown
-        - unavailable
-      for:
-        seconds: 1
-      id: trigger_climatepage_value_state
-
-  ##### Trigger - Climate - Custom buttons - State change #################################################################################################################
-    ##### Climate Button page 1, Button 8 #####
-    - platform: state
-      entity_id: !input climate_button08
-      not_to:
-        - unknown
-        - unavailable
-      for:
-        seconds: 1
-      id: climate_button08_state
-    ##### Climate Button page 2, Button 1 #####
-    - platform: state
-      entity_id: !input climate_button09
-      not_to:
-        - unknown
-        - unavailable
-      for:
-        seconds: 1
-      id: climate_button09_state
-
   ##### Trigger - Hardware buttons #################################################################################################################
 
     ##### Left Button - State #####
@@ -4406,153 +1920,6 @@ trigger:
     - platform: state
       entity_id: !input right_button_state_entity
       id: right_button_alt_state
-
-  ##### Trigger - Page utilities - State change #################################################################################################################
-    ##### Page utilities - Main line #####
-    - platform: template
-      value_template: >
-        {% set line_ref_id = utilities_line_reference.page01.main %}
-        {% set line_ref_state = (states(line_ref_id) | float(0)) if line_ref_id is string and line_ref_id.split(".") == 2 else 0 %}
-        {{ ((line_ref_state > 0) - (line_ref_state < 0)) }}
-      id: utilities_page
-      for:
-        seconds: 1
-    ##### Page utilities - Home #####
-    - platform: state
-      entity_id: !input utilities_page01_home_value1
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: state
-      entity_id: !input utilities_page01_home_value2
-      id: utilities_page
-      for:
-        seconds: 1
-    ##### Page utilities - Grid #####
-    - platform: state
-      entity_id: !input utilities_page01_grid_value1
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: state
-      entity_id: !input utilities_page01_grid_value2
-      id: utilities_page
-      for:
-        seconds: 1
-    ##### Page utilities - Group 01 #####
-    - platform: state
-      entity_id: !input utilities_page01_group01_value1
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: state
-      entity_id: !input utilities_page01_group01_value2
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: template
-      value_template: >
-        {% set line_ref_id = utilities_line_reference.page01.group01 %}
-        {% set line_ref_state = (states(line_ref_id) | float(0)) if line_ref_id is string and line_ref_id.split(".") == 2 else 0 %}
-        {{ ((line_ref_state > 0) - (line_ref_state < 0)) }}
-      id: utilities_page
-      for:
-        seconds: 1
-    ##### Page utilities - Group 02 #####
-    - platform: state
-      entity_id: !input utilities_page01_group02_value1
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: state
-      entity_id: !input utilities_page01_group02_value2
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: template
-      value_template: >
-        {% set line_ref_id = utilities_line_reference.page01.group02 %}
-        {% set line_ref_state = (states(line_ref_id) | float(0)) if line_ref_id is string and line_ref_id.split(".") == 2 else 0 %}
-        {{ ((line_ref_state > 0) - (line_ref_state < 0)) }}
-      id: utilities_page
-      for:
-        seconds: 1
-    ##### Page utilities - Group 03 #####
-    - platform: state
-      entity_id: !input utilities_page01_group03_value1
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: state
-      entity_id: !input utilities_page01_group03_value2
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: template
-      value_template: >
-        {% set line_ref_id = utilities_line_reference.page01.group03 %}
-        {% set line_ref_state = (states(line_ref_id) | float(0)) if line_ref_id is string and line_ref_id.split(".") == 2 else 0 %}
-        {{ ((line_ref_state > 0) - (line_ref_state < 0)) }}
-      id: utilities_page
-      for:
-        seconds: 1
-    ##### Page utilities - Group 04 #####
-    - platform: state
-      entity_id: !input utilities_page01_group04_value1
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: state
-      entity_id: !input utilities_page01_group04_value2
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: template
-      value_template: >
-        {% set line_ref_id = utilities_line_reference.page01.group04 %}
-        {% set line_ref_state = (states(line_ref_id) | float(0)) if line_ref_id is string and line_ref_id.split(".") == 2 else 0 %}
-        {{ ((line_ref_state > 0) - (line_ref_state < 0)) }}
-      id: utilities_page
-      for:
-        seconds: 1
-    ##### Page utilities - Group 05 #####
-    - platform: state
-      entity_id: !input utilities_page01_group05_value1
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: state
-      entity_id: !input utilities_page01_group05_value2
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: template
-      value_template: >
-        {% set line_ref_id = utilities_line_reference.page01.group05 %}
-        {% set line_ref_state = (states(line_ref_id) | float(0)) if line_ref_id is string and line_ref_id.split(".") == 2 else 0 %}
-        {{ ((line_ref_state > 0) - (line_ref_state < 0)) }}
-      id: utilities_page
-      for:
-        seconds: 1
-    ##### Page utilities - Group 06 #####
-    - platform: state
-      entity_id: !input utilities_page01_group06_value1
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: state
-      entity_id: !input utilities_page01_group06_value2
-      id: utilities_page
-      for:
-        seconds: 1
-    - platform: template
-      value_template: >
-        {% set line_ref_id = utilities_line_reference.page01.group06 %}
-        {% set line_ref_state = (states(line_ref_id) | float(0)) if line_ref_id is string and line_ref_id.split(".") == 2 else 0 %}
-        {{ ((line_ref_state > 0) - (line_ref_state < 0)) }}
-      id: utilities_page
-      for:
-        seconds: 1
 
   ##### Trigger - Time #################################################################################################################
 
@@ -4626,7 +1993,7 @@ condition:
     {{
       trigger.id != "trigger_buttonpage_state" or
       pages.current in pages.buttonpages or
-      (pages.current in [pages.light, pages.cover, pages.climate, pages.fan, pages.alarm] and trigger.entity_id is defined and trigger.entity_id == states(detailed_entity))
+      (pages.current in [pages.light, pages.climate, pages.fan] and trigger.entity_id is defined and trigger.entity_id == states(detailed_entity))
     }}
   - >  # Don't update indoor temp when embedded temp is used
     {{
@@ -4742,7 +2109,6 @@ action:
         icon:
           domain:
             air_quality: "\uED42"              # mdi:air-filter
-            alarm_control_panel: "\uE497"      # mdi:shield
             alert: "\uE025"                    # mdi:alert
             automation: "\uE6A8"               # mdi:robot
             binary_sensor: "\uE7C0"            # mdi:dip-switch
@@ -4912,13 +2278,6 @@ action:
           unavailable: غير متاح
           unknown: مجهول
           no_name: بدون اسم
-          alarm:
-            home: في المنزل
-            away: بعيد
-            night: ليل
-            vacation: إجازة
-            bypass: تجاوز
-            disarm: نزع السلاح
           settings:
             reboot: إعادة تشغيل
             sleep: وضع النوم
@@ -4988,13 +2347,6 @@ action:
           unavailable: Недостъпен
           unknown: Неизвестен
           no_name: Няма име
-          alarm:
-            home: Вкъщи
-            away: Навън
-            night: Нощ
-            vacation: Ваканция
-            bypass: Заобикаляне
-            disarm: Разоръжаване
           settings:
             reboot: Рестартиране
             sleep: Сън
@@ -5064,13 +2416,6 @@ action:
           unavailable: Nedostupné
           unknown: Neznámý
           no_name: Bez názvu
-          alarm:
-            home: Doma
-            away: Pryč
-            night: Noc
-            vacation: Dovolená
-            bypass: Obcházet
-            disarm: Odjistit
           settings:
             reboot: Restart
             sleep: Spánek
@@ -5140,13 +2485,6 @@ action:
           unavailable: Utilgængelig
           unknown: Ukendt
           no_name: Intet navn
-          alarm:
-            home: Hjemme
-            away: Væk
-            night: Nat
-            vacation: Ferie
-            bypass: Omkørsel
-            disarm: Afvæbne
           settings:
             reboot: Genstart
             sleep: Sove
@@ -5216,13 +2554,6 @@ action:
           unavailable: Nicht verfügbar
           unknown: Unbekannt
           no_name: Kein Name
-          alarm:
-            home: Zuhause
-            away: Abwesend
-            night: Nacht
-            vacation: Urlaub
-            bypass: Umgehen
-            disarm: Aus
           settings:
             reboot: Neustart
             sleep: Schlafmodus
@@ -5292,13 +2623,6 @@ action:
           unavailable: Μη διαθέσιμο
           unknown: Άγνωστο
           no_name: Χωρίς όνομα
-          alarm:
-            home: Σπίτι
-            away: Μακριά
-            night: Νύχτα
-            vacation: Διακοπές
-            bypass: Παράκαμψη
-            disarm: Αφοπλισμός
           settings:
             reboot: Επανεκκίνηση
             sleep: Ύπνος
@@ -5368,13 +2692,6 @@ action:
           unavailable: Unavailable
           unknown: Unknown
           no_name: No name
-          alarm:
-            home: Home
-            away: Away
-            night: Night
-            vacation: Holiday
-            bypass: Custom bypass
-            disarm: Disarm
           settings:
             reboot: Reboot
             sleep: Sleep mode
@@ -5444,13 +2761,6 @@ action:
           unavailable: No disponible
           unknown: Desconocido
           no_name: Sin nombre
-          alarm:
-            home: Casa
-            away: Fuera
-            night: Noche
-            vacation: Vacaciones
-            bypass: Bypass
-            disarm: Desarmar
           settings:
             reboot: Reiniciar
             sleep: Dormir
@@ -5520,13 +2830,6 @@ action:
           unavailable: Pole saadaval
           unknown: Tundmatu
           no_name: Nime pole
-          alarm:
-            home: Kodus
-            away: Ära
-            night: Öö
-            vacation: Puhkus
-            bypass: Möödaviik
-            disarm: Desarmeerima
           settings:
             reboot: Taaskäivita
             sleep: Uni
@@ -5596,13 +2899,6 @@ action:
           unavailable: Ei saatavilla
           unknown: Tuntematon
           no_name: Nimeämätön
-          alarm:
-            home: Kotona
-            away: Poissa
-            night: Yö
-            vacation: Loma
-            bypass: Ohitus
-            disarm: Pois päältä
           settings:
             reboot: Käynnistä uudelleen
             sleep: Lepotila
@@ -5672,13 +2968,6 @@ action:
           unavailable: Indisponible
           unknown: Inconnu
           no_name: Sans nom
-          alarm:
-            home: À la maison
-            away: Absent
-            night: Nuit
-            vacation: Vacances
-            bypass: Contournement
-            disarm: Désarmer
           settings:
             reboot: Redémarrer
             sleep: Veille
@@ -5748,13 +3037,6 @@ action:
           unavailable: ןימז אל
           unknown: עודי אל
           no_name: םש אלל
-          alarm:
-            home: תיבב
-            away: הצוחה
-            night: הליל
-            vacation: השפוח
-            bypass: הפיקע
-            disarm: לורטנ
           settings:
             reboot: שדחמ הלעפה
             sleep: הניש
@@ -5824,13 +3106,6 @@ action:
           unavailable: Nedostupno
           unknown: Nepoznato
           no_name: Bez imena
-          alarm:
-            home: Kod kuće
-            away: Odsutan
-            night: Noć
-            vacation: Odmor
-            bypass: Zaobići
-            disarm: Razoružati
           settings:
             reboot: Ponovno pokretanje
             sleep: Spavanje
@@ -5900,13 +3175,6 @@ action:
           unavailable: Nem elérhető
           unknown: Ismeretlen
           no_name: Névtelen
-          alarm:
-            home: Otthon
-            away: Távol
-            night: Éjszaka
-            vacation: Szabadság
-            bypass: Kerülő
-            disarm: Hatástalanítás
           settings:
             reboot: Újraindítás
             sleep: Alvás
@@ -5976,13 +3244,6 @@ action:
           unavailable: Tidak tersedia
           unknown: Tidak diketahui
           no_name: Tanpa nama
-          alarm:
-            home: Di rumah
-            away: Jauh
-            night: Malam
-            vacation: Liburan
-            bypass: Bypass
-            disarm: Menonaktifkan
           settings:
             reboot: Mulai ulang
             sleep: Tidur
@@ -6052,13 +3313,6 @@ action:
           unavailable: Non disponibile
           unknown: Sconosciuto
           no_name: Senza nome
-          alarm:
-            home: Casa
-            away: Fuori casa
-            night: Notte
-            vacation: Vacanza
-            bypass: Bypass
-            disarm: Disarmato
           settings:
             reboot: Riavvio
             sleep: Modalità ECO
@@ -6128,13 +3382,6 @@ action:
           unavailable: 利用不可
           unknown: 不明
           no_name: 名前なし
-          alarm:
-            home: 自宅
-            away: 外出
-            night: 夜間
-            vacation: 休暇
-            bypass: バイパス
-            disarm: 解除
           settings:
             reboot: 再起動
             sleep: スリープモード
@@ -6204,13 +3451,6 @@ action:
           unavailable: 사용 불가
           unknown: 알 수 없음
           no_name: 이름 없음
-          alarm:
-            home: 집
-            away: 외출
-            night: 밤
-            vacation: 휴가
-            bypass: 우회
-            disarm: 해제
           settings:
             reboot: 재부팅
             sleep: 슬립 모드
@@ -6280,13 +3520,6 @@ action:
           unavailable: Nepasiekiamas
           unknown: Nežinomas
           no_name: Be pavadinimo
-          alarm:
-            home: Namuose
-            away: Išvykęs
-            night: Naktis
-            vacation: Atostogos
-            bypass: Apeiti
-            disarm: Išjungti
           settings:
             reboot: Perkrauti
             sleep: Miego režimas
@@ -6356,13 +3589,6 @@ action:
           unavailable: Nav pieejams
           unknown: Nezināms
           no_name: Bez nosaukuma
-          alarm:
-            home: Mājās
-            away: Projām
-            night: Nakts
-            vacation: Atvaļinājums
-            bypass: Aplūkošana
-            disarm: Atbruņošana
           settings:
             reboot: Restartēt
             sleep: Miega režīms
@@ -6432,13 +3658,6 @@ action:
           unavailable: Utilgjengelig
           unknown: Ukjent
           no_name: Ingen navn
-          alarm:
-            home: Hjemme
-            away: Borte
-            night: Natt
-            vacation: Ferie
-            bypass: Omkjøring
-            disarm: Avvæpne
           settings:
             reboot: Start på nytt
             sleep: Søvnmodus
@@ -6508,13 +3727,6 @@ action:
           unavailable: Niet beschikbaar
           unknown: Onbekend
           no_name: Geen naam
-          alarm:
-            home: Thuis
-            away: Weg
-            night: Nacht
-            vacation: Vakantie
-            bypass: Omzeilen
-            disarm: Uit
           settings:
             reboot: Herstarten
             sleep: Slaapstand
@@ -6584,13 +3796,6 @@ action:
           unavailable: Niedostępny
           unknown: Nieznany
           no_name: Bez nazwy
-          alarm:
-            home: W domu
-            away: Poza domem
-            night: Noc
-            vacation: Wakacje
-            bypass: Obejście
-            disarm: Rozbroić
           settings:
             reboot: Restart
             sleep: Tryb uśpienia
@@ -6660,13 +3865,6 @@ action:
           unavailable: Indisponível
           unknown: Desconhecido
           no_name: Sem nome
-          alarm:
-            home: Em casa
-            away: Ausente
-            night: Noturno
-            vacation: Férias
-            bypass: Desvio
-            disarm: Desarmar
           settings:
             reboot: Reiniciar
             sleep: Dormir
@@ -6736,13 +3934,6 @@ action:
           unavailable: Indisponibil
           unknown: Necunoscut
           no_name: Fără nume
-          alarm:
-            home: Acasă
-            away: Plecat
-            night: Noapte
-            vacation: Vacanță
-            bypass: Ocolire
-            disarm: Dezarmare
           settings:
             reboot: Repornire
             sleep: Somn
@@ -6812,13 +4003,6 @@ action:
           unavailable: Недоступно
           unknown: Неизвестно
           no_name: Без названия
-          alarm:
-            home: Дома
-            away: Вне дома
-            night: Ночь
-            vacation: Отпуск
-            bypass: Обход
-            disarm: Разоружение
           settings:
             reboot: Перезагрузка
             sleep: Сон
@@ -6888,13 +4072,6 @@ action:
           unavailable: Nedostupné
           unknown: Neznámy
           no_name: Bez mena
-          alarm:
-            home: Doma
-            away: Preč
-            night: Noc
-            vacation: Dovolenka
-            bypass: Obísť
-            disarm: Zneškodniť
           settings:
             reboot: Reštartovať
             sleep: Spánok
@@ -6964,13 +4141,6 @@ action:
           unavailable: Nedosegljivo
           unknown: Neznano
           no_name: Brez imena
-          alarm:
-            home: Doma
-            away: Odsoten
-            night: Noč
-            vacation: Dopust
-            bypass: Obvoz
-            disarm: Razorožitev
           settings:
             reboot: Ponovni zagon
             sleep: Spanje
@@ -7040,13 +4210,6 @@ action:
           unavailable: Otillgänglig
           unknown: Okänd
           no_name: Inget namn
-          alarm:
-            home: Hemma
-            away: Borta
-            night: Natt
-            vacation: Semester
-            bypass: Förbigå
-            disarm: Avaktivera
           settings:
             reboot: Starta om
             sleep: Vila
@@ -7116,13 +4279,6 @@ action:
           unavailable: Kullanılamaz
           unknown: Bilinmeyen
           no_name: İsimsiz
-          alarm:
-            home: Evde
-            away: Dışarıda
-            night: Gece
-            vacation: Tatil
-            bypass: Bypass
-            disarm: Devre dışı bırak
           settings:
             reboot: Yeniden başlat
             sleep: Uyku modu
@@ -7192,13 +4348,6 @@ action:
           unavailable: Недоступно
           unknown: Невідомо
           no_name: Без імені
-          alarm:
-            home: Вдома
-            away: Відсутній
-            night: Ніч
-            vacation: Відпустка
-            bypass: Обхід
-            disarm: Роззброєння
           settings:
             reboot: Перезавантаження
             sleep: Сон
@@ -7268,13 +4417,6 @@ action:
           unavailable: 無法使用
           unknown: 未知
           no_name: 未命名
-          alarm:
-            home: 在家
-            away: 離家
-            night: 夜間
-            vacation: 假期
-            bypass: 忽略
-            disarm: 解除
           settings:
             reboot: 重啟
             sleep: 睡眠
@@ -7309,21 +4451,7 @@ action:
             icon: !input chip04_icon
             icon_color_rgb: !input chip04_icon_color
             component: chip04
-          - entity: !input chip05
-            inverted: !input chip05_inverted
-            icon: !input chip05_icon
-            icon_color_rgb: !input chip05_icon_color
-            component: chip05
-          - entity: !input chip06
-            inverted: !input chip06_inverted
-            icon: !input chip06_icon
-            icon_color_rgb: !input chip06_icon_color
-            component: chip06
-          - entity: !input chip07
-            inverted: !input chip07_inverted
-            icon: !input chip07_icon
-            icon_color_rgb: !input chip07_icon_color
-            component: chip07
+
         custom_buttons:
           - entity: !input home_custom_button01
             icon: !input home_custom_button01_icon
@@ -7349,43 +4477,11 @@ action:
             icon: !input home_custom_button06_icon
             name: !input home_custom_button06_name
             component: button06
-          - entity: !input alarm
-            icon: !input home_custom_button07_icon
-            name: !input home_custom_button07_name
-            component: button07
-        entity_value:
-          - entity: !input home_value01
-            icon: !input home_value01_icon
-            icon_color_rgb: !input home_value01_icon_color
-            label_color_rgb: !input home_value01_label_color
-            page: home
-            component: value01
-          - entity: !input home_value02
-            icon: !input home_value02_icon
-            icon_color_rgb: !input home_value02_icon_color
-            label_color_rgb: !input home_value02_label_color
-            page: home
-            component: value02
-          - entity: !input home_value03
-            icon: !input home_value03_icon
-            icon_color_rgb: !input home_value03_icon_color
-            label_color_rgb: !input home_value03_label_color
-            page: home
-            component: value03
-          - entity: !input home_value04
-            icon: !input home_value04_icon
-            icon_color_rgb: !input home_value04_icon_color
-            label_color_rgb: !input home_value04_label_color
-            page: home
-            component: value04
 
       ##### Button pages #####
       buttons_pages:
         labels:
           buttonpage01: !input button_page01_label
-          buttonpage02: !input button_page02_label
-          buttonpage03: !input button_page03_label
-          buttonpage04: !input button_page04_label
         buttons:  # Buttons 1 - 32
           - entity: !input 'entity01'
             name: !input 'entity01_name'
@@ -7443,344 +4539,6 @@ action:
             confirm: !input 'entity08_confirm'
             page: buttonpage01
             component: button08
-          - entity: !input 'entity09'
-            name: !input 'entity09_name'
-            icon: !input 'entity09_icon'
-            icon_color_rgb: !input 'entity09_icon_color'
-            confirm: !input 'entity09_confirm'
-            page: buttonpage02
-            component: button01
-          - entity: !input 'entity10'
-            name: !input 'entity10_name'
-            icon: !input 'entity10_icon'
-            icon_color_rgb: !input 'entity10_icon_color'
-            confirm: !input 'entity10_confirm'
-            page: buttonpage02
-            component: button02
-          - entity: !input 'entity11'
-            name: !input 'entity11_name'
-            icon: !input 'entity11_icon'
-            icon_color_rgb: !input 'entity11_icon_color'
-            confirm: !input 'entity11_confirm'
-            page: buttonpage02
-            component: button03
-          - entity: !input 'entity12'
-            name: !input 'entity12_name'
-            icon: !input 'entity12_icon'
-            icon_color_rgb: !input 'entity12_icon_color'
-            confirm: !input 'entity12_confirm'
-            page: buttonpage02
-            component: button04
-          - entity: !input 'entity13'
-            name: !input 'entity13_name'
-            icon: !input 'entity13_icon'
-            icon_color_rgb: !input 'entity13_icon_color'
-            confirm: !input 'entity13_confirm'
-            page: buttonpage02
-            component: button05
-          - entity: !input 'entity14'
-            name: !input 'entity14_name'
-            icon: !input 'entity14_icon'
-            icon_color_rgb: !input 'entity14_icon_color'
-            confirm: !input 'entity14_confirm'
-            page: buttonpage02
-            component: button06
-          - entity: !input 'entity15'
-            name: !input 'entity15_name'
-            icon: !input 'entity15_icon'
-            icon_color_rgb: !input 'entity15_icon_color'
-            confirm: !input 'entity15_confirm'
-            page: buttonpage02
-            component: button07
-          - entity: !input 'entity16'
-            name: !input 'entity16_name'
-            icon: !input 'entity16_icon'
-            icon_color_rgb: !input 'entity16_icon_color'
-            confirm: !input 'entity16_confirm'
-            page: buttonpage02
-            component: button08
-          - entity: !input 'entity17'
-            name: !input 'entity17_name'
-            icon: !input 'entity17_icon'
-            icon_color_rgb: !input 'entity17_icon_color'
-            confirm: !input 'entity17_confirm'
-            page: buttonpage03
-            component: button01
-          - entity: !input 'entity18'
-            name: !input 'entity18_name'
-            icon: !input 'entity18_icon'
-            icon_color_rgb: !input 'entity18_icon_color'
-            confirm: !input 'entity18_confirm'
-            page: buttonpage03
-            component: button02
-          - entity: !input 'entity19'
-            name: !input 'entity19_name'
-            icon: !input 'entity19_icon'
-            icon_color_rgb: !input 'entity19_icon_color'
-            confirm: !input 'entity19_confirm'
-            page: buttonpage03
-            component: button03
-          - entity: !input 'entity20'
-            name: !input 'entity20_name'
-            icon: !input 'entity20_icon'
-            icon_color_rgb: !input 'entity20_icon_color'
-            confirm: !input 'entity20_confirm'
-            page: buttonpage03
-            component: button04
-          - entity: !input 'entity21'
-            name: !input 'entity21_name'
-            icon: !input 'entity21_icon'
-            icon_color_rgb: !input 'entity21_icon_color'
-            confirm: !input 'entity21_confirm'
-            page: buttonpage03
-            component: button05
-          - entity: !input 'entity22'
-            name: !input 'entity22_name'
-            icon: !input 'entity22_icon'
-            icon_color_rgb: !input 'entity22_icon_color'
-            confirm: !input 'entity22_confirm'
-            page: buttonpage03
-            component: button06
-          - entity: !input 'entity23'
-            name: !input 'entity23_name'
-            icon: !input 'entity23_icon'
-            icon_color_rgb: !input 'entity23_icon_color'
-            confirm: !input 'entity23_confirm'
-            page: buttonpage03
-            component: button07
-          - entity: !input 'entity24'
-            name: !input 'entity24_name'
-            icon: !input 'entity24_icon'
-            icon_color_rgb: !input 'entity24_icon_color'
-            confirm: !input 'entity24_confirm'
-            page: buttonpage03
-            component: button08
-          - entity: !input 'entity25'
-            name: !input 'entity25_name'
-            icon: !input 'entity25_icon'
-            icon_color_rgb: !input 'entity25_icon_color'
-            confirm: !input 'entity25_confirm'
-            page: buttonpage04
-            component: button01
-          - entity: !input 'entity26'
-            name: !input 'entity26_name'
-            icon: !input 'entity26_icon'
-            icon_color_rgb: !input 'entity26_icon_color'
-            confirm: !input 'entity26_confirm'
-            page: buttonpage04
-            component: button02
-          - entity: !input 'entity27'
-            name: !input 'entity27_name'
-            icon: !input 'entity27_icon'
-            icon_color_rgb: !input 'entity27_icon_color'
-            confirm: !input 'entity27_confirm'
-            page: buttonpage04
-            component: button03
-          - entity: !input 'entity28'
-            name: !input 'entity28_name'
-            icon: !input 'entity28_icon'
-            icon_color_rgb: !input 'entity28_icon_color'
-            confirm: !input 'entity28_confirm'
-            page: buttonpage04
-            component: button04
-          - entity: !input 'entity29'
-            name: !input 'entity29_name'
-            icon: !input 'entity29_icon'
-            icon_color_rgb: !input 'entity29_icon_color'
-            confirm: !input 'entity29_confirm'
-            page: buttonpage04
-            component: button05
-          - entity: !input 'entity30'
-            name: !input 'entity30_name'
-            icon: !input 'entity30_icon'
-            icon_color_rgb: !input 'entity30_icon_color'
-            confirm: !input 'entity30_confirm'
-            page: buttonpage04
-            component: button06
-          - entity: !input 'entity31'
-            name: !input 'entity31_name'
-            icon: !input 'entity31_icon'
-            icon_color_rgb: !input 'entity31_icon_color'
-            confirm: !input 'entity31_confirm'
-            page: buttonpage04
-            component: button07
-          - entity: !input 'entity32'
-            name: !input 'entity32_name'
-            icon: !input 'entity32_icon'
-            icon_color_rgb: !input 'entity32_icon_color'
-            confirm: !input 'entity32_confirm'
-            page: buttonpage04
-            component: button08
-
-      ##### Entity pages #####
-      entities_pages:
-        labels:
-          entitypage01: !input 'entity_page01_label'
-          entitypage02: !input 'entity_page02_label'
-          entitypage03: !input 'entity_page03_label'
-          entitypage04: !input 'entity_page04_label'
-        entities:
-          - entity: !input 'entities_entity01'
-            name: !input 'entities_entity01_name'
-            icon: !input 'entities_entity01_icon'
-            page: entitypage01
-            component: value01
-          - entity: !input 'entities_entity02'
-            name: !input 'entities_entity02_name'
-            icon: !input 'entities_entity02_icon'
-            page: entitypage01
-            component: value02
-          - entity: !input 'entities_entity03'
-            name: !input 'entities_entity03_name'
-            icon: !input 'entities_entity03_icon'
-            page: entitypage01
-            component: value03
-          - entity: !input 'entities_entity04'
-            name: !input 'entities_entity04_name'
-            icon: !input 'entities_entity04_icon'
-            page: entitypage01
-            component: value04
-          - entity: !input 'entities_entity05'
-            name: !input 'entities_entity05_name'
-            icon: !input 'entities_entity05_icon'
-            page: entitypage01
-            component: value05
-          - entity: !input 'entities_entity06'
-            name: !input 'entities_entity06_name'
-            icon: !input 'entities_entity06_icon'
-            page: entitypage01
-            component: value06
-          - entity: !input 'entities_entity07'
-            name: !input 'entities_entity07_name'
-            icon: !input 'entities_entity07_icon'
-            page: entitypage01
-            component: value07
-          - entity: !input 'entities_entity08'
-            name: !input 'entities_entity08_name'
-            icon: !input 'entities_entity08_icon'
-            page: entitypage01
-            component: value08
-          - entity: !input 'entities_entity09'
-            name: !input 'entities_entity09_name'
-            icon: !input 'entities_entity09_icon'
-            page: entitypage02
-            component: value01
-          - entity: !input 'entities_entity10'
-            name: !input 'entities_entity10_name'
-            icon: !input 'entities_entity10_icon'
-            page: entitypage02
-            component: value02
-          - entity: !input 'entities_entity11'
-            name: !input 'entities_entity11_name'
-            icon: !input 'entities_entity11_icon'
-            page: entitypage02
-            component: value03
-          - entity: !input 'entities_entity12'
-            name: !input 'entities_entity12_name'
-            icon: !input 'entities_entity12_icon'
-            page: entitypage02
-            component: value04
-          - entity: !input 'entities_entity13'
-            name: !input 'entities_entity13_name'
-            icon: !input 'entities_entity13_icon'
-            page: entitypage02
-            component: value05
-          - entity: !input 'entities_entity14'
-            name: !input 'entities_entity14_name'
-            icon: !input 'entities_entity14_icon'
-            page: entitypage02
-            component: value06
-          - entity: !input 'entities_entity15'
-            name: !input 'entities_entity15_name'
-            icon: !input 'entities_entity15_icon'
-            page: entitypage02
-            component: value07
-          - entity: !input 'entities_entity16'
-            name: !input 'entities_entity16_name'
-            icon: !input 'entities_entity16_icon'
-            page: entitypage02
-            component: value08
-          - entity: !input 'entities_entity17'
-            name: !input 'entities_entity17_name'
-            icon: !input 'entities_entity17_icon'
-            page: entitypage03
-            component: value01
-          - entity: !input 'entities_entity18'
-            name: !input 'entities_entity18_name'
-            icon: !input 'entities_entity18_icon'
-            page: entitypage03
-            component: value02
-          - entity: !input 'entities_entity19'
-            name: !input 'entities_entity19_name'
-            icon: !input 'entities_entity19_icon'
-            page: entitypage03
-            component: value03
-          - entity: !input 'entities_entity20'
-            name: !input 'entities_entity20_name'
-            icon: !input 'entities_entity20_icon'
-            page: entitypage03
-            component: value04
-          - entity: !input 'entities_entity21'
-            name: !input 'entities_entity21_name'
-            icon: !input 'entities_entity21_icon'
-            page: entitypage03
-            component: value05
-          - entity: !input 'entities_entity22'
-            name: !input 'entities_entity22_name'
-            icon: !input 'entities_entity22_icon'
-            page: entitypage03
-            component: value06
-          - entity: !input 'entities_entity23'
-            name: !input 'entities_entity23_name'
-            icon: !input 'entities_entity23_icon'
-            page: entitypage03
-            component: value07
-          - entity: !input 'entities_entity24'
-            name: !input 'entities_entity24_name'
-            icon: !input 'entities_entity24_icon'
-            page: entitypage03
-            component: value08
-          - entity: !input 'entities_entity25'
-            name: !input 'entities_entity25_name'
-            icon: !input 'entities_entity25_icon'
-            page: entitypage04
-            component: value01
-          - entity: !input 'entities_entity26'
-            name: !input 'entities_entity26_name'
-            icon: !input 'entities_entity26_icon'
-            page: entitypage04
-            component: value02
-          - entity: !input 'entities_entity27'
-            name: !input 'entities_entity27_name'
-            icon: !input 'entities_entity27_icon'
-            page: entitypage04
-            component: value03
-          - entity: !input 'entities_entity28'
-            name: !input 'entities_entity28_name'
-            icon: !input 'entities_entity28_icon'
-            page: entitypage04
-            component: value04
-          - entity: !input 'entities_entity29'
-            name: !input 'entities_entity29_name'
-            icon: !input 'entities_entity29_icon'
-            page: entitypage04
-            component: value05
-          - entity: !input 'entities_entity30'
-            name: !input 'entities_entity30_name'
-            icon: !input 'entities_entity30_icon'
-            page: entitypage04
-            component: value06
-          - entity: !input 'entities_entity31'
-            name: !input 'entities_entity31_name'
-            icon: !input 'entities_entity31_icon'
-            page: entitypage04
-            component: value07
-          - entity: !input 'entities_entity32'
-            name: !input 'entities_entity32_name'
-            icon: !input 'entities_entity32_icon'
-            page: entitypage04
-            component: value08
-
       ##### WEATHER ####
       weather_entity_tmp: !input 'weather_entity'  # used only during the creation of weather in variables
       weather_entity: >
@@ -7799,7 +4557,7 @@ action:
               component: button01
             - mode: heat_cool
               icon: refresh-auto
-              color: amber
+              color: green
               component: button02
             - mode: heat
               icon: fire
@@ -7821,81 +4579,6 @@ action:
               icon: power
               color: "off"
               component: button07
-
-      ##### Utilities page #####
-      pages_utilities:
-        cursor:
-          width: !input utilities_page_cursor_width
-        title:
-          label: !input utilities_page01_label
-          icon: !input utilities_page01_icon
-        groups:
-          - name: grid
-            label: !input utilities_page01_grid_label
-            icon: !input utilities_page01_grid_icon
-            value1: !input utilities_page01_grid_value1
-            value2: !input utilities_page01_grid_value2
-            color: !input utilities_page01_grid_color
-          - name: group01
-            label: !input utilities_page01_group01_label
-            icon: !input utilities_page01_group01_icon
-            value1: !input utilities_page01_group01_value1
-            value2: !input utilities_page01_group01_value2
-            color: !input utilities_page01_group01_color
-            line_ref: !input utilities_page01_group01_line_reference
-            line_inverted: !input utilities_page01_group01_line_inverted
-          - name: group02
-            label: !input utilities_page01_group02_label
-            icon: !input utilities_page01_group02_icon
-            value1: !input utilities_page01_group02_value1
-            value2: !input utilities_page01_group02_value2
-            color: !input utilities_page01_group02_color
-            line_ref: !input utilities_page01_group02_line_reference
-            line_inverted: !input utilities_page01_group02_line_inverted
-          - name: group03
-            label: !input utilities_page01_group03_label
-            icon: !input utilities_page01_group03_icon
-            value1: !input utilities_page01_group03_value1
-            value2: !input utilities_page01_group03_value2
-            color: !input utilities_page01_group03_color
-            line_ref: !input utilities_page01_group03_line_reference
-            line_inverted: !input utilities_page01_group03_line_inverted
-          - name: group04
-            label: !input utilities_page01_group04_label
-            icon: !input utilities_page01_group04_icon
-            value1: !input utilities_page01_group04_value1
-            value2: !input utilities_page01_group04_value2
-            color: !input utilities_page01_group04_color
-            line_ref: !input utilities_page01_group04_line_reference
-            line_inverted: !input utilities_page01_group04_line_inverted
-          - name: group05
-            label: !input utilities_page01_group05_label
-            icon: !input utilities_page01_group05_icon
-            value1: !input utilities_page01_group05_value1
-            value2: !input utilities_page01_group05_value2
-            color: !input utilities_page01_group05_color
-            line_ref: !input utilities_page01_group05_line_reference
-            line_inverted: !input utilities_page01_group05_line_inverted
-          - name: group06
-            label: !input utilities_page01_group06_label
-            icon: !input utilities_page01_group06_icon
-            value1: !input utilities_page01_group06_value1
-            value2: !input utilities_page01_group06_value2
-            color: !input utilities_page01_group06_color
-            line_ref: !input utilities_page01_group06_line_reference
-            line_inverted: !input utilities_page01_group06_line_inverted
-          - name: home
-            label: !input utilities_page01_home_label
-            icon: !input utilities_page01_home_icon
-            value1: !input utilities_page01_home_value1
-            value2: !input utilities_page01_home_value2
-            color: !input utilities_page01_home_color
-            line_ref: !input utilities_page01_main_line_reference
-            line_inverted: !input utilities_page01_main_line_inverted
-
-      ###### MEDIA PLAYER REFRESH #####
-      media_player_update_interval: !input 'media_player_update_interval'
-      media_player_update_delay: !input 'media_player_update_delay'
 
       ##### GENERAL ENTITYS #####
       climate: !input climate
@@ -7938,9 +4621,6 @@ action:
           climate:
             "on": ["heat_cool", "heat", "heating", "cold", "cooling", "dry", "drying", "fan", "fan_only", "auto"]
             "off": ["off", "idle"]
-          alarm_control_panel:
-            "on": ["armed_home", "armed_away", "armed_vacation", "armed_custom_bypass", "triggered", "pending", "arming"]
-            "off": ["disarmed", "disarming"]
           lock:
             "on": ["unlocked"]
             "off": ["locked"]
@@ -8024,16 +4704,6 @@ action:
                   {% elif "idle" in entity_climate_action %}{{ all_icons.thermometer }}
                   {% else %}{{ icon_domain }}
                   {% endif %}
-                {% elif entity_domain == "alarm_control_panel" %}
-                  {% if entity_state in ["disarmed", "disarming"] %}{{ all_icons["shield-off-outline"] }}
-                  {% elif entity_state == "armed_home" %}{{ all_icons["shield-home-outline"] }}
-                  {% elif entity_state == "armed_away" %}{{ all_icons["shield-lock-outline"] }}
-                  {% elif entity_state == "armed_night" %}{{ all_icons["shield-moon-outline"] }}
-                  {% elif entity_state == "armed_vacation" %}{{ all_icons["shield-airplane-outline"] }}
-                  {% elif entity_state == "armed_bypass" %}{{ all_icons["shield-half-full"] }}
-                  {% elif entity_state in ["pending", "arming"] %}{{ all_icons["shield-outline"] }}
-                  {% else %}{{ all_icons["shield-alert-outline"] }}
-                  {% endif %}
                 {% elif entity_domain == "lock" %}
                   {% if entity_state in ["locked"] %}{{ all_icons["lock"] }}
                   {% elif entity_state in ["unlocked"] %}{{ all_icons["lock-open-variant"] }}
@@ -8054,13 +4724,6 @@ action:
               {% endif %}
             icon_color: >
               {% if entity_id_valid %}
-                {% if entity_domain == "alarm_control_panel" %}
-                  {% if entity_state == "disarmed" %}{{ nextion.color.off }}
-                  {% elif entity_state in ["armed_home", "armed_away", "armed_night", "armed_vacation", "armed_bypass"] %}{{ nextion.color.green }}
-                  {% elif entity_state in ["pending", "arming", "disarming"] %}{{ nextion.color.amber }}
-                  {% elif entity_state == "triggered" %}{{ nextion.color.red }}
-                  {% else %}{{ entity_icon_color }}
-                  {% endif %}
                 {% elif entity_domain == "climate" %}
                   {% set entity_hvac_action = state_attr(entity_id, "hvac_action") | default("") %}
                   {% set entity_climate_action = (entity_hvac_action if entity_hvac_action and entity_hvac_action not in enum.states.unknown else entity_state) %}
@@ -8187,13 +4850,6 @@ action:
                             relay2_icon: !input relay02_icon
 
                       - variables:
-                          bt_utilities_icon: !input home_button08_icon
-                          bt_entities_icon: !input home_button06_icon
-                          bt_qrcode_icon: !input home_button05_icon
-                          qrcode:
-                            enabled: !input qrcode_enabled
-                            title: !input qrcode_label
-                            qrcode: !input qrcode_value
                           home_indoor_temp_icon: !input home_indoor_temp_icon
                           timezone: !input timezone
                           timezone_code: >
@@ -8221,29 +4877,6 @@ action:
                           meridiem: '{{ dict.values(mui[language].meridiem) | list }}'
                           chip_font: !input chip_font_size
                           custom_buttons_font: !input custom_buttons_font_size
-                          qrcode: !input qrcode_enabled
-                          qrcode_icon: >
-                            {{
-                              all_icons[bt_bt_qrcode_icon.split("mdi:")[1]]
-                              if bt_bt_qrcode_icon is string and bt_bt_qrcode_icon.split("mdi:")[1] in all_icons
-                              else all_icons["qrcode-scan"]
-                            }}
-                          qrcode_icon_color: !input home_button05_icon_color
-                          entities_pages_icon: >
-                            {{
-                              all_icons[bt_entities_icon.split("mdi:")[1]]
-                              if bt_entities_icon is string and bt_entities_icon.split("mdi:")[1] in all_icons
-                              else all_icons["format-list-bulleted-square"]
-                            }}
-                          entities_pages_icon_color: !input home_button06_icon_color
-                          utilities: !input utilities_enabled
-                          utilities_icon: >
-                            {{
-                              all_icons[bt_utilities_icon.split("mdi:")[1]]
-                              if bt_utilities_icon is string and bt_utilities_icon.split("mdi:")[1] in all_icons
-                              else all_icons.gauge
-                            }}
-                          utilities_icon_color: !input home_button08_icon_color
                           outdoor_temp_font: !input home_outdoor_temp_font
                         continue_on_error: true
 
@@ -8490,28 +5123,6 @@ action:
                                   }}
                               continue_on_error: true
 
-                      # Disable empty entity pages
-                      - repeat:
-                          for_each: '{{ pages.entitypages }}'
-                          sequence:
-                            - *delay_default
-                            - service: 'esphome.{{ nspanel_name }}_command'
-                              data:
-                                cmd: >
-                                  is_{{ repeat.item }}={{
-                                    1
-                                    if
-                                      entities_pages.entities
-                                      | selectattr("page", "defined")
-                                      | selectattr("page", "eq", repeat.item)
-                                      | selectattr("entity", "defined")
-                                      | rejectattr("entity", "eq", [])
-                                      | list
-                                      | count > 0
-                                    else 0
-                                  }}
-                              continue_on_error: true
-
                       ##### Update Date & Time before showing the Home page #####
                       - *refresh-date
 
@@ -8524,7 +5135,6 @@ action:
                   - '{{ nspanel_event.service.split(".")[0] | length > 0 and nspanel_event.service.split(".")[0] not in ["null", None] }}'  # prevents call to null service
                   - '{{ nspanel_event.service.split(".")[1] | length > 0 and nspanel_event.service.split(".")[1] not in ["null", None] }}'  # prevents call to null service
                   - '{{ nspanel_event.service | length > (2+nspanel_event.service.index(".")) }}'  # prevents call to null service
-                  - '{{ nspanel_event.service is not match "alarm_control_panel." }}'  # Prevent the use of this call for alarm control due to safety reasons
                   - '{{ nspanel_event.entity is defined and nspanel_event.entity is string and nspanel_event.entity | length > 0 }}'
                 sequence:
                   - if: '{{ nspanel_event.key is defined and nspanel_event.key is string and nspanel_event.key | length > 0 }}'
@@ -9040,8 +5650,6 @@ action:
                                             {{ (entity_brightness_index*100) | round(0) }}%
                                           {% elif entity_domain == "fan" and entity_state == "on" and state_attr(entity_id, "percentage") | int(0) > 0 %}
                                             {{ state_attr(entity_id, "percentage") | round(0, default=0) }}%
-                                          {% elif entity_domain == "cover" and entity_state in ["open", "opening", "closing"] and is_number(state_attr(entity_id, "current_position")) %}
-                                            {{ (state_attr(entity_id, "current_position") | int(100)) | round(0) }}%
                                           {% elif entity_domain == "climate" and is_number(state_attr(entity_id, 'current_temperature')) %}
                                             {% set current_temperature = state_attr(entity_id, 'current_temperature') | float %}
                                             {{ current_temperature | round(0 if current_temperature >= 100 or temperature_units in ["F", "f", "°F", "°f", "K", "k"] else 1) }}{{ temperature_units}}
@@ -9220,131 +5828,6 @@ action:
                                   visible: true
                                 continue_on_error: true
 
-                      ## PAGE COVER ##
-                      - alias: Cover settings page
-                        conditions: '{{ nspanel_event.page == pages.cover }}'
-                        sequence: &refresh_page_cover
-                          - variables:
-                              cover_entity: >
-                                {{
-                                  nspanel_event.entity
-                                  if nspanel_event is defined and nspanel_event.entity is defined
-                                  else (trigger.entity_id if trigger.entity_id is defined else trigger.event.data.entity_id)
-                                }}
-                              entity_device_class: '{{ state_attr(cover_entity, "device_class") | default("") }}'
-                              cover_icons:
-                                open: >
-                                  {{
-                                    all_icons[device_class_icons.cover[entity_device_class + "-open"]]
-                                    if
-                                      entity_device_class is defined and
-                                      entity_device_class is string and
-                                      entity_device_class | length > 0 and
-                                      (entity_device_class ~ "-open") in device_class_icons.cover and
-                                      device_class_icons.cover[entity_device_class ~ "-open"] in all_icons
-                                    else all_icons[device_class_icons.cover["shutter-open"]]
-                                  }}
-                                close: >
-                                  {{
-                                    all_icons[device_class_icons.cover[entity_device_class + "-closed"]]
-                                    if
-                                      entity_device_class is defined and
-                                      entity_device_class is string and
-                                      entity_device_class | length > 0 and
-                                      (entity_device_class ~ "-closed") in device_class_icons.cover and
-                                      device_class_icons.cover[entity_device_class ~ "-closed"] in all_icons
-                                    else all_icons[device_class_icons.cover["shutter-closed"]]
-                                  }}
-                          ##### Cover Open/close Icons #####
-                          - *delay_default
-                          - service: 'esphome.{{ nspanel_name }}_component_text'
-                            data:
-                              id: cover.cover_open
-                              txt: '{{ cover_icons.open }}'
-                            continue_on_error: true
-                          - *delay_default
-                          - service: 'esphome.{{ nspanel_name }}_component_text'
-                            data:
-                              id: cover.cover_close
-                              txt: '{{ cover_icons.close }}'
-                            continue_on_error: true
-
-                          ##### COVER State
-                          - *delay_default
-                          - service: 'esphome.{{ nspanel_name }}_component_val'
-                            data:
-                              id: cover.coverslider
-                              val: '{{ (state_attr(cover_entity, "current_position") | int ) | round(0) }}'
-                            continue_on_error: true
-                          - *delay_default
-                          - service: 'esphome.{{ nspanel_name }}_component_text'
-                            data:
-                              id: cover.cover_value
-                              txt: '{{ (state_attr(cover_entity, "current_position") | int ) | round(0) }} %'
-                            continue_on_error: true
-
-                          ##### COVER Battery ICON Yes / NO #####
-                          - variables:
-                              battery_attribute: '{{ state_attr(cover_entity, "battery") | default("unavailable") }}'
-                              battery_level: >
-                                {% if battery_attribute and battery_attribute not in enum.states.unknown %}
-                                  {{ battery_attribute }}
-                                {% elif expand(device_entities(device_id(cover_entity)))
-                                        | selectattr("attributes.device_class", "defined")
-                                        | selectattr("attributes.device_class", "eq", "battery")
-                                        | map(attribute="state")
-                                        | map("float")
-                                        | list
-                                        | count > 0 %}
-                                  {{
-                                    expand(device_entities(device_id(cover_entity)))
-                                    | selectattr("attributes.device_class", "defined")
-                                    | selectattr("attributes.device_class", "eq", "battery")
-                                    | map(attribute="state") | map("float")
-                                    | list
-                                    | first
-                                    | round(0)
-                                  }}
-                                {% elif has_value(cover_entity | replace("cover.","sensor.") ~ "_battery") %}
-                                  {{ states(cover_entity | replace("cover.","sensor.") ~ "_battery", rounded=true) | default("unavailable") }}
-                                {% elif has_value(cover_entity | replace("cover.","sensor.") | replace("cover", "battery")) %}
-                                  {{ states(cover_entity | replace("cover.","sensor.") | replace("cover", "battery"), rounded=true) | default("unavailable") }}
-                                {% else %} unavailable
-                                {% endif %}
-                          - if: '{{ is_number(battery_level) }}'
-                            then:
-                              - variables:
-                                  battery_icon: >
-                                    {% if battery_level >= 80 %}
-                                      battery-high
-                                    {% elif battery_level >= 40 %}
-                                      battery-medium
-                                    {% elif battery_level >= 15 %}
-                                      battery-low
-                                    {% else %}
-                                      battery-outline
-                                    {% endif %}
-                              - *delay_default
-                              - service: 'esphome.{{ nspanel_name }}_component_text'
-                                data:
-                                  id: cover.battery_value
-                                  txt: '{{ battery_level }} %'
-                                continue_on_error: true
-                              ### ICON Battery Font Color ###
-                              - *delay_default
-                              - service: 'esphome.{{ nspanel_name }}_component_color'
-                                data:
-                                  id: cover.battery_icon
-                                  color: '{{ nextion.color.grey_super_light }}'
-                                continue_on_error: true
-                              ### ICON Battery Font ###
-                              - *delay_default
-                              - service: 'esphome.{{ nspanel_name }}_component_text'
-                                data:
-                                  id: cover.battery_icon
-                                  txt: '{{ all_icons[battery_icon] }}'
-                                continue_on_error: true
-
                       ## PAGE FAN ##
                       - alias: Fan settings page
                         conditions: '{{ nspanel_event.page == pages.fan }}'
@@ -9427,137 +5910,6 @@ action:
                               id: power_button
                               color: [192, 192, 192]
                             continue_on_error: true
-
-                      ## PAGE MEDIA PLAYER ##
-                      - alias: Media player settings page
-                        conditions: '{{ nspanel_event.page == pages.media_player }}'
-                        sequence: &refresh_page_media_player
-                          - variables:
-                              media_player_entity: >
-                                {{
-                                  nspanel_event.entity
-                                  if nspanel_event is defined and nspanel_event.entity is defined
-                                  else (trigger.entity_id if trigger.entity_id is defined else trigger.event.data.entity_id)
-                                }}
-                              wait_completed: false
-                          - alias: Refresh page in a loop
-                            repeat:
-                              sequence:
-                                - service: homeassistant.update_entity
-                                  data:
-                                    entity_id: '{{ nspanel_event.entity }}'
-                                  continue_on_error: true
-                                - delay:
-                                    milliseconds: '{{ media_player_update_delay }}'
-                                - variables:
-                                    media_player:
-                                      state: '{{ states(media_player_entity) }}'
-                                      is_volume_muted: '{{ state_attr(media_player_entity, "is_volume_muted") | default(false) }}'
-                                      friendly_name: '{{ state_attr(media_player_entity, "friendly_name") | default("Media player") }}'
-                                      volume_level: '{{ (state_attr(media_player_entity, "volume_level") | round(2, default=0) * 100) | int(0) }}'
-                                      media_title: '{{ state_attr(media_player_entity, "media_title") }}'
-                                      media_artist: '{{ state_attr(media_player_entity, "media_artist") }}'
-                                      media_duration: '{{ state_attr(media_player_entity, "media_duration") | int(0) }}'
-                                      media_position: '{{ state_attr(media_player_entity, "media_position") | int(0) }}'
-                                      media_position_updated_at: '{{ state_attr(media_player_entity, "media_position_updated_at") | default(now()) }}'
-                                      supported_features: >
-                                        {{
-                                          (1+4+8+16+32+128+256+512+4096+16384)
-                                          if (state_attr(media_player_entity, "mass_player_type") | default("")) == "group"
-                                          else state_attr(media_player_entity, "supported_features") | int(0)
-                                        }}
-                                - *delay_default
-                                - service: 'esphome.{{ nspanel_name }}_page_media_player'
-                                  data:
-                                    entity: '{{ media_player_entity }}'
-                                    state: '{{ media_player.state if media_player.state is string else "" }}'
-                                    is_volume_muted: '{{ media_player.is_volume_muted if media_player.is_volume_muted is boolean else false }}'
-                                    friendly_name: '{{ media_player.friendly_name if media_player.friendly_name is string else "" }}'
-                                    volume_level: '{{ media_player.volume_level }}'
-                                    media_title: >
-                                      {{
-                                        media_player.media_title
-                                        if
-                                          media_player.media_title is defined and
-                                          media_player.media_title is string and
-                                          media_player.media_title | length > 0 and
-                                          media_player.media_title not in enum.states.unknown
-                                        else ""
-                                      }}
-                                    media_artist: >
-                                      {{
-                                        media_player.media_artist
-                                        if
-                                          media_player.media_artist is defined and
-                                          media_player.media_artist is string and
-                                          media_player.media_artist | length > 0 and
-                                          media_player.media_artist not in enum.states.unknown
-                                        else ""
-                                      }}
-                                    media_duration: '{{ media_player.media_duration }}'
-                                    media_position: '{{ media_player.media_position }}'
-                                    media_position_delta: >
-                                      {{
-                                        (now() | as_timestamp - media_player.media_position_updated_at | as_timestamp | default(now() | as_timestamp))
-                                        if
-                                          media_player.media_position_updated_at and
-                                          media_player.media_position_updated_at not in [None, none, "", "unknown", "unavailable", false, 0]
-                                        else 0
-                                      }}
-                                    supported_features: '{{ media_player.supported_features }}'
-                                  continue_on_error: true
-                                - wait_template: '{{ states(currentpage) != pages.media_player }}'
-                                  timeout:
-                                    milliseconds: '{{ media_player_update_interval }}'
-                                  continue_on_timeout: true
-                                - variables:
-                                    wait_completed: '{{ wait.completed }}'
-                              until:
-                                - or:
-                                    - '{{ wait_completed }}'
-                                    - '{{ states(currentpage) != pages.media_player }}'  # Don't replace this by pages.current as this have to be evaluated all the time
-                                    - '{{ nspanel_event.type != "page_changed" }}'
-
-                      ## PAGE ALARM ##
-                      - alias: Alarm settings page
-                        conditions: '{{ nspanel_event.page == pages.alarm }}'
-                        sequence: &refresh_page_alarm
-                          - variables:
-                              alarm_entity_temp: >
-                                {{
-                                  nspanel_event.entity
-                                  if nspanel_event is defined and nspanel_event.entity is defined
-                                  else (trigger.entity_id if trigger.entity_id is defined else trigger.event.data.entity_id)
-                                }}
-                              alarm_entity: >
-                                {{
-                                  alarm_entity_temp
-                                  if alarm_entity_temp is string and alarm_entity_temp | length > 0
-                                  else None
-                                }}
-                          - if: '{{ alarm_entity is string and alarm_entity is match "alarm_control_panel." }}'
-                            then:
-                              - variables:
-                                  entity_id: '{{ alarm_entity }}'
-                                  supported_features: '{{ state_attr(entity_id, "supported_features") | default(0) }}'
-                              - *variable_entity
-                              - condition: '{{ supported_features > 0 }}'
-                              - variables:  # https://github.com/home-assistant/core/blob/dev/homeassistant/components/alarm_control_panel/const.py
-                                  alarm:
-                                    code_format: '{{ state_attr(entity_id, "code_format") }}'
-                                    code_arm_required: '{{ state_attr(entity_id, "code_arm_required") | default(true) }}'
-                              - *delay_default
-                              - service: 'esphome.{{ nspanel_name }}_page_alarm'
-                                data:
-                                  page_title: '{{ entity.name }}'
-                                  state: '{{ entity_state }}'
-                                  supported_features: '{{ supported_features }}'
-                                  code_format: '{{ alarm.code_format if alarm.code_format else "none" }}'
-                                  code_arm_required: '{{ alarm.code_arm_required if alarm.code_arm_required else false }}'
-                                  entity: '{{ entity_id }}'
-                                  mui_alarm: '{{ dict.values(mui[language].alarm) | list }}'
-                                continue_on_error: true
-
                       ## PAGE CLIMATE ##
                       - alias: Climate page
                         conditions: '{{ nspanel_event.page == pages.climate }}'
@@ -10554,13 +6906,13 @@ action:
                           - choose:
                               - alias: Long click
                                 conditions:
-                                  - '{{ nspanel_event.command == "long_click" or entity_domain in ["alarm_control_panel", "climate", "media_player"] }}'
+                                  - '{{ nspanel_event.command == "long_click" or entity_domain in [ "climate"] }}'
                                 sequence:
                                   - choose:
                                       - alias: Default
                                         conditions:
                                           - '{{ last_click_button.hold_select == "Default" }}'
-                                          - '{{ entity_domain in ["alarm_control_panel", "climate", "cover", "fan", "light", "media_player"] }}'
+                                          - '{{ entity_domain in ["climate", "fan", "light"] }}'
                                         sequence:
                                           - variables:
                                               back_page: '{{ pages.home }}'
@@ -10597,7 +6949,7 @@ action:
                                         sequence: !input right_button_hold_custom_action
                               - alias: Short click
                                 conditions:
-                                  - '{{ nspanel_event.command == "short_click" and entity_domain not in ["alarm_control_panel", "climate", "media_player"] }}'
+                                  - '{{ nspanel_event.command == "short_click" and entity_domain not in ["climate", "media_player"] }}'
                                 sequence:
                                   - condition: '{{ last_click_button.entity | length > 0 }}'
                                   - condition: '{{ nspanel_event.component != "hw_bt_left" or hardware.buttons.left.entity != relay01_entity }}'
@@ -10667,15 +7019,15 @@ action:
                           - choose:
                               - alias: Long click
                                 conditions:
-                                  - '{{ nspanel_event.command == "long_click" or entity_domain in ["alarm_control_panel", "climate", "media_player"] }}'
-                                  - '{{ entity_domain in ["alarm_control_panel", "climate", "cover", "light", "fan", "media_player"] }}'
+                                  - '{{ nspanel_event.command == "long_click" or entity_domain in ["climate"] }}'
+                                  - '{{ entity_domain in ["climate", "light", "fan"] }}'
                                 sequence:
                                   - variables:
                                       back_page: '{{ nspanel_event.page }}'
                                   - *entity_details_show
                               - alias: Short click
                                 conditions:
-                                  - '{{ nspanel_event.command == "short_click" and entity_domain not in ["alarm_control_panel", "climate", "media_player"] }}'
+                                  - '{{ nspanel_event.command == "short_click" and entity_domain not in ["climate"] }}'
                                   - '{{ entity_domain not in ["unknown", "person", "binary_sensor", "sensor"] }}'
                                 sequence:
                                   - *short_press-service_call
@@ -10734,8 +7086,7 @@ action:
                           - condition: '{{ entity_id_valid }}'
                           - if: >
                               {{
-                                entity_domain in ["alarm_control_panel", "climate", "media_player"] or
-                                (entity_domain == "cover" and supported_features | bitwise_and(4) > 0) or
+                                entity_domain in ["climate"] or
                                 (entity_domain == "fan" and (supported_features | bitwise_and(1) > 0 or supported_features | bitwise_and(2) > 0)) or
                                 (entity_domain == "light" and (color_mode_brightness or color_mode_color or color_mode_temp))
                               }}
@@ -11005,9 +7356,6 @@ action:
               - conditions: '{{ pages.current in pages.buttonpages }}'
                 sequence: *refresh_page_buttonpage
 
-              ## ENTITY PAGES ##
-              - conditions: '{{ pages.current in pages.entitypages }}'
-                sequence: *refresh_entity_pages
 
       ##### UPDATE BUTTONS PAGES - button page / light page / cover page  #####
       - alias: 'Buttons entity updated'
@@ -11043,12 +7391,6 @@ action:
                   - '{{ trigger.entity_id is match "light." }}'
                   - '{{ trigger.entity_id == states(detailed_entity) }}'
                 sequence: *refresh_page_light
-              - alias: 'Cover settings page'
-                conditions:
-                  - '{{ pages.current == pages.cover }}'
-                  - '{{ trigger.entity_id is match "cover." }}'
-                  - '{{ trigger.entity_id == states(detailed_entity) }}'
-                sequence: *refresh_page_cover
               - alias: 'Climate page'
                 conditions:
                   - '{{ pages.current == pages.climate }}'
@@ -11061,18 +7403,6 @@ action:
                   - '{{ trigger.entity_id is match "fan." }}'
                   - '{{ trigger.entity_id == states(detailed_entity) }}'
                 sequence: *refresh_page_fan
-              - alias: 'Media player page'
-                conditions:
-                  - '{{ pages.current == pages.media_player }}'
-                  - '{{ trigger.entity_id is match "media_player." }}'
-                  - '{{ trigger.entity_id == states(detailed_entity) }}'
-                sequence: *refresh_page_media_player
-              - alias: 'Alarm page'
-                conditions:
-                  - '{{ pages.current == pages.alarm }}'
-                  - '{{ trigger.entity_id is match "alarm_control_panel." }}'
-                  - '{{ trigger.entity_id == states(detailed_entity) }}'
-                sequence: *refresh_page_alarm
 
       ##### UPDATE ENTITY PAGES #####
       - alias: 'Update entity pages'
@@ -11183,13 +7513,7 @@ action:
                   - '{{ trigger_entity_id is match "light." }}'
                   - '{{ trigger_entity_id == states(detailed_entity) }}'
                 sequence: *refresh_page_light
-              - alias: 'Cover settings page'
-                conditions:
-                  - '{{ pages.current == pages.cover }}'
-                  - '{{ trigger_entity_id is match "cover." }}'
-                  - '{{ trigger_entity_id == states(detailed_entity) }}'
-                sequence: *refresh_page_cover
-              - alias: 'Climate page'
+             - alias: 'Climate page'
                 conditions:
                   - '{{ pages.current == pages.climate }}'
                   - '{{ trigger_entity_id is match "climate." }}'
@@ -11201,19 +7525,7 @@ action:
                   - '{{ trigger_entity_id is match "fan." }}'
                   - '{{ trigger_entity_id == states(detailed_entity) }}'
                 sequence: *refresh_page_fan
-              - alias: 'Media player page'
-                conditions:
-                  - '{{ pages.current == pages.media_player }}'
-                  - '{{ trigger_entity_id is match "media_player." }}'
-                  - '{{ trigger_entity_id == states(detailed_entity) }}'
-                sequence: *refresh_page_media_player
-              - alias: 'Alarm page'
-                conditions:
-                  - '{{ pages.current == pages.alarm }}'
-                  - '{{ trigger_entity_id is match "alarm_control_panel." }}'
-                  - '{{ trigger_entity_id == states(detailed_entity) }}'
-                sequence: *refresh_page_alarm
-
+ 
       ##### Home page - Entity States #####
       - alias: Home page - Entity States
         conditions:
