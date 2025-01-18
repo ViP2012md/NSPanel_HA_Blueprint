@@ -3091,7 +3091,7 @@ script:
             if (current_temp > -999) {
               snprintf(buffer, 5, (useDecimal) ? "%.1f°" : "%.0f°", current_temp);
               buffer+='F';
-              disp1->set_component_text("current_temp", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
+              disp1->set_component_text("current_temp", adjustDecimalSeparator(buffer, id(mui_decimal_separator),'F').c_str(),);
             }
             else
               disp1->set_component_text("current_temp", id(mui_unavailable_global).c_str());
@@ -3102,7 +3102,7 @@ script:
                 disp1->set_component_value("active_slider", 2);
                 snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", target_temp_low);
                 
-                disp1->set_component_text("target_low", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
+                disp1->set_component_text("target_low", adjustDecimalSeparator(buffer, id(mui_decimal_separator),'F').c_str());
                 disp1->set_component_value("slider_low", target_temp_low);
                 
                 set_component_visibility->execute("target_low", true);
@@ -3115,7 +3115,7 @@ script:
                 disp1->set_component_value("active_slider", 1);
                 snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", target_temp_high);
                 
-                disp1->set_component_text("target_high", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
+                disp1->set_component_text("target_high", adjustDecimalSeparator(buffer, id(mui_decimal_separator),'F').c_str());
                 disp1->set_component_value("slider_high", target_temp_high);
                 
                 set_component_visibility->execute("target_high", true);
