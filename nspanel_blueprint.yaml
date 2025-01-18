@@ -7442,16 +7442,7 @@ action:
                 }}
               sequence: *display_value
 
-      ##### UPDATE CLIMATE PAGE CUSTOM BUTTONS STATE #####
-      - alias: Update climate page custom buttons
-        conditions:
-          - condition: trigger
-            id:
-              - climate_button08_state
-              - climate_button09_state
-          - '{{ pages.current == pages.climate }}'
-        sequence:
-          - *climate-update_custom_buttons
+
 
       ##### Sync Climate #####
       - alias: Climate - Sync
