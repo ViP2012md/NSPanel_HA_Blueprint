@@ -3074,7 +3074,7 @@ script:
     then:
       - lambda: |-      
           if (!id(is_uploading_tft) and current_page->state == "climate") {
-            bool useDecimal;
+            bool useDecimal = (temp_step % 10 != 0);
             char buffer[15];
              //////////////////////////////////////////////////////// 
             const std::string temp_units = "${temp_units}";
@@ -3101,12 +3101,7 @@ script:
             set_component_visibility->execute("current_temp", true);
             
             if (current_temp > -999) {
-            
-            if (temp_unit_fahrenheit) {
-              snprintf(buffer, sizeof(buffer), "%.0f${temp_units}", current_temp);
-              } else {
-                snprintf(buffer, sizeof(buffer), "%.1f${temp_units}", current_temp);
-              }            
+              snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", current_temp);
               disp1->set_component_text("current_temp", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
             }
             else
