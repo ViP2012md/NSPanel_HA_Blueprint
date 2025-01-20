@@ -3067,8 +3067,8 @@ script:
       min_temp: int
       max_temp: int
  #    temp_step: uint
- #     total_steps: uint
- #     temp_offset: int
+ #    total_steps: uint
+ #    temp_offset: int
       climate_icon: string
  ///     embedded_climate: bool
     then:
@@ -3101,7 +3101,7 @@ script:
             set_component_visibility->execute("current_temp", true);
             
             if (current_temp > -999) {
-              snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f°" : "%.0f°", current_temp);
+              snprintf(buffer, sizeof(buffer), "%.1f°", current_temp);
               disp1->set_component_text("current_temp", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
             }
             else
