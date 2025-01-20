@@ -3076,13 +3076,16 @@ script:
           if (!id(is_uploading_tft) and current_page->state == "climate") {
             bool useDecimal;
             char buffer[15];
-            //////////////////////////////////////////////////////// 
-            if (temp_units == "°F" || temp_units == "F" || temp_units == "°f" || temp_units == "f") {
+             //////////////////////////////////////////////////////// 
+            const std::string temp_units = "${temp_units}";
+            const bool temp_unit_fahrenheit = (temp_units == "°F" || temp_units == "F" || temp_units == "°f" || temp_units == "f");
+            if (temp_unit_fahrenheit) {
               useDecimal = true;
             } else {
-             useDecimal = false;
+              useDecimal = false;
             }
              /////////////////////////////////////////////////////////////////////////////////  
+            
             
             disp1->send_command_printf("slider_high.maxval=%i", max_temp);
             disp1->send_command_printf("slider_low.maxval=%i", max_temp);
@@ -3097,7 +3100,6 @@ script:
             
             set_component_visibility->execute("current_temp", true);
             if (current_temp > -999) {
-            
               snprintf(buffer, sizeof(buffer), (useDecimal) ? "%.1f${temp_units}" : "%.0f${temp_units}", current_temp);
               disp1->set_component_text("current_temp", adjustDecimalSeparator(buffer, id(mui_decimal_separator)).c_str());
             }
