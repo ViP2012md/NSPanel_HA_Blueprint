@@ -705,9 +705,9 @@ api:
                   target_temp_low: !lambda return target_temp_low;
                   min_temp: !lambda return min_temp;
                   max_temp: !lambda return max_temp;
-                  temp_step: !lambda return temp_step;
-                  total_steps: !lambda return total_steps;
-                  temp_offset: !lambda return temp_offset;
+                  #temp_step: !lambda return temp_step;
+                  #total_steps: !lambda return total_steps;
+                  #temp_offset: !lambda return temp_offset;
                   climate_icon: !lambda return climate_icon;
                   embedded_climate: !lambda return embedded_climate;
 
@@ -3066,11 +3066,11 @@ script:
       target_temp_low: float
       min_temp: int
       max_temp: int
-      temp_step: uint
-      total_steps: uint
-      temp_offset: int
+ #    temp_step: uint
+ #     total_steps: uint
+ #     temp_offset: int
       climate_icon: string
-      embedded_climate: bool
+ ///     embedded_climate: bool
     then:
       - lambda: |-      
           if (!id(is_uploading_tft) and current_page->state == "climate") {
@@ -3110,7 +3110,7 @@ script:
               set_component_visibility->execute("climate.slider_high", false);
               
               if (target_temp_low > -999) {  // Target temp low enabled
-                disp1->set_component_value("active_slider", 2);
+              //  disp1->set_component_value("active_slider", 2);
                 
             if (temp_unit_fahrenheit) {
               snprintf(buffer, sizeof(buffer), "%.0f${temp_units}", target_temp_low);
@@ -3128,7 +3128,7 @@ script:
                 set_component_visibility->execute("slider_low", false);
               }
               if (target_temp_high > -999) {  // Target temp high enabled
-                disp1->set_component_value("active_slider", 1);
+            //    disp1->set_component_value("active_slider", 1);
                 
               if (temp_unit_fahrenheit) {
                 snprintf(buffer, sizeof(buffer), "%.0f${temp_units}", target_temp_high);

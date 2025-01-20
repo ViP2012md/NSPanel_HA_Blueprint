@@ -178,8 +178,8 @@ script:
             ClimateTraits traits = thermostat_embedded->get_traits();
             disp1->set_component_text("page_label", id(addon_climate_friendly_name).c_str());
             
-            float temp_step = traits.get_visual_target_temperature_step();
-            float temp_offset = traits.get_visual_min_temperature();
+            //float temp_step = traits.get_visual_target_temperature_step();
+            //float temp_offset = traits.get_visual_min_temperature();
             float temp_max = traits.get_visual_max_temperature();
             float temp_target = thermostat_embedded->target_temperature;
             float temp_target_high = thermostat_embedded->target_temperature_high;
@@ -187,8 +187,8 @@ script:
             float temp_current = thermostat_embedded->current_temperature;
             if (temp_unit_fahrenheit) {
               //temp_step = CelsiusToFahrenheit(temp_step);
-              temp_step = std::ceil(temp_step * 1.8);
-              temp_offset = CelsiusToFahrenheit(temp_offset);
+              //temp_step = std::ceil(temp_step * 1.8);
+              //temp_offset = CelsiusToFahrenheit(temp_offset);
               
               temp_max = CelsiusToFahrenheit(temp_max);
               temp_target = CelsiusToFahrenheit(temp_target);
@@ -196,7 +196,7 @@ script:
               temp_target_low = CelsiusToFahrenheit(temp_target_low);
               temp_current = CelsiusToFahrenheit(temp_current);
             }
-            float total_steps = (temp_max-temp_offset)/temp_step;
+           // float total_steps = (temp_max-temp_offset)/temp_step;
             set_climate->execute
               (
                 temp_current,                                         // current_temp
@@ -206,9 +206,9 @@ script:
                 ((${addon_climate_dual}) ? temp_target_low : -999),   // target_temp_low
                 int(round(temp_offset)),
                 int(round(temp_max)),
-                int(round(temp_step)),                             // temp_step
-                int(round(total_steps)),                              // total_steps
-                int(round(temp_offset)),                           // temp_offset
+                //int(round(temp_step)),                             // temp_step
+                //int(round(total_steps)),                              // total_steps
+                //int(round(temp_offset)),                           // temp_offset
                 "",                                                   // climate_icon
                 true                                                  // embedded_climate
               );
