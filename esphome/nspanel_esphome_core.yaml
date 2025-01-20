@@ -3076,9 +3076,8 @@ script:
           if (!id(is_uploading_tft) and current_page->state == "climate") {
             bool useDecimal;
             char buffer[15];
-            const bool temp_unit_fahrenheit = (temp_units == "°F" || temp_units == "F" || temp_units == "°f" || temp_units == "f");
             //////////////////////////////////////////////////////// 
-            if (temp_unit_fahrenheit) {
+            if (temp_units == "°F" || temp_units == "F" || temp_units == "°f" || temp_units == "f") {
               useDecimal = true;
             } else {
              useDecimal = false;
