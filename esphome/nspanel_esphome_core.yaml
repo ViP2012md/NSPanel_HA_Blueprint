@@ -3427,6 +3427,10 @@ script:
                       break;
                   }
                   break;
+              case 1: //CLIMATE_ACTION_HEAT_COOL
+                disp1->set_component_text(component.c_str(), "\uE069"); // mdi:autorenew
+                disp1->set_component_font_color(component.c_str(), 1472); // blue
+                break;                 
               case 2: //CLIMATE_ACTION_COOLING
                 disp1->set_component_text(component.c_str(), "\uE716"); // mdi:snowflake
                 disp1->set_component_font_color(component.c_str(), 1055); // blue
