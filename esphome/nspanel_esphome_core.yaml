@@ -1830,7 +1830,6 @@ text_sensor:
           #else
           const std::string raw_name = x;
           #endif
-
           std::string result;
           bool last_was_underscore = false;
           for (const char& c : raw_name) {
@@ -2143,7 +2142,6 @@ script:
             ESP_LOGD("script.check_versions", "  Blueprint: %s", version_blueprint->state.c_str());
             if (not compare_versions("${version}", version_blueprint->state.c_str()))
               ESP_LOGE("script.check_versions", "Blueprint version mismatch!");
-
             esphome::api::CustomAPIDevice ha_event;
             ha_event.fire_homeassistant_event("esphome.nspanel_ha_blueprint",
               {
@@ -2218,6 +2216,7 @@ script:
           if (id(is_uploading_tft)) {
             ESP_LOGW(TAG, "TFT upload in progress");
           } else {
+            
             // report Wi-Fi status
             bool wifi_connected = wifi_component->is_connected();
             if (wifi_connected) {
@@ -2235,7 +2234,7 @@ script:
             else {
               ESP_LOGW(TAG, "Wi-Fi:         DISCONNECTED");
             }
-
+            
             // report API status
             bool api_connected = api_server->is_connected();
             if (api_connected) {
@@ -2243,9 +2242,8 @@ script:
             } else {
               ESP_LOGW(TAG, "API:           DISCONNECTED");
             }
-
             if (!wifi_connected or !api_connected) blueprint_status->publish_state(0);
-
+            
             // Report blueprint version
             ESP_LOGCONFIG(TAG, "Blueprint:");
             if (blueprint_status->state > 99) {
@@ -2257,29 +2255,31 @@ script:
               ESP_LOGCONFIG(TAG, "Requesting blueprint settings");
               boot_event->execute(false);
             }
-
+            
             // Report ESPHome
             ESP_LOGCONFIG(TAG, "ESPHome:");
             ESP_LOGCONFIG(TAG, "  Version:     ${version}");
             ESP_LOGCONFIG(TAG, "  Compiler:    %s", ESPHOME_VERSION);
+            
             // Report framework
             #ifdef ARDUINO
             ESP_LOGCONFIG(TAG, "  Framework:   Arduino");
             #elif defined(USE_ESP_IDF)
             ESP_LOGCONFIG(TAG, "  Framework:   ESP-IDF");
             #endif
+            
             // Report memory
             const size_t internal_heap_size = heap_caps_get_total_size(MALLOC_CAP_INTERNAL);
             const size_t internal_heap_size_free = heap_caps_get_free_size(MALLOC_CAP_INTERNAL);
             ESP_LOGCONFIG(TAG, "  Free heap:");
-
+            
             if (internal_heap_size != 0) {
               ESP_LOGCONFIG(TAG, "    Internal:  %7d bytes (%0.1f%%)", internal_heap_size_free,
                       ((float)internal_heap_size_free / internal_heap_size) * 100.0f);
             } else {
               ESP_LOGCONFIG(TAG, "    Internal:  %7d bytes", internal_heap_size_free);
             }
-
+            
             #ifdef USE_PSRAM
             const size_t psram_heap_size = heap_caps_get_total_size(MALLOC_CAP_SPIRAM);
             const size_t psram_heap_size_free = heap_caps_get_free_size(MALLOC_CAP_SPIRAM);
@@ -2290,12 +2290,12 @@ script:
               ESP_LOGCONFIG(TAG, "    PSRAM:     %7d bytes", psram_heap_size_free);
             }
             #endif
-
+            
             // Report UART
             ESP_LOGCONFIG(TAG, "UART:");
             ESP_LOGCONFIG(TAG, "  Baud rate:   %" PRIu32 " bps", tf_uart->get_baud_rate());
             ESP_LOGCONFIG(TAG, "  Queue size:  %d", tf_uart->available());
-
+            
             // Report Nextion status
             nextion_init->publish_state(!id(is_uploading_tft) and nextion_init->state and disp1->is_setup());
             ESP_LOGCONFIG(TAG, "Nextion:");
