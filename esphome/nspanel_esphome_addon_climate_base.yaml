@@ -133,25 +133,25 @@ script:
             ESP_LOGCONFIG(TAG, "Add-on climate:");
             #ifdef NSPANEL_HA_BLUEPRINT_ADDON_CLIMATE_COOL
             ESP_LOGCONFIG(TAG, "  Cool:  Enabled");
-            if (cooler_relay == 1 or cooler_relay == 2)
+            if (cooler_relay == 1 or cooler_relay == 2 or cooler_relay == 3 or cooler_relay == 4)
               ESP_LOGCONFIG(TAG, "  Relay: %u", cooler_relay);
             else
               ESP_LOGE(TAG, "  Relay: %u", cooler_relay);
             #endif
             #ifdef NSPANEL_HA_BLUEPRINT_ADDON_CLIMATE_HEAT
             ESP_LOGCONFIG(TAG, "  Heat:  Enabled");
-            if (heater_relay == 1 or heater_relay == 2)
+            if (heater_relay == 1 or heater_relay == 2 or cooler_relay == 3 or cooler_relay == 4)
               ESP_LOGCONFIG(TAG, "  Relay: %u", heater_relay);
             else
               ESP_LOGE(TAG, "  Relay: %u", heater_relay);
             #endif
             #ifdef NSPANEL_HA_BLUEPRINT_ADDON_CLIMATE_DUAL
             ESP_LOGCONFIG(TAG, "  Dual:  Enabled");
-            if (cooler_relay == 1 or cooler_relay == 2)
+            if (cooler_relay == 1 or cooler_relay == 2 or cooler_relay == 3 or cooler_relay == 4)
               ESP_LOGCONFIG(TAG, "  Relay (cooler): %u", cooler_relay);
             else
               ESP_LOGE(TAG, "  Relay (cooler): %u", cooler_relay);
-            if (heater_relay == 1 or heater_relay == 2)
+            if (heater_relay == 1 or heater_relay == 2 or cooler_relay == 3 or cooler_relay == 4)
               ESP_LOGCONFIG(TAG, "  Relay (heater): %u", heater_relay);
             else
               ESP_LOGE(TAG, "  Relay (heater): %u", heater_relay);
