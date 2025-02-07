@@ -7762,7 +7762,7 @@ action:
               component: button03
             - mode: cool
               icon: snowflake
-              color: blue
+              color: green
               component: button04
             - mode: dry
               icon: water-percent
@@ -7770,7 +7770,7 @@ action:
               component: button05
             - mode: fan_only
               icon: fan
-              color: cyan
+              color: green
               component: button06
             - mode: "off"
               icon: power
