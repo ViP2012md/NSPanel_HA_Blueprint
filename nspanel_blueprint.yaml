@@ -1339,7 +1339,6 @@ blueprint:
             - '2048'
             - '4194304'
             - '1024'
-            - '33554432'
             - '67108864'
             - '16777216'
           selector:
@@ -1374,8 +1373,6 @@ blueprint:
                   value: '4194304'                    # 2^22
                 - label: "Light page"
                   value: '1024'                       # 2^10
-                - label: "Media player page"
-                  value: '33554432'                   # 2^25
                 - label: "Confirm pop-up page"
                   value: '67108864'                   # 2^26
                 - label: "Keyboard pop-up page"
