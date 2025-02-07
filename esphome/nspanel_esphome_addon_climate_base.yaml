@@ -227,9 +227,9 @@ script:
               // Set buttons colors
               disp1->set_component_font_color("button01", 6339);
               disp1->set_component_font_color("button02", (thermostat_embedded->mode==climate::CLIMATE_MODE_HEAT_COOL) ? 1472 : ((${addon_climate_dual}) ? 48631 : 6339));
-              disp1->set_component_font_color("button03", (thermostat_embedded->mode==climate::CLIMATE_MODE_HEAT) ? 64164 : ((${addon_climate_heat} or ${addon_climate_dual}) ? 48631 : 6339));
+              disp1->set_component_font_color("button03", (thermostat_embedded->mode==climate::CLIMATE_MODE_HEAT) ? 1472 : ((${addon_climate_heat} or ${addon_climate_dual}) ? 48631 : 6339));
               disp1->set_component_font_color("button04", (thermostat_embedded->mode==climate::CLIMATE_MODE_COOL) ? 1055 : ((${addon_climate_cool} or ${addon_climate_dual}) ? 48631 : 6339));
-              disp1->set_component_font_color("button05", 6339);
+              disp1->set_component_font_color("button05", 1472);
               disp1->set_component_font_color("button06", 6339);
               disp1->set_component_font_color("button07", (thermostat_embedded->mode==climate::CLIMATE_MODE_OFF) ? 10597 : 35921);
             }
