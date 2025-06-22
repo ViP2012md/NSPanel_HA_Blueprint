@@ -18,7 +18,7 @@ Blueprint, ESPHome, and Nextion TFT, allowing users to access development (`dev`
 3. **Blueprint**: Finally, update Blueprint, as it requires more manual effort and careful handling.
 
 ## Finding Available Versions
-For available versions and branches, visit: [NSPanel_HA_Blueprint Tags](https://github.com/Blackymas/NSPanel_HA_Blueprint/tags).
+For available versions and branches, visit: [NSPanel_HA_Blueprint Tags](https://github.com/ViP2012md/NSPanel_HA_Blueprint/tags).
 Take note of the branch (`dev`, `beta`, or `main`) or version name exactly as it is published, as this is case-sensitive.
 
 > [!NOTE]
@@ -32,7 +32,7 @@ They're created for each new release, allowing easy access to different project 
 - **main**: The default latest version, where you will find the most recent release code.
 
 > [!NOTE]
-> When using `dev` or `beta`, report findings in the [issues](https://github.com/Blackymas/NSPanel_HA_Blueprint/issues) section, clearly stating the version.
+> When using `dev` or `beta`, report findings in the [issues](https://github.com/ViP2012md/NSPanel_HA_Blueprint/issues) section, clearly stating the version.
 >
 > **Please do not report issues related to old released versions.**
 
@@ -70,7 +70,7 @@ The instructions to upload TFT will vary depending on the version you are instal
 2. On the **Configuration** group, press **Update TFT display** and wait for the upload to complete. The system will automatically find the right TFT file for the ESPHome version you are running.
 
 #### v4.1 or earlier (in either case) or v4.2.4 or earlier (if you are using Arduino)
-1. On the GitHub repository, click on your chosen version name on the [NSPanel_HA_Blueprint Tags](https://github.com/Blackymas/NSPanel_HA_Blueprint/tags) list, then select the tab **Code**.
+1. On the GitHub repository, click on your chosen version name on the [NSPanel_HA_Blueprint Tags](https://github.com/ViP2012md/NSPanel_HA_Blueprint/tags) list, then select the tab **Code**.
 2. Double-check that the correct version is shown below the repository name:
 
     ![Image](pics/GitHub_repo_select_tag_tft_files.png)
@@ -82,9 +82,9 @@ The instructions to upload TFT will vary depending on the version you are instal
 6. On the **Configuration** group, press **Update TFT display** and wait for the upload to complete.
 
 ### For Blueprint Component
-1. Use your preferred code editor to edit the blueprint file under `/homeassistant/blueprints/automation/Blackymas/nspanel_blueprint.yaml`.
-2. Go to the GitHub repository and select the [branch (`main`, `beta` or `dev`)](https://github.com/Blackymas/NSPanel_HA_Blueprint/branches)
-or the [tag](https://github.com/Blackymas/NSPanel_HA_Blueprint/tags) (for previous versions) you want to use.
+1. Use your preferred code editor to edit the blueprint file under `/homeassistant/blueprints/automation/ViP2012md/nspanel_blueprint.yaml`.
+2. Go to the GitHub repository and select the [branch (`main`, `beta` or `dev`)](https://github.com/ViP2012md/NSPanel_HA_Blueprint/branches)
+or the [tag](https://github.com/ViP2012md/NSPanel_HA_Blueprint/tags) (for previous versions) you want to use.
 3. Find the file `nspanel_blueprint.yaml` in the root of the branch/tag, then click on it to open the file content visualization.
 4. Click the button "**Copy raw file**" in the top right area of the code box. This will copy the entire code to the clipboard.
 5. Go back to your code editor in Home Assistant and replace the entire old code by the one in your clipboard (typically CTRL+A & CTRL+V).
@@ -95,5 +95,5 @@ or the [tag](https://github.com/Blackymas/NSPanel_HA_Blueprint/tags) (for previo
 It's always a good idea to refer to the latest version of the project for current details.
 - For the most up-to-date information and updates,
 refer to the [project's documents](README.md)
-and check the [issues](https://github.com/Blackymas/NSPanel_HA_Blueprint/issues)
-and [discussions](https://github.com/Blackymas/NSPanel_HA_Blueprint/discussions) sections on our GitHub repository.
+and check the [issues](https://github.com/ViP2012md/NSPanel_HA_Blueprint/issues)
+and [discussions](https://github.com/ViP2012md/NSPanel_HA_Blueprint/discussions) sections on our GitHub repository.

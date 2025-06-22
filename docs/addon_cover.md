@@ -52,7 +52,7 @@ substitutions:
 # Basic and optional configurations
 packages:
   remote_package:
-    url: https://github.com/Blackymas/NSPanel_HA_Blueprint
+    url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
     ref: main
     refresh: 300s
     files:

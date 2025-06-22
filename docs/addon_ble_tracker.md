@@ -42,7 +42,7 @@ It is crucial to use the `esp-idf` framework to avoid such issues.
     # Package Configuration
     packages:
       remote_package:
-        url: https://github.com/Blackymas/NSPanel_HA_Blueprint
+        url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
         ref: main
         refresh: 300s
         files:

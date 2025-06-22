@@ -18,7 +18,7 @@ Let’s embark on this journey together to create a smart home that’s uniquely
 > Some images or instructions on this guide might be slighly different due to different configurations depending on your ESPHome and Home Assistant implementation or versions.
 >
 > If you find something that is not understandable or needs to be updated, please let us know.
-> You can create an issue reporting this, or fix it yourself and submit a [Pull Request](https://github.com/Blackymas/NSPanel_HA_Blueprint/pulls) to this repository.
+> You can create an issue reporting this, or fix it yourself and submit a [Pull Request](https://github.com/ViP2012md/NSPanel_HA_Blueprint/pulls) to this repository.
 <!-- markdownlint-enable MD028 -->
 
 ## Summary
@@ -122,7 +122,7 @@ Follow these steps to add a new device in the ESPHome Dashboard:
    # Core and optional configurations
    packages:
      remote_package:
-       url: https://github.com/Blackymas/NSPanel_HA_Blueprint
+       url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
        ref: main
        refresh: 300s
        files:
@@ -210,7 +210,7 @@ This connection is necessary to put the ESP32 into firmware transfer mode.
 Using a voltage higher than 3.3VDC, such as 5VDC, can damage your panel.
 4. To avoid short circuits, consider moving the panel's board away from the metal backing of the display.
 The use of a non-conductive tool, like the blue plastic one shown in the picture, can be helpful.
-![114730547 MP](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/5879533/575bc3de-a2ae-4440-a420-751325e55122)
+![114730547 MP](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/5879533/575bc3de-a2ae-4440-a420-751325e55122)
 5. Note the cross-connection of `RX` and `TX` pins.
     The following pin-out should be used:
     <!-- markdownlint-disable MD033 -->
@@ -238,18 +238,18 @@ After ensuring your device is properly connected, proceed to update or install t
    This method will compile and transfer the firmware directly to your panel over Wi-Fi.
    - For **initial installations** or updates via a USB-to-Serial TTL adapter, select either **Plug into this computer** or **Manual download**.
    Both these options will compile the firmware and allow you to download it to your computer.
-   ![140043](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/5879533/3c08d3b7-df9b-4862-8ced-347deff41cb5)
+   ![140043](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/5879533/3c08d3b7-df9b-4862-8ced-347deff41cb5)
 
 
 4. **Transfer Firmware via USB-to-Serial TTL:**
    - Navigate to [ESPHome Web](https://web.esphome.io/) on your computer.
    - Click **Connect** and choose the serial interface connected to your USB-to-Serial TTL adapter.
-     ![141609](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/5879533/fde27c26-3434-48f5-a028-6baee15ab35e)
+     ![141609](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/5879533/fde27c26-3434-48f5-a028-6baee15ab35e)
 
 
    - Once connected, opt to install an existing firmware to your panel.
    Select the compiled firmware file and initiate the installation.
-   ![141248](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/5879533/ad6a5813-131c-43d5-9174-3a9f73d5b6bf)
+   ![141248](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/5879533/ad6a5813-131c-43d5-9174-3a9f73d5b6bf)
 
 
 The firmware installation process will take a few minutes.
@@ -320,7 +320,7 @@ Please execute that first before returning here.
 
 #### Other
 Please try the standard process and if you find any issue,
-please [create a new issue](https://github.com/Blackymas/NSPanel_HA_Blueprint/issues) and inform
+please [create a new issue](https://github.com/ViP2012md/NSPanel_HA_Blueprint/issues) and inform
 which custom firmware you have installed before migrating to NSPanel HA Blueprint.
 
 ## Upload TFT
@@ -400,7 +400,7 @@ If you have any questions or need clarification, please reach out to us.
 ### Importing the Blueprint
 Importing the blueprint into Home Assistant is a simple process. Just click the button below and follow the steps:
 <!-- markdownlint-disable MD013 -->
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2FBlackymas%2FNSPanel_HA_Blueprint%2Fblob%2Fmain%2Fnspanel_blueprint.yaml)
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2FViP2012md%2FNSPanel_HA_Blueprint%2Fblob%2Fmain%2Fnspanel_blueprint.yaml)
 <!-- markdownlint-enable MD013 -->
 
 ### Creating an Automation
@@ -449,7 +449,7 @@ For homes with multiple panels:
 > Customizations and advanced mode are not supported by this project's team. Use them with caution and only if you have the necessary expertise.
 
 Before customizing your system, we encourage you to share any enhancements you make.
-Consider creating a [Pull Request](https://github.com/Blackymas/NSPanel_HA_Blueprint/pulls) to the `dev` branch to share your discoveries with the community.
+Consider creating a [Pull Request](https://github.com/ViP2012md/NSPanel_HA_Blueprint/pulls) to the `dev` branch to share your discoveries with the community.
 
 ### Advanced ESPHome Configuration
 For advanced customization with ESPHome, start with "Customizations."
@@ -495,7 +495,7 @@ For guidance on using Nextion, refer to:
 > [!TIP]
 > For troubleshooting TFT transfer issues, consult our [TFT Transfer Troubleshooting Guide](tft_upload.md) first.
 
-If problems persist after troubleshooting, visit the [Issues](https://github.com/Blackymas/NSPanel_HA_Blueprint/issues) page.
+If problems persist after troubleshooting, visit the [Issues](https://github.com/ViP2012md/NSPanel_HA_Blueprint/issues) page.
 Feel free to create a new issue for personalized assistance, providing details such as:
 1. A description or picture of what is displayed on your screen.
 2. Information on whether you are updating from a previous version of this project, migrating from another NSPanel customization, or customizing a panel with the original Sonoff settings.

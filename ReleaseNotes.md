@@ -32,7 +32,7 @@ Detailed guidance on how to choose your framework is provided in our [customizat
 
 This transition is a significant milestone for us, promising a robust platform for our community.
 We're here to help with any questions or assistance needed during this change.
-For more details and support, visit our [community discussion](https://github.com/Blackymas/NSPanel_HA_Blueprint/discussions/1756).
+For more details and support, visit our [community discussion](https://github.com/ViP2012md/NSPanel_HA_Blueprint/discussions/1756).
 
 ## Updating
 Please review your settings post-update to ensure compatibility.
@@ -95,7 +95,7 @@ We've transitioned to ESP-IDF, enhancing our platform's performance and capabili
 This change promises new possibilities for your projects.
 Those continuing with the Arduino framework can find instructions for setting framework preferences.
 
-For more information, visit our [discussion](https://github.com/Blackymas/NSPanel_HA_Blueprint/discussions/1756).
+For more information, visit our [discussion](https://github.com/ViP2012md/NSPanel_HA_Blueprint/discussions/1756).
 
 ### New API documentation
 Now all the services available are listed in a comprehensive documentation, making easier for people who want to customize their systems,
@@ -109,17 +109,17 @@ Now you can chose the font size for your clock display in the screen saver. Ther
 ![Image](docs/pics/ha_blueprint_sreensaver.png)
 
 #### 72px
-![image](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/94725493/030ba092-69d4-467d-b5ab-52979c94e742)
-![image](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/94725493/ae56276f-10be-420c-a156-87f33d1fc322)
-![image](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/94725493/0aecb76b-c7b1-4257-b2eb-caed513a1f06)
+![image](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/94725493/030ba092-69d4-467d-b5ab-52979c94e742)
+![image](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/94725493/ae56276f-10be-420c-a156-87f33d1fc322)
+![image](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/94725493/0aecb76b-c7b1-4257-b2eb-caed513a1f06)
 
 ### 112px
-![image](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/94725493/689f7fa3-afe5-43e0-839c-a16ca32d0657)
-![image](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/94725493/5093d1e7-be6b-4042-8e2d-84bf10d0bd2f)
+![image](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/94725493/689f7fa3-afe5-43e0-839c-a16ca32d0657)
+![image](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/94725493/5093d1e7-be6b-4042-8e2d-84bf10d0bd2f)
 
 
 ### 192px
-![image](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/94725493/3060bea9-4804-45d3-940e-64767e1f3577)
+![image](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/94725493/3060bea9-4804-45d3-940e-64767e1f3577)
 
 <!-- markdownlint-disable MD028 -->
 > [!IMPORTANT]
@@ -387,7 +387,7 @@ This update minimizes the issue, ensuring smooth operation and reducing the chan
 2. Select the 3-dot menu adjacent to your device's listing.
 3. Choose "**Clean Build Files**".
 
-![Clean Build Files Instruction](https://raw.githubusercontent.com/Blackymas/NSPanel_HA_Blueprint/dev/docs/pics/esphome_dashboard_clean_build_files.png)
+![Clean Build Files Instruction](https://raw.githubusercontent.com/ViP2012md/NSPanel_HA_Blueprint/dev/docs/pics/esphome_dashboard_clean_build_files.png)
 
 > [!IMPORTANT]
 > Cleaning build files is a mandatory step for this update to apply successfully.
@@ -653,7 +653,7 @@ This improvement accommodates more detailed values, improving clarity and user u
 - **Issue Number:** #2024
 - **Description:** The prebuilt firmware has been updated to incorporate the latest fixes and enhancements,
    ensuring users have access to the most current and stable version without the need for manual compilation.
-   This is another important step in our goal torwards [Simplifying User Experience for NSPanel Firmware](https://github.com/Blackymas/NSPanel_HA_Blueprint/discussions/1602),
+   This is another important step in our goal torwards [Simplifying User Experience for NSPanel Firmware](https://github.com/ViP2012md/NSPanel_HA_Blueprint/discussions/1602),
    allowing users to directly download the firmware from GitHub without the need of compiling it locally.
 - **Special Thanks:** To @MichaelHeimann for trimming this feature, fixing bugs and reviving this idea.
 
@@ -968,11 +968,11 @@ Removing this shutdown command prevents the corruption issue.
 
 ## Support
 For support or more information about this update,
-visit our [GitHub repository](https://github.com/Blackymas/NSPanel_HA_Blueprint)
+visit our [GitHub repository](https://github.com/ViP2012md/NSPanel_HA_Blueprint)
 or our [online documentation](docs/README.md).
 
 ## What's Next?
-Discover our upcoming projects in our [Milestones](https://github.com/Blackymas/NSPanel_HA_Blueprint/milestones?direction=asc&sort=title&state=open).
+Discover our upcoming projects in our [Milestones](https://github.com/ViP2012md/NSPanel_HA_Blueprint/milestones?direction=asc&sort=title&state=open).
 
 ## Special Thanks
 We extend our heartfelt thanks to the contributors who have played a pivotal role in enhancing the NSPanel's capabilities and documentation in this release:
@@ -985,47 +985,47 @@ Your contributions have made our guides more informative and accessible, enrichi
 -  **@Bascht74**: For your thorough investigation and clear reporting in issue #2543, which helped us identify and address a critical edge case.
 
 ## Previous releases
-- [v4.3.15 - Hotfix for a building error with ESPHome v2025.5.2](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.15)
-- [v4.3.14 - Hotfix for crash with climate add-on with ESPHome v2025.5.0](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.14)
-- [v4.3.13 - Hotfix for crash with climate add-on with ESPHome v2025.5.0](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.13)
-- [v4.3.12 - Hotfix for Incorrect Timezone Calculation Issues](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.12)
-- [v4.3.11 - Hotfix for TFT File Download Issue](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.11)
-- [v4.3.10 - Boot Stability Enhancements and Troubleshooting Support](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.10)
-- [v4.3.9 - Ensuring Compatibility with ESPHome v2024.6.0](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.9)
-- [v4.3.8 - Enhancements and Bug Fix](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.8)
-- [v4.3.7 - Quick Fix for Captive Portal Compile Error](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.7)
-- [v4.3.6 - Critical Fixes for Custom Buttons](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.6)
-- [v4.3.5 - Experimenting with Bluetooth Capabilities](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.5)
-- [v4.3.4 - Urgent Fix for Home Screen Interaction](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.4)
-- [v4.3.3 - Enhancing Flexibility and User Experience](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.3)
-- [v4.3.2 - Enhancements and Critical Fixes for a Seamless Experience](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.2)
-- [v4.3.1 - Ensuring Compatibility with ESPHome v2024.3.0 and Enhancing Stability](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.1)
-- [v4.3 - Welcome to Framework ESP-IDF, an Utilities Dashboard and Enhanced Localization](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.3.0)
-- [v4.2.6 - Enhancing Stability and User Experience](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.2.6)
-- [v4.2.5 - Celebrating 1000 Stars with Enhanced Functionality and UI Improvements](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.2.5)
-- [v4.2.4 - Critical bug fixes](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.2.4)
-- [v4.2.3 - Bug fixes and minor enhancements](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.2.3)
-- [v4.2.2 - Bug fixes and minor enhancements](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.2.2)
-- [v4.2.1 - Bug fixes](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.2.1)
-- [v4.2 - Multi-Alarm Control, Dual Thermostat Functionality, and More](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.2)
-- [v4.1.4 - Support to Home Assistant 2023.12.0](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.1.4)
-- [v4.1.3 - Bug fixes](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.1.3)
-- [v4.1.2 - Bug fixes and minor enhancements](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.1.2)
-- [v4.1.1 - UI Enhancements and Reintroduction of `play_rtttl` Service](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.1.1)
-- [v4.1 - Easier TFT transfer](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.1)
-- [v4.0.2 - Bug fixes](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.0.2)
-- [v4.0.1 - Bug fixes](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.0.1)
-- [v4.0 - Alarm and Media player pages, Climate add-ons and a more robust panel](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v4.0)
-- [v3.4.1 - Patch for issues when compiling with ESPHome 2023.7.0](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v3.4.1)
-- [v3.4 - New climate page and some bug fixes](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v3.4)
-- [v3.3 - New improvements and some issues fixed](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v.3.3)
-- [v3.2.2 - fixed some bugs performance improvement](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v3.2.2)
-- [v3.2.1 - New features and some fixes](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v3.2.1)
-- [v3.2 - New features and custom configurations](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v.3.2)
-- [v3.1.0 - New features and US Version](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v.3.1.0)
-- [v3.0.0 - major update with many features and improvements](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v.3.0.0)
-- [v2.2.0 - 25 new languages added](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v.2.2.0)
-- [v2.1.0 - New Domains, Buttons and Button Page Label](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v2.1.0)
-- [v2.0.2](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v2.0.2)
-- [v2.0.1 - Bug Fixes](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v2.0.1)
-- [v2.0.0](https://github.com/Blackymas/NSPanel_HA_Blueprint/releases/tag/v2.0.0)
+- [v4.3.15 - Hotfix for a building error with ESPHome v2025.5.2](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.15)
+- [v4.3.14 - Hotfix for crash with climate add-on with ESPHome v2025.5.0](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.14)
+- [v4.3.13 - Hotfix for crash with climate add-on with ESPHome v2025.5.0](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.13)
+- [v4.3.12 - Hotfix for Incorrect Timezone Calculation Issues](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.12)
+- [v4.3.11 - Hotfix for TFT File Download Issue](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.11)
+- [v4.3.10 - Boot Stability Enhancements and Troubleshooting Support](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.10)
+- [v4.3.9 - Ensuring Compatibility with ESPHome v2024.6.0](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.9)
+- [v4.3.8 - Enhancements and Bug Fix](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.8)
+- [v4.3.7 - Quick Fix for Captive Portal Compile Error](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.7)
+- [v4.3.6 - Critical Fixes for Custom Buttons](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.6)
+- [v4.3.5 - Experimenting with Bluetooth Capabilities](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.5)
+- [v4.3.4 - Urgent Fix for Home Screen Interaction](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.4)
+- [v4.3.3 - Enhancing Flexibility and User Experience](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.3)
+- [v4.3.2 - Enhancements and Critical Fixes for a Seamless Experience](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.2)
+- [v4.3.1 - Ensuring Compatibility with ESPHome v2024.3.0 and Enhancing Stability](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.1)
+- [v4.3 - Welcome to Framework ESP-IDF, an Utilities Dashboard and Enhanced Localization](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.3.0)
+- [v4.2.6 - Enhancing Stability and User Experience](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.2.6)
+- [v4.2.5 - Celebrating 1000 Stars with Enhanced Functionality and UI Improvements](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.2.5)
+- [v4.2.4 - Critical bug fixes](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.2.4)
+- [v4.2.3 - Bug fixes and minor enhancements](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.2.3)
+- [v4.2.2 - Bug fixes and minor enhancements](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.2.2)
+- [v4.2.1 - Bug fixes](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.2.1)
+- [v4.2 - Multi-Alarm Control, Dual Thermostat Functionality, and More](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.2)
+- [v4.1.4 - Support to Home Assistant 2023.12.0](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.1.4)
+- [v4.1.3 - Bug fixes](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.1.3)
+- [v4.1.2 - Bug fixes and minor enhancements](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.1.2)
+- [v4.1.1 - UI Enhancements and Reintroduction of `play_rtttl` Service](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.1.1)
+- [v4.1 - Easier TFT transfer](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.1)
+- [v4.0.2 - Bug fixes](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.0.2)
+- [v4.0.1 - Bug fixes](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.0.1)
+- [v4.0 - Alarm and Media player pages, Climate add-ons and a more robust panel](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v4.0)
+- [v3.4.1 - Patch for issues when compiling with ESPHome 2023.7.0](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v3.4.1)
+- [v3.4 - New climate page and some bug fixes](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v3.4)
+- [v3.3 - New improvements and some issues fixed](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v.3.3)
+- [v3.2.2 - fixed some bugs performance improvement](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v3.2.2)
+- [v3.2.1 - New features and some fixes](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v3.2.1)
+- [v3.2 - New features and custom configurations](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v.3.2)
+- [v3.1.0 - New features and US Version](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v.3.1.0)
+- [v3.0.0 - major update with many features and improvements](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v.3.0.0)
+- [v2.2.0 - 25 new languages added](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v.2.2.0)
+- [v2.1.0 - New Domains, Buttons and Button Page Label](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v2.1.0)
+- [v2.0.2](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v2.0.2)
+- [v2.0.1 - Bug Fixes](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v2.0.1)
+- [v2.0.0](https://github.com/ViP2012md/NSPanel_HA_Blueprint/releases/tag/v2.0.0)

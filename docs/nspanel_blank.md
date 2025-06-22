@@ -23,7 +23,7 @@ select your **Upload TFT display - Model** and then press **Upload TFT display**
 
 ## What to do after installing `nspanel_blank.tft`?
 
-![image](https://github.com/Blackymas/NSPanel_HA_Blueprint/assets/94725493/3b0bb950-4857-4c22-a53a-062d09f315dc)
+![image](https://github.com/ViP2012md/NSPanel_HA_Blueprint/assets/94725493/3b0bb950-4857-4c22-a53a-062d09f315dc)
 
 Once you have sucessfully installed any of the `tft` files from this project,
 the `nspanel_blank.tft` file shouldn't be necessary anymore and you should be able to always install the final `tft` file.
@@ -35,7 +35,7 @@ select your **Upload TFT display - Model** and then press **Upload TFT display**
 We have an useful guide for [troubleshooting TFT transfer issues](tft_upload.md).
 Please take a look there first.
 
-After troubleshooting, if issues persist, consult the [Issues](https://github.com/Blackymas/NSPanel_HA_Blueprint/issues)
+After troubleshooting, if issues persist, consult the [Issues](https://github.com/ViP2012md/NSPanel_HA_Blueprint/issues)
 and feel free to create a new one asking for more personalized assistance.
 
 Please share as much info as possible, like:
