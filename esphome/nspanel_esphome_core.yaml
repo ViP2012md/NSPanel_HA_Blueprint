@@ -152,6 +152,7 @@ uart:
     tx_pin: 16
     rx_pin: 17
     baud_rate: 115200
+uart1:
   - id: uart_relay
     hardware_uart: UART1
     tx_pin: 1
