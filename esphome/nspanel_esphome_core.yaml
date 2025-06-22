@@ -154,7 +154,7 @@ uart:
     baud_rate: 115200
 uart1:
   - id: uart_relay
-    hardware_uart: UART1
+#    hardware_uart: UART1
     tx_pin: 1
     rx_pin: 3
     baud_rate: 115200
