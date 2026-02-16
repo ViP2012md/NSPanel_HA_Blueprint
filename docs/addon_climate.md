@@ -34,6 +34,9 @@ substitutions:
   wifi_password: !secret wifi_password
 
   # Add-on configuration (if needed)
+  ## Upload TFT
+  upload_tft_automatically: true
+
   ## Add-on climate
   heater_relay: "1"  # Possible values: "1" or "2"
 
@@ -44,19 +47,18 @@ substitutions:
 # Basic and optional configurations
 packages:
   remote_package:
-    url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
+    url: https://github.com/Blackymas/NSPanel_HA_Blueprint
     ref: main
     refresh: 300s
     files:
       - nspanel_esphome.yaml # Basic package
       # Optional advanced and add-on configurations
-      # - esphome/nspanel_esphome_advanced.yaml
-      # - esphome/nspanel_esphome_addon_ble_tracker.yaml
-      # - esphome/nspanel_esphome_addon_bluetooth_proxy.yaml
       # - esphome/nspanel_esphome_addon_climate_cool.yaml
       - esphome/nspanel_esphome_addon_climate_heat.yaml
       # - esphome/nspanel_esphome_addon_climate_dual.yaml
       # - esphome/nspanel_esphome_addon_cover.yaml
+      # - esphome/nspanel_esphome_addon_display_light.yaml  # Show the display as a light in Home Assistant
+
 ```
 
 ## Configuration
@@ -72,15 +74,15 @@ temp_units|Optional|`°C` or `°F`|`°C`|Temperature unit.
 min_off_time|Optional|Positive integer representing the number of seconds|`300`|Minimum duration (in seconds) the cooling/heating action must be disengaged before it may be engaged.
 min_run_time|Optional|Positive integer representing the number of seconds|`300`|Minimum duration (in seconds) the cooling/heating action must be engaged before it may be disengaged.
 min_idle_time|Optional|Positive integer representing the number of seconds|`30`|Minimum duration (in seconds) the idle action must be active before calling another climate action.
-target_low|Optional|Number representing a temperature in the selected unit|`18`|The initial lower treshold for the target temperature.
-target_high|Optional|Number representing a temperature in the selected unit|`24`|The initial higher treshold for the target temperature.
-temp_min|Optional|Number representing a temperature in the selected unit|*cool: `15`*<br>*heat: `7`*<br>*dual: `7`* |The minimum temperature the climate device can reach. Used to set the range of the frontend gauge.
-temp_max|Optional|Number representing a temperature in the selected unit|*cool: `45`*<br>*heat: `35`*<br>*dual: `45`* |The maximum temperature the climate device can reach. Used to set the range of the frontend gauge.
-temp_step|Optional|Number representing a temperature in the selected unit|`0.5`|The granularity with which the target temperature can be controlled.
-cool_deadband|Optional|Number representing a temperature hysteresis in the selected unit|`0.5`|The minimum temperature differential (temperature above the set point) before engaging cooling.
-cool_overrun|Optional|Number representing a temperature hysteresis in the selected unit|`0.5`|The minimum temperature differential (cooling beyond the set point) before disengaging cooling.
-heat_deadband|Optional|Number representing a temperature hysteresis in the selected unit|`0.5`|The minimum temperature differential (temperature below the set point) before engaging heat.
-heat_overrun|Optional|Number representing a temperature hysteresis in the selected unit|`0.5`|The minimum temperature differential (heating beyond the set point) before disengaging heat.
+target_low|Optional|Number representing a temperature in the selected unit|`18` (°C) or `64` (°F)|The initial lower treshold for the target temperature.
+target_high|Optional|Number representing a temperature in the selected unit|`24` (°C) or `75` (°F)|The initial higher treshold for the target temperature.
+temp_min|Optional|Number representing a temperature in the selected unit|*cool: `15` (°C) or `60` (°F)*<br>*heat: `7` (°C) or `45` (°F)*<br>*dual: `7` (°C) or `45` (°F)* |The minimum temperature the climate device can reach. Used to set the range of the frontend gauge.
+temp_max|Optional|Number representing a temperature in the selected unit|*cool: `45` (°C) or `113` (°F)*<br>*heat: `35` (°C) or `95` (°F)*<br>*dual: `45` (°C) or `113` (°F)* |The maximum temperature the climate device can reach. Used to set the range of the frontend gauge.
+~temp_step~|Deprecated|~Number representing a temperature in the selected unit~|~`0.5`~<br>`0.5` (°C) or `1` (°F)|~The granularity with which the target temperature can be controlled.~
+cool_deadband|Optional|Number representing a temperature hysteresis in the selected unit|`0.5` (°C) or `1` (°F)|The minimum temperature differential (temperature above the set point) before engaging cooling.
+cool_overrun|Optional|Number representing a temperature hysteresis in the selected unit|`0.5` (°C) or `1` (°F)|The minimum temperature differential (cooling beyond the set point) before disengaging cooling.
+heat_deadband|Optional|Number representing a temperature hysteresis in the selected unit|`0.5` (°C) or `1` (°F)|The minimum temperature differential (temperature below the set point) before engaging heat.
+heat_overrun|Optional|Number representing a temperature hysteresis in the selected unit|`0.5` (°C) or `1` (°F)|The minimum temperature differential (heating beyond the set point) before disengaging heat.
 
 <!-- markdownlint-enable MD013 MD033 -->
 
@@ -101,6 +103,9 @@ substitutions:
   wifi_password: !secret wifi_password
 
   # Add-on configuration (if needed)
+  ## Upload TFT
+  upload_tft_automatically: true
+
   ## Add-on climate
   cooler_relay: "1"     # Possible values: "1" or "2"
   temp_units: "°F"      # Temperatures in Fahrenheit
@@ -117,18 +122,16 @@ substitutions:
 # Basic and optional configurations
 packages:
   remote_package:
-    url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
+    url: https://github.com/Blackymas/NSPanel_HA_Blueprint
     ref: main
     refresh: 300s
     files:
       - nspanel_esphome.yaml # Basic package
       # Optional advanced and add-on configurations
-      # - esphome/nspanel_esphome_advanced.yaml
-      # - esphome/nspanel_esphome_addon_ble_tracker.yaml
-      # - esphome/nspanel_esphome_addon_bluetooth_proxy.yaml
       - esphome/nspanel_esphome_addon_climate_cool.yaml
       # - esphome/nspanel_esphome_addon_climate_heat.yaml
       # - esphome/nspanel_esphome_addon_climate_dual.yaml
+      # - esphome/nspanel_esphome_addon_display_light.yaml  # Show the display as a light in Home Assistant
 ```
 
 ### Heater
@@ -142,6 +145,9 @@ substitutions:
   wifi_password: !secret wifi_password
 
   # Add-on configuration (if needed)
+  ## Upload TFT
+  upload_tft_automatically: true
+
   ## Add-on climate
   heater_relay: "1"     # Possible values: "1" or "2"
   temp_units: "°F"      # Temperatures in Fahrenheit
@@ -158,18 +164,16 @@ substitutions:
 # Basic and optional configurations
 packages:
   remote_package:
-    url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
+    url: https://github.com/Blackymas/NSPanel_HA_Blueprint
     ref: main
     refresh: 300s
     files:
       - nspanel_esphome.yaml # Basic package
       # Optional advanced and add-on configurations
-      # - esphome/nspanel_esphome_advanced.yaml
-      # - esphome/nspanel_esphome_addon_ble_tracker.yaml
-      # - esphome/nspanel_esphome_addon_bluetooth_proxy.yaml
       # - esphome/nspanel_esphome_addon_climate_cool.yaml
       - esphome/nspanel_esphome_addon_climate_heat.yaml
       # - esphome/nspanel_esphome_addon_climate_dual.yaml
+      # - esphome/nspanel_esphome_addon_display_light.yaml  # Show the display as a light in Home Assistant
 ```
 
 
@@ -184,6 +188,9 @@ substitutions:
   wifi_password: !secret wifi_password
 
   # Add-on configuration (if needed)
+  ## Upload TFT
+  upload_tft_automatically: true
+
   ## Add-on climate
   heater_relay: "1"     # Possible values: "1" or "2"
   cooler_relay: "2"     # Possible values: "1" or "2"
@@ -203,18 +210,16 @@ substitutions:
 # Basic and optional configurations
 packages:
   remote_package:
-    url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
+    url: https://github.com/Blackymas/NSPanel_HA_Blueprint
     ref: main
     refresh: 300s
     files:
       - nspanel_esphome.yaml # Basic package
       # Optional advanced and add-on configurations
-      # - esphome/nspanel_esphome_advanced.yaml
-      # - esphome/nspanel_esphome_addon_ble_tracker.yaml
-      # - esphome/nspanel_esphome_addon_bluetooth_proxy.yaml
       # - esphome/nspanel_esphome_addon_climate_cool.yaml
       # - esphome/nspanel_esphome_addon_climate_heat.yaml
       - esphome/nspanel_esphome_addon_climate_dual.yaml
+      # - esphome/nspanel_esphome_addon_display_light.yaml  # Show the display as a light in Home Assistant
 ```
 
 ### Real Use Case Example: Water Underfloor Heating with NSPanel
@@ -234,8 +239,7 @@ Furthermore, I have selected `18.3°C` as the default target temperature.
   temp_min: "15" 
   temp_max: "22" 
   temp_step: "0.1"
-  cold_tolerance: "0.1"
-  hot_tolerance: "0.1"
+  heat_deadband: "0.1"
     
   ##### CHANGE ME END #####
 climate:

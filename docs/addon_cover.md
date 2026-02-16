@@ -42,6 +42,9 @@ substitutions:
   wifi_password: !secret wifi_password
 
   # Add-on configuration (if needed)
+  ## Upload TFT
+  upload_tft_automatically: true
+
   ## Add-on climate
   # heater_relay: "1"  # Possible values: "1" or "2"
 
@@ -52,19 +55,17 @@ substitutions:
 # Basic and optional configurations
 packages:
   remote_package:
-    url: https://github.com/ViP2012md/NSPanel_HA_Blueprint
+    url: https://github.com/Blackymas/NSPanel_HA_Blueprint
     ref: main
     refresh: 300s
     files:
       - nspanel_esphome.yaml # Basic package
       # Optional advanced and add-on configurations
-      # - esphome/nspanel_esphome_advanced.yaml
-      # - esphome/nspanel_esphome_addon_ble_tracker.yaml
-      # - esphome/nspanel_esphome_addon_bluetooth_proxy.yaml
       # - esphome/nspanel_esphome_addon_climate_cool.yaml
       # - esphome/nspanel_esphome_addon_climate_heat.yaml
       # - esphome/nspanel_esphome_addon_climate_dual.yaml
       - esphome/nspanel_esphome_addon_cover.yaml
+      # - esphome/nspanel_esphome_addon_display_light.yaml  # Show the display as a light in Home Assistant
 ```
 
 ## Configuration

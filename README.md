@@ -1,13 +1,23 @@
 # NSPanel Custom with HA Blueprint
 
+[![GitHub Release][releases-shield]][releases]
+[![GitHub Activity][commits-shield]][commits]
+[![Last Commit][last-commit-shield]][commits]
+[![Platform][platform-shield]](https://github.com/esphome)
+
 This innovative solution is designed to revolutionize how you interact with your Sonoff NSPanel.
 Our goal? To make the customization of your NSPanel seamless, intuitive, and completely code-free!
 
 *Are you happy with our version for NSPanel? Please consider supporting us with a donation.*
 
-[![Paypal](https://user-images.githubusercontent.com/41958506/212499642-b2fd097a-0938-4bfc-b37b-74df64592c58.png)](https://www.paypal.com/donate/?hosted_button_id=S974SWQMB8PB2)
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2FBlackymas%2FNSPanel_HA_Blueprint%2Fblob%2Fmain%2Fnspanel_blueprint.yaml)
 
-[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2FViP2012md%2FNSPanel_HA_Blueprint%2Fblob%2Fmain%2Fnspanel_blueprint.yaml)
+## Framework Support Notice
+
+> **ℹ️ As of v4.3.22, this project uses ESP-IDF framework only.**
+> 
+> **New users:** No action needed - the project defaults to ESP-IDF automatically.  
+> **Existing users:** If you have Arduino framework configured, see our [migration guide](docs/customization.md#frameworks).
 
 ## Table of Contents
 
@@ -32,8 +42,8 @@ Our goal? To make the customization of your NSPanel seamless, intuitive, and com
 - **Getting Started:** Dive into our comprehensive [Documentation and Setup Guide](docs/README.md) for detailed instructions.
 - **Video Tutorial:** Prefer visual learning? Check out our [Step-by-Step Setup Video](docs/README.md).
 - **Troubleshooting:** Encounter an issue? Here's how to report it: [WIKI HowTo](docs/README.md).
-- **Feature Requests:** Got ideas? Share them [here](https://github.com/ViP2012md/NSPanel_HA_Blueprint/labels/new%20feature%20request).
-- **What's Next?:** Discover what's next and what we are working on right now in our [Milestones](https://github.com/ViP2012md/NSPanel_HA_Blueprint/milestones?direction=asc&sort=due_date)
+- **Feature Requests:** Got ideas? Share them [here](https://github.com/Blackymas/NSPanel_HA_Blueprint/labels/new%20feature%20request).
+- **What's Next?:** Discover what's next and what we are working on right now in our [Milestones](https://github.com/Blackymas/NSPanel_HA_Blueprint/milestones?direction=asc&sort=due_date)
 
 ## 🚀 Features
 
@@ -152,6 +162,7 @@ Our goal? To make the customization of your NSPanel seamless, intuitive, and com
   - Wind speed
 
 ### Display Settings
+This page is accessible with a long press in the time area on the Home page.
 
 ![Settings EU](docs/pics/eu_settings.png)
 
@@ -199,8 +210,8 @@ In your automations you use the blueprint's inputs to define what will be shown 
 
 Join our vibrant community! Whether you're seeking support, wanting to contribute, or just looking to share your NSPanel journey, we're here for you.
 
-- **[Issues & Feature requests](https://github.com/ViP2012md/NSPanel_HA_Blueprint/issues)**
-- **[Discussion Forum](https://github.com/ViP2012md/NSPanel_HA_Blueprint/discussions)**
+- **[Issues & Feature requests](https://github.com/Blackymas/NSPanel_HA_Blueprint/issues)**
+- **[Discussion Forum](https://github.com/Blackymas/NSPanel_HA_Blueprint/discussions)**
 - **[Home Assistant Community](https://community.home-assistant.io/t/sonoff-nspanel-blueprint-configure-your-own-custom-nspanel-easy-via-a-blueprint/500577)**
 
 ## 🎉 Acknowledgements
@@ -223,3 +234,11 @@ And special thanks for the other projects which inspired us:
 Are you happy with our version for NSPanel? Please consider supporting us with a donation.
 
 [![Paypal](https://user-images.githubusercontent.com/41958506/212499642-b2fd097a-0938-4bfc-b37b-74df64592c58.png)](https://www.paypal.com/donate/?hosted_button_id=S974SWQMB8PB2)
+
+
+[commits-shield]: https://img.shields.io/github/commit-activity/y/Blackymas/NSPanel_HA_Blueprint
+[commits]: https://github.com/Blackymas/NSPanel_HA_Blueprint/commits/main
+[releases-shield]: https://img.shields.io/github/v/release/Blackymas/NSPanel_HA_Blueprint
+[releases]: https://github.com/Blackymas/NSPanel_HA_Blueprint/releases
+[last-commit-shield]: https://img.shields.io/github/last-commit/Blackymas/NSPanel_HA_Blueprint
+[platform-shield]: https://img.shields.io/badge/platform-Home%20Assistant%20&%20ESPHome-blue

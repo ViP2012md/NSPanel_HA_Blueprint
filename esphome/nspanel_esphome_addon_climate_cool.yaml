@@ -1,5 +1,5 @@
 #####################################################################################################
-##### NSPANEL ESPHOME created by ViP2012md - https://github.com/ViP2012md/NSPanel_HA_Blueprint  #####
+##### NSPANEL ESPHOME created by Blackymas - https://github.com/Blackymas/NSPanel_HA_Blueprint  #####
 ##### ESPHome Add-on for Climate control - Cool                                                 #####
 ##### PLEASE only make changes if it is necessary and also the required knowledge is available. #####
 ##### For normal use with the Blueprint, no changes are necessary.                              #####
@@ -8,12 +8,12 @@
 #####################################################################################################
 ---
 substitutions:
-  ### Local thermostat defaults ###
-  temp_min: "15"
-
-  ##### DO NOT CHANGE THIS #####
-  addon_climate_cool: "true"
   ##############################
+  ## Change only in your      ##
+  ## local yaml substitutions ##
+  ##############################
+  ### Local thermostat defaults ###
+  temp_min: ${60 if TEMP_UNIT_IS_FAHRENHEIT else 15}
 
 esphome:
   platformio_options:

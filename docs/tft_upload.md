@@ -112,20 +112,27 @@ This duration helps ensure that the system resets to a clean state.
 
 ### Consider changing the framework
 - **Issue**: You might be facing some situation where the transfer engine used by your framework cannot handle it properly.
-- **Solution**: Temporarily switch between the frameworks.
-- **Additional Guidance**: This project supports both `arduino` (ESPHome default) or `esp-idf` (this project default) frameworks.
-The upload TFT engines have some differences, so changing the framework may solve some issue.
+- **Solution**: ~~Temporarily switch between the frameworks~~ If you're using the deprecated Arduino framework, migrate to ESP-IDF framework.
+- **Additional Guidance**: ~~This project supports both `arduino` (ESPHome default) or `esp-idf` (this project default) frameworks.~~
+This project officially supports only `esp-idf` framework as of v4.3.22. Arduino framework has been deprecated.
+The upload TFT engines have some differences, so using ESP-IDF framework may solve some issues.
+
+> [!WARNING]
+> **Arduino framework is deprecated** as of v4.3.22 and no longer officially supported. If you're experiencing issues with Arduino framework, please migrate to ESP-IDF.
 
 You can set the framework you want by adding this to your ESPHome yaml:
 
-#### ESP-IDF
+#### ESP-IDF (RECOMMENDED)
 ```yaml
 esp32:
   framework:
     type: esp-idf
 ```
 
-#### Arduino
+#### Arduino (DEPRECATED - NOT SUPPORTED)
+> [!WARNING]
+> **DEPRECATED:** Arduino framework support has been discontinued as of v4.3.22.
+
 ```yaml
 esp32:
   framework:
@@ -154,7 +161,7 @@ There are many options available for free to run under you local Windows, MAC or
   | XAMPP | [apachefriends.org](https://www.apachefriends.org/index.html) | Linux, Windows, macOS | All-in-one package, easy to install, ideal for beginners | Not optimized for high-traffic sites, more suited for development than production |
 
 ## Additional Tips and Resources
-After troubleshooting, if issues persist, consult the [Issues](https://github.com/ViP2012md/NSPanel_HA_Blueprint/issues) and feel free to create a new one asking for more personalized assistance.
+After troubleshooting, if issues persist, consult the [Issues](https://github.com/Blackymas/NSPanel_HA_Blueprint/issues) and feel free to create a new one asking for more personalized assistance.
 
 Please share as much info as possible, like:
 1. Describing (or a picture of) what is in your screen
