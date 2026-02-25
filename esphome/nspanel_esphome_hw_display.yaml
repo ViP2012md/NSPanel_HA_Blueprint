@@ -10,7 +10,7 @@ substitutions:
   ## Change only in your      ##
   ## local yaml substitutions ##
   ##############################
-  BAUD_RATE: '115200'
+  UART_BAUD_RATE: '115200'
   BOOT_STEP_HW_DISPLAY: '5'
   bytes_per_char: "1"
   COLOR_BLUE_INDIGO: '10597'
@@ -588,5 +588,5 @@ uart:
   - id: tf_uart  # UART for Nextion display
     tx_pin: ${GPIO_DISPLAY_NEXTION_TX_PIN}
     rx_pin: ${GPIO_DISPLAY_NEXTION_RX_PIN}
-    baud_rate: ${BAUD_RATE}
+    baud_rate: ${UART_BAUD_RATE}
 ...
