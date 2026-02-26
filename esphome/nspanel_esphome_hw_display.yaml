@@ -10,7 +10,7 @@ substitutions:
   ## Change only in your      ##
   ## local yaml substitutions ##
   ##############################
-  UART_BAUD_RATE: '115200'
+  UART_BAUD_RATE: '115200' #512000
   BOOT_STEP_HW_DISPLAY: '5'
   bytes_per_char: "1"
   COLOR_BLUE_INDIGO: '10597'
